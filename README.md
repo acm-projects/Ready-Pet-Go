@@ -27,5 +27,11 @@ Want to get a pet but don't know if your family members are ready to handle the 
 | 8      |                                                               |
 | 9      | Practice presentation and add finishing touches! You can do it! 💙                                                                           |
 # Tech Stack
+IDE: [Android Studio] (https://developer.android.com/studio)
+Front-end:
+ - Wireframing
+    - [Figma (free for 3 designs)](https://www.figma.com)
+    - [Adobe XD](https://www.adobe.com/products/xd.html)
+- 
 # Software to Intall
 # Resources & Tutorials
