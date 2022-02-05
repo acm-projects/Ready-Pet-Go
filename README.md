@@ -70,11 +70,11 @@ Back-end:
   - [Firebase and Flutter (9:09)](https://www.youtube.com/watch?v=Wa0rdbb53I8)
  
 6. Tracking Distance Traveled
-  A. Phone Method (Using Built-In GPS)
+  1. Phone Method (Using Built-In GPS)
     - [General Overview (Article)](https://stackoverflow.com/questions/34551318/calculate-actual-distance-travelled-by-mobile)
     - [Track Using GPS in Android Studio (23:38)](https://www.youtube.com/watch?v=rN7x3ovWepM)
     - [Location.distanceTo() (Article)](https://stackoverflow.com/questions/28209548/android-how-to-use-location-distanceto)
-  B. Google Maps Method (Using Distance Matrix API)
+  2. Google Maps Method (Using Distance Matrix API)
     - [Create Google Maps API Key (9:05)](https://www.youtube.com/watch?v=OGTG1l7yin4)
     - [Distance Matrix API Walkthrough (10:07)](https://www.youtube.com/watch?v=tXPEOJaeFm8)
     - [Distance Between 2 Places (21:59)](https://www.youtube.com/watch?v=D5E9EzWOnqY)
