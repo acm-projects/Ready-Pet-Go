@@ -27,11 +27,58 @@ Want to get a pet but don't know if your family members are ready to handle the 
 | 8      |                                                               |
 | 9      | Practice presentation and add finishing touches! You can do it! 💙                                                                           |
 # Tech Stack
-IDE: [Android Studio] (https://developer.android.com/studio)
 Front-end:
  - Wireframing
     - [Figma (free for 3 designs)](https://www.figma.com)
     - [Adobe XD](https://www.adobe.com/products/xd.html)
-- 
+- [Flutter](https://docs.flutter.dev/get-started/install)
+
+Back-end:
+- [Dart](https://dart.dev/get-dart)
+- [Google Maps Distance Matrix API](https://developers.google.com/maps/documentation/distance-matrix/overview)
+- [Firebase(option for storage and authentication)](https://firebase.google.com/)
+
 # Software to Intall
+- IDE: [Android Studio](https://developer.android.com/studio)
+- [Git](https://git-scm.com/downloads)
+
 # Resources & Tutorials
+1. Setting Up
+ - [Installing and Configuring Android Studio (4:19)](https://www.youtube.com/watch?v=3AgeGmnydBc)
+ - [Android Programming for Beginners (part 1 of a series)(3:59)](https://www.youtube.com/watch?v=WpRUJD_nxgw)
+ - [What's an API?](https://www.youtube.com/watch?v=SLwpqD8n3d0)
+ 
+2. General
+  - [Helpful GitHub Cheatsheet 1](https://education.github.com/git-cheat-sheet-education.pdf)
+  - [Helpful GitHub Cheatsheet 2](https://drive.google.com/file/d/1OddwoSvNJ3dQuEBw3RERieMXmOicif9_/view)
+  - [UI/UX Tips (Article)](https://www.uxpin.com/studio/blog/guide-design-consistency-best-practices-ui-ux-designers/)
+  
+4. Front-end 
+  - [Build Great Wireframes (8:34)](https://www.youtube.com/watch?v=KdfO_e0yK-g)
+  - [Intro to Flutter (1:45:52)](https://www.youtube.com/watch?v=pTJJsmejUOQ)
+  
+4. Back-End
+  - [Dart Tutorial (1:41:52)](https://www.youtube.com/watch?v=Ej_Pcr4uC2Q)
+   
+5. Firebase
+  [Add Firebase to Android (Article)](https://firebase.google.com/docs/android/setup)
+  - [Firebase Authentication on Android (Article)](https://firebase.google.com/docs/auth/android/start)
+  - [Connecting Android and Firebase (7:57)](https://www.youtube.com/watch?v=lnidtzL71ZA)
+  - [Longer Tutorial for Android and Firebase (1:28:19)](https://www.youtube.com/watch?v=SV9pJqR41KI)
+  - [Android Authentication Using Firebase (21:51)](https://www.youtube.com/watch?v=Z-RE1QuUWPg)
+  - [Add Sign-In to Firebase (Article)](https://firebase.google.com/docs/auth/android/firebaseui)
+  - [Firebase and Flutter (9:09)](https://www.youtube.com/watch?v=Wa0rdbb53I8)
+ 
+6. Tracking Distance Traveled
+  A. Phone Method (Using Built-In GPS)
+    - [General Overview (Article)](https://stackoverflow.com/questions/34551318/calculate-actual-distance-travelled-by-mobile)
+    - [Track Using GPS in Android Studio (23:38)](https://www.youtube.com/watch?v=rN7x3ovWepM)
+    - [Location.distanceTo() (Article)](https://stackoverflow.com/questions/28209548/android-how-to-use-location-distanceto)
+  B. Google Maps Method (Using Distance Matrix API)
+    - [Create Google Maps API Key (9:05)](https://www.youtube.com/watch?v=OGTG1l7yin4)
+    - [Distance Matrix API Walkthrough (10:07)](https://www.youtube.com/watch?v=tXPEOJaeFm8)
+    - [Distance Between 2 Places (21:59)](https://www.youtube.com/watch?v=D5E9EzWOnqY)
+    - [Route Calculator Using Google Maps in Flutter (Article)](https://blog.codemagic.io/creating-a-route-calculator-using-google-maps/)
+    
+    
+    
