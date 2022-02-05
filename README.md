@@ -61,7 +61,7 @@ Back-end:
   - [Dart Tutorial (1:41:52)](https://www.youtube.com/watch?v=Ej_Pcr4uC2Q)
    
 5. Firebase
-  [Add Firebase to Android (Article)](https://firebase.google.com/docs/android/setup)
+ -  [Add Firebase to Android (Article)](https://firebase.google.com/docs/android/setup)
   - [Firebase Authentication on Android (Article)](https://firebase.google.com/docs/auth/android/start)
   - [Connecting Android and Firebase (7:57)](https://www.youtube.com/watch?v=lnidtzL71ZA)
   - [Longer Tutorial for Android and Firebase (1:28:19)](https://www.youtube.com/watch?v=SV9pJqR41KI)
