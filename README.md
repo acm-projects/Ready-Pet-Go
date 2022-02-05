@@ -1,4 +1,4 @@
-# Ready-Pet-Go
+# Ready, Pet, Go
 Want to get a pet but don't know if your family members are ready to handle the responsibility of taking care of one? Let Ready, Pet, Go help you simulate life with a pet to see if bringing home a furry friend is the right decision for you and your family!
 
 # MVP
@@ -36,10 +36,10 @@ Front-end:
 Back-end:
 - [Dart](https://dart.dev/get-dart)
 - [Google Maps Distance Matrix API](https://developers.google.com/maps/documentation/distance-matrix/overview)
-- [Firebase(option for storage and authentication)](https://firebase.google.com/)
+- [Firebase (storage and authentication)](https://firebase.google.com/)
 
 # Software to Intall
-- IDE: [Android Studio](https://developer.android.com/studio)
+- [Android Studio (IDE)](https://developer.android.com/studio)
 - [Git](https://git-scm.com/downloads)
 
 # Resources & Tutorials
@@ -53,7 +53,7 @@ Back-end:
   - [Helpful GitHub Cheatsheet 2](https://drive.google.com/file/d/1OddwoSvNJ3dQuEBw3RERieMXmOicif9_/view)
   - [UI/UX Tips (Article)](https://www.uxpin.com/studio/blog/guide-design-consistency-best-practices-ui-ux-designers/)
   
-4. Front-end 
+3. Front-end 
   - [Build Great Wireframes (8:34)](https://www.youtube.com/watch?v=KdfO_e0yK-g)
   - [Intro to Flutter (1:45:52)](https://www.youtube.com/watch?v=pTJJsmejUOQ)
   
