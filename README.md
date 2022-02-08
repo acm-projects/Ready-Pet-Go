@@ -23,13 +23,15 @@ Want to get a pet but don't know if your family members are ready to handle the 
 - Discuss and finalize tech stack (first build night)
 - Front-end
   - Set up and install needed software, watch tutorials on tech stack, complete practice projects. Create wireframes for pages (2 weeks)
-  - Code pages, authenticate with Firebase UI login (4 weeks)
+  - Code pages to simulate taking care of the pet, sending the user reminders, and any other necessary pages (3 weeks)
+  - Authenticate with Firebase UI login (1 week)
   - Integrate with Backend (2 weeks)
   - Presentation preparation and finishing touches (2 weeks)
 - Back-end
   - Set up and install needed software, watch tutorials on tech stack, complete practice projects (2 weeks)
-  - Add Firestore database for user accounts and their pets and Firebase authentication for users to log into the app (2 weeks)
-  - Implement distance-tracking feature for pet walks (2 weeks)
+  - Add Firestore database for user accounts and their pets. Track user's progress/tasks for a certain pet in the database (2 weeks)
+  - Firebase authentication for users to log into the app (1 week)
+  - Implement distance-tracking feature for pet walks (1 week)
   - Integrate with front-end (2 weeks)
   - Presentation preparation and finishing touches (2 weeks)
                                                                            |
@@ -45,9 +47,11 @@ Back-end:
 - [Google Maps Distance Matrix API](https://developers.google.com/maps/documentation/distance-matrix/overview)
 - [Firebase (storage and authentication)](https://firebase.google.com/)
 
-# Software to Intall
+# Software to Install
 - [Android Studio (IDE)](https://developer.android.com/studio)
 - [Git](https://git-scm.com/downloads)
+- [Google Maps API w/ Flutter](https://pub.dev/packages/google_maps_flutter)
+- [Google Maps API w/ Dart](https://pub.dev/packages/google_maps)
 
 # Resources & Tutorials
 - This list is not exhaustive. It is meant to serve as a starting point when researching and building your project!
