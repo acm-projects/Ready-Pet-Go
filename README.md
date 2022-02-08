@@ -1,5 +1,5 @@
 <p align="center">
-<img src="https://user-images.githubusercontent.com/90812886/152897427-49b47bd7-c7eb-4eed-b366-b54c6cba93e9.gif" width="256"/>
+<img src="https://user-images.githubusercontent.com/90812886/152897427-49b47bd7-c7eb-4eed-b366-b54c6cba93e9.gif" width="350"/>
 </p>
 
 # Ready, Pet, Go
