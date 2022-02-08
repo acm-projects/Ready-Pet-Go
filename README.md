@@ -51,6 +51,7 @@ Back-end:
 
 # Resources & Tutorials
 - This list is not exhaustive. It is meant to serve as a starting point when researching and building your project!
+- [How to Be Successful in ACM Projects](https://docs.google.com/document/d/18Zi3DrKG5e6g5Bojr8iqxIu6VIGl86YBSFlsnJnlM88)
 1. Setting Up
  - [Installing and Configuring Android Studio (4:19)](https://www.youtube.com/watch?v=3AgeGmnydBc)
  - [Android Programming for Beginners (part 1 of a series)(3:59)](https://www.youtube.com/watch?v=WpRUJD_nxgw)
