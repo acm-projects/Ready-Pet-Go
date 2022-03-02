@@ -31,6 +31,7 @@ bool _value5 = false;
 Widget build(BuildContext context) {
 	return MaterialApp(
 	home: Scaffold(
+    backgroundColor: Colors.white,
 		appBar: AppBar(
 		title: Padding(
 		  padding: const EdgeInsets.only(left: 95.0),

@@ -3,6 +3,7 @@
 //import 'package:brightowl_app/screens/onboardingpageScreen.dart';
 import 'package:flutter/material.dart';
 import 'package:easy_splash_screen/easy_splash_screen.dart';
+import 'package:front_end_faiza/start_walk.dart';
 import 'package:front_end_faiza/task_list.dart';
 
 void main() {
@@ -34,7 +35,7 @@ class _SplashScreenState extends State<SplashScreen> {
         showLoader: true,
         loadingText: Text("Loading..."),
         //redirect to page you want it to go
-        navigator: HomePage(),
+        navigator: BouncingButton(),
         durationInSeconds: 5,
       )),
       debugShowCheckedModeBanner: false,
