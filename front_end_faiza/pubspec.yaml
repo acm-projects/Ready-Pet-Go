@@ -65,8 +65,7 @@ flutter:
 
   assets:
       - assets/images/
-      - assets/image/0.5x/dog_food.png
-      - assets/image/4.0x/dog_food.png
+      
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

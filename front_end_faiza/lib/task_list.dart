@@ -59,7 +59,7 @@ Widget build(BuildContext context) {
 					Container(
 					decoration: BoxDecoration(
 						border: Border.all(color: Color(0xFF00A5E0)),
-						borderRadius: BorderRadius.circular(20),
+						//borderRadius: BorderRadius.circular(20),
 					), //BoxDecoration
 					
 					/** CheckboxListTile Widget **/
@@ -80,11 +80,13 @@ Widget build(BuildContext context) {
 						),
 						autofocus: false,
 						//isThreeLine: true,
-						activeColor: Colors.green,
-						checkColor: Colors.white,
+						activeColor: Colors.white,
+						checkColor: Color(0xFF82B26C),
+            selectedTileColor: Color(0xFF82B26C),
 						selected: _value,
 						value: _value,
 						onChanged: (value) {
+              
 						setState(() {
 							_value = value!;
 						});
@@ -97,7 +99,8 @@ Widget build(BuildContext context) {
 					Container(
 					decoration: BoxDecoration(
 						border: Border.all(color: Color(0xFF00A5E0)),
-						borderRadius: BorderRadius.circular(20),
+						//borderRadius: BorderRadius.circular(20),
+            
 					), //BoxDecoration
 
 					child: CheckboxListTile(
@@ -108,8 +111,9 @@ Widget build(BuildContext context) {
 						radius: 20,
 						),
 						autofocus: false,
-						activeColor: Colors.green,
-						checkColor: Colors.white,
+						activeColor: Colors.white,
+						checkColor: Color(0xFF82B26C),
+            selectedTileColor: Color(0xFF82B26C),
 						selected: _value2,
 						value: _value2,
 						onChanged: (value) {
@@ -125,7 +129,7 @@ Widget build(BuildContext context) {
 					Container(
 					decoration: BoxDecoration(
 						border: Border.all(color: Color(0xFF00A5E0)),
-						borderRadius: BorderRadius.circular(20),
+						//borderRadius: BorderRadius.circular(20),
 					), //BoxDecoration
 
 					child: CheckboxListTile(
@@ -136,8 +140,9 @@ Widget build(BuildContext context) {
 						radius: 20,
 						),
 						autofocus: false,
-						activeColor: Colors.green,
-						checkColor: Colors.white,
+						activeColor: Colors.white,
+						checkColor: Color(0xFF82B26C),
+            selectedTileColor: Color(0xFF82B26C),
 						selected: _value3,
 						value: _value3,
 						onChanged: (value) {
@@ -153,7 +158,7 @@ Widget build(BuildContext context) {
 					Container(
 					decoration: BoxDecoration(
 						border: Border.all(color: Color(0xFF00A5E0)),
-						borderRadius: BorderRadius.circular(20),
+						//borderRadius: BorderRadius.circular(20),
 					), //BoxDecoration
 
 					child: CheckboxListTile(
@@ -164,8 +169,9 @@ Widget build(BuildContext context) {
 						radius: 20,
 						),
 						autofocus: false,
-						activeColor: Colors.green,
-						checkColor: Colors.white,
+						activeColor: Colors.white,
+						checkColor: Color(0xFF82B26C),
+            selectedTileColor: Color(0xFF82B26C),
 						selected: _value4,
 						value: _value4,
 						onChanged: (value) {
@@ -181,7 +187,7 @@ Widget build(BuildContext context) {
 					Container(
 					decoration: BoxDecoration(
 						border: Border.all(color: Color(0xFF00A5E0)),
-						borderRadius: BorderRadius.circular(20),
+						//borderRadius: BorderRadius.circular(20),
 					), //BoxDecoration
 
 					child: CheckboxListTile(
@@ -192,8 +198,9 @@ Widget build(BuildContext context) {
 						radius: 20,
 						),
 						autofocus: false,
-						activeColor: Colors.green,
-						checkColor: Colors.white,
+						activeColor: Colors.white,
+						checkColor: Color(0xFF82B26C),
+            selectedTileColor: Color(0xFF82B26C),
 						selected: _value5,
 						value: _value5,
 						onChanged: (value) {
