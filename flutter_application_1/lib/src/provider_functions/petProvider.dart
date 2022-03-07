@@ -1,8 +1,15 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_application_1/src/models/pets.dart';
+import 'package:flutter_application_1/src/provider_functions/taskProvider.dart';
 
 import 'package:flutter_application_1/src/services/pet_services.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
+
+final petStateProvider = StateProvider<Pet?>((ref) {
+  
+  return null;
+});
 
 class PetProvider with ChangeNotifier {
   final petService = Pet_Services();
@@ -21,7 +28,11 @@ class PetProvider with ChangeNotifier {
         petId: _petId,
         breed: breed,
         expenses: {},
-        tasks: {});
+        tasks: {
+          'Feed dog': false,
+          'Walk dog': false,
+          'Play dog': false,
+        });
     petService.setPet(userId, newPet);
     //print(newPet.breed);
     return newPet;
@@ -31,10 +42,19 @@ class PetProvider with ChangeNotifier {
     Stream<List<Pet>> pets = petService.getPets(userId);
     List<Pet> allPets = await pets.first;
     for (int i = 0; i < allPets.length; i++) {
-      if (allPets[i].petId == petId) {
+      if (identical(petId, allPets[i].petId)) {
+        print("hello world");
         return allPets[i];
       }
     }
+    print("not good");
+    return allPets[0];
+  }
+
+  Future<Pet> getFirstPet(userId) async {
+    Stream<List<Pet>> pets = petService.getPets(userId);
+    List<Pet> allPets = await pets.first;
+
     return allPets[0];
   }
   /*

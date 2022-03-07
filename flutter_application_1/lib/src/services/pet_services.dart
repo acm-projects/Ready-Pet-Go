@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_application_1/src/models/user.dart';
 
-
 import '../models/pets.dart';
 
 class Pet_Services {
@@ -14,8 +13,9 @@ class Pet_Services {
         .doc(userId)
         .collection('pets')
         .snapshots()
-        .map((snapshot) =>
-            snapshot.docs.map((doc) => Pet.fromJson(doc.data())).toList());
+        .map((snapshot) => snapshot.docs
+            .map((doc) => Pet.fromJson(doc.data() as Map<String, dynamic>))
+            .toList());
   }
 
   //upsert
