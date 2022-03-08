@@ -5,9 +5,11 @@ import '../models/pets.dart';
 
 class Pet_Services {
   FirebaseFirestore _db = FirebaseFirestore.instance;
+  String userId;
+  Pet_Services(String this.userId);
 
   //get
-  Stream<List<Pet>> getPets(String userId) {
+  Stream<List<Pet>> getPets() {
     return _db
         .collection('users')
         .doc(userId)
@@ -19,7 +21,7 @@ class Pet_Services {
   }
 
   //upsert
-  Future<void> setPet(String userId, Pet pet) {
+  Future<void> setPet(Pet pet) {
     var options = SetOptions(merge: true);
     return _db
         .collection('users')

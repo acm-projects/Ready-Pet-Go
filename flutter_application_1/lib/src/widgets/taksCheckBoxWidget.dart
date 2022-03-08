@@ -11,8 +11,9 @@ class tasksCheckBoxList extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final pet = ref.watch(petStateProvider);
+    final pet = ref.watch(petChangeProvider).currentPet;
     Map? taskList = pet?.tasks;
+    final change = changeState;
 
     List<Widget> list = <Widget>[];
     taskList?.forEach((key, keyValue) {
@@ -69,9 +70,11 @@ class _taskCheckList2State extends State<taskCheckList2> {
   @override
   Widget build(BuildContext context) {
     return Container(child: Consumer(builder: (context, ref, child) {
-      final pet = ref.watch(petStateProvider);
-      final t = TaskProvider(ref);
-      Map? taskList = t.returnList();
+      final pet = ref.watch(petChangeProvider).currentPet;
+      final t1 = ref.watch(taskStateProvider);
+      final t = ref.read(taskStateProvider.notifier).state;
+      final change = ref.watch(changeState);
+      late Map? taskList = ref.read(taskStateProvider);
       List<Widget> list = <Widget>[];
 
       taskList?.forEach((key, keyValue) {
@@ -81,17 +84,21 @@ class _taskCheckList2State extends State<taskCheckList2> {
             value: keyValue,
             onChanged: (bool? value) => {
                   print("before: "),
-                  t.showTaskList(),
-                  if (pet?.tasks[key] == true)
+                  print(pet!.tasks),
+                  //t.showTaskList(),
+                  if (pet.tasks[key] == true)
                     {
-                      t.resetTask(key),
+                      value = false,
+                      t1[key] = false,
                     }
                   else
                     {
-                      t.completeTask(key),
+                      value = true,
+                      t1[key] = true,
                     },
                   print("after: "),
-                  t.showTaskList(),
+                  print(pet.tasks)
+                  //t.showTaskList(),
                 }));
       });
       return Column(children: list);
