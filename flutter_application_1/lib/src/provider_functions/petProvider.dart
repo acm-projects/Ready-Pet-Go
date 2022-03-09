@@ -6,41 +6,23 @@ import 'package:flutter_application_1/src/services/pet_services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
 
-final changeState = Provider(((ref) => {
-      ref.listen(taskStateProvider, (previous, next) {
-        print("task state has changed");
-      })
-    }));
-
-final petFutureStateProvider = FutureProvider<Pet?>((ref) async {
-  final petProvider = PetProvider();
-  return await petProvider.getFirstPet("01203102");
+final petStateProvider = StateProvider<Pet?>((ref) {
+  
+  return null;
 });
 
-final petChangeProvider = ChangeNotifierProvider<PetProvider>(
-  (ref) {
-    return PetProvider();
-  },
-);
-final petStateProvider = StateProvider(((ref) {
-  final petFuture = ref.watch(petFutureStateProvider);
-  return petFuture.value;
-}));
-
 class PetProvider with ChangeNotifier {
-  final petService = Pet_Services('01203102');
+  final petService = Pet_Services('');
   late String _petId;
-  Pet? currentPet = null;
-  PetProvider();
+
   var uuid = Uuid();
 
   String get petId => _petId;
-  Pet? get getCurrentPet => currentPet;
 
   Pet initializePet(
       String userId, String name, String breed, String startingAge) {
     _petId = uuid.v4();
-    Pet newPet = Pet(
+    Pet newPet = new Pet(
         name: name,
         age: startingAge,
         petId: _petId,
@@ -51,14 +33,13 @@ class PetProvider with ChangeNotifier {
           'Walk dog': false,
           'Play dog': false,
         });
-    petService.setPet(newPet);
-    currentPet = newPet;
-    notifyListeners();
+    petService.setPet(userId, newPet);
+    //print(newPet.breed);
     return newPet;
   }
 
   Future<Pet> getPet(userId, petId) async {
-    Stream<List<Pet>> pets = petService.getPets();
+    Stream<List<Pet>> pets = petService.getPets(userId);
     List<Pet> allPets = await pets.first;
     for (int i = 0; i < allPets.length; i++) {
       if (identical(petId, allPets[i].petId)) {
@@ -67,24 +48,14 @@ class PetProvider with ChangeNotifier {
       }
     }
     print("not good");
-    currentPet = allPets[0];
-    notifyListeners();
     return allPets[0];
   }
 
   Future<Pet> getFirstPet(userId) async {
-    Stream<List<Pet>> pets = petService.getPets();
+    Stream<List<Pet>> pets = petService.getPets(userId);
     List<Pet> allPets = await pets.first;
-    currentPet = allPets[0];
-    notifyListeners();
-    return allPets[0];
-  }
 
-  void updatePet() {
-    print("bruh");
-    print(currentPet!.tasks);
-    notifyListeners();
-    petService.setPet(currentPet!);
+    return allPets[0];
   }
   /*
     functions to do:

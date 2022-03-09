@@ -4,16 +4,15 @@ import 'package:flutter_application_1/src/provider_functions/taskProvider.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../models/pets.dart';
-import './taskTester.dart';
+
 
 class tasksCheckBoxList extends ConsumerWidget {
   const tasksCheckBoxList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final pet = ref.watch(petChangeProvider).currentPet;
+    final pet = ref.watch(petStateProvider);
     Map? taskList = pet?.tasks;
-    final change = changeState;
 
     List<Widget> list = <Widget>[];
     taskList?.forEach((key, keyValue) {
@@ -70,35 +69,29 @@ class _taskCheckList2State extends State<taskCheckList2> {
   @override
   Widget build(BuildContext context) {
     return Container(child: Consumer(builder: (context, ref, child) {
-      final pet = ref.watch(petChangeProvider).currentPet;
-      final t1 = ref.watch(taskStateProvider);
-      final t = ref.read(taskStateProvider.notifier).state;
-      final change = ref.watch(changeState);
-      late Map? taskList = ref.read(taskStateProvider);
+      final pet = ref.watch(petStateProvider);
+      final t = TaskProvider(ref);
+      Map? taskList = t.returnList();
       List<Widget> list = <Widget>[];
 
-      taskList?.forEach((key, keyValue) {
+      taskList.forEach((key, keyValue) {
         print("Key $key, Value $keyValue");
         list.add(CheckboxListTile(
             title: Text(key),
             value: keyValue,
             onChanged: (bool? value) => {
                   print("before: "),
-                  print(pet!.tasks),
-                  //t.showTaskList(),
-                  if (pet.tasks[key] == true)
+                  t.showTaskList(),
+                  if (pet?.tasks[key] == true)
                     {
-                      value = false,
-                      t1[key] = false,
+                      t.resetTask(key),
                     }
                   else
                     {
-                      value = true,
-                      t1[key] = true,
+                      t.completeTask(key),
                     },
                   print("after: "),
-                  print(pet.tasks)
-                  //t.showTaskList(),
+                  t.showTaskList(),
                 }));
       });
       return Column(children: list);
