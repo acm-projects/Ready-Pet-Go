@@ -79,7 +79,7 @@ class petCreator extends ConsumerWidget {
 
                   pet =
                       pet_provider.initializePet("01203102", name, breed, age);
-                  ref.read(petStateProvider.notifier).state = pet;
+                  //ref.read(petStateProvider.notifier).state = pet;
                 }
               },
               child: const Text('Submit'),

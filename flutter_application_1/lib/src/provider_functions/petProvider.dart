@@ -7,12 +7,20 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:uuid/uuid.dart';
 
 final petStateProvider = StateProvider<Pet?>((ref) {
-  
-  return null;
+  final petService = PetProvider();
+  print("whassup");
+  Future<Pet> a = petService.getFirstPet("01203102");
+  Pet? fpet;
+  a.then((Pet value) {
+    fpet = value;
+    print("hey");
+    return fpet;
+  });
+  return fpet;
 });
 
 class PetProvider with ChangeNotifier {
-  final petService = Pet_Services('');
+  final petService = Pet_Services('01203102');
   late String _petId;
 
   var uuid = Uuid();
@@ -39,7 +47,7 @@ class PetProvider with ChangeNotifier {
   }
 
   Future<Pet> getPet(userId, petId) async {
-    Stream<List<Pet>> pets = petService.getPets(userId);
+    Stream<List<Pet>> pets = petService.getPets();
     List<Pet> allPets = await pets.first;
     for (int i = 0; i < allPets.length; i++) {
       if (identical(petId, allPets[i].petId)) {
@@ -52,9 +60,9 @@ class PetProvider with ChangeNotifier {
   }
 
   Future<Pet> getFirstPet(userId) async {
-    Stream<List<Pet>> pets = petService.getPets(userId);
+    Stream<List<Pet>> pets = petService.getPets();
     List<Pet> allPets = await pets.first;
-
+    print(allPets[0].name);
     return allPets[0];
   }
   /*

@@ -23,6 +23,9 @@ class TaskProvider with ChangeNotifier {
 
   int completeTask(String taskName) {
     ref.read(taskStateProvider.notifier).state[taskName] = true;
+    ref.read(petStateProvider.notifier).state?.tasks[taskName] = true;
+    print(ref.read(petStateProvider.notifier).state?.petId);
+    notifyListeners();
     return 0;
   }
 

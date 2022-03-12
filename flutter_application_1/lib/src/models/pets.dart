@@ -11,9 +11,9 @@ class Pet {
   final Map tasks;
 
   Pet(
-      {required this.name,
+      {required this.petId,
+      required this.name,
       required this.age,
-      required this.petId,
       this.breed,
       this.picture,
       this.mood,
@@ -22,9 +22,9 @@ class Pet {
 
   factory Pet.fromJson(Map<String, dynamic> json) {
     return Pet(
+        petId: json['petId'],
         name: json['name'],
         age: json['age'],
-        petId: json['petId'],
         breed: json['breed'],
         picture: json['picture'],
         mood: json['mood'],
@@ -34,6 +34,7 @@ class Pet {
 
   Map<String, dynamic> toMap() {
     return ({
+      'petId': petId,
       'name': name,
       'age': age,
       'breed': breed,

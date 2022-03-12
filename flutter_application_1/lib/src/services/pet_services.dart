@@ -9,10 +9,12 @@ class Pet_Services {
   Pet_Services(String this.userId);
 
   //get
-  Stream<List<Pet>> getPets(String userId) {
+  Stream<List<Pet>> getPets() {
+    print("getPets service working...");
+    print(this.userId);
     return _db
         .collection('users')
-        .doc(userId)
+        .doc(this.userId)
         .collection('pets')
         .snapshots()
         .map((snapshot) => snapshot.docs
@@ -23,6 +25,8 @@ class Pet_Services {
   //upsert
   Future<void> setPet(String userId, Pet pet) {
     var options = SetOptions(merge: true);
+    // print("petId: " + pet.petId);
+    // print("tasks+" + pet.tasks.toString());
     return _db
         .collection('users')
         .doc(userId)
