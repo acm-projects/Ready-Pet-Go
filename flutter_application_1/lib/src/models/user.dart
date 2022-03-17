@@ -1,26 +1,29 @@
 import 'pets.dart';
 
-class User {
-  final userId;
-  final familyName;
-  final familyId;
-  final Pet? pet;
+class UserModel {
+  String  uid;
+  String? name;
+  int?  age;
+  String?  email;
+   Pet? pet;
 
-  User({required this.userId, this.familyName, this.familyId, this.pet});
+  UserModel({required this.uid, this.name, this.age, this.email, this.pet});
 
-  factory User.fromJson(Map<String, dynamic> json) {
-    return (User(
-        userId: json['userId'],
-        familyName: json['familyName'],
-        familyId: json['familyId'],
+  factory UserModel.fromJson(Map<String, dynamic> json) {
+    return (UserModel(
+        uid: json['userId'],
+        name: json['name'],
+        age: json['age'],
+        email: json['email'],
         pet: json['Pet']));
   }
 
   Map<String, dynamic> toMap() {
     return ({
-      'userId': userId,
-      'familyName': familyName,
-      'familyId': familyId,
+      'uid': uid,
+      'name': name,
+      'age': age,
+      'email' : email,
       'pet': pet
     });
   }

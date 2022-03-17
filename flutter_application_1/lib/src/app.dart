@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/src/provider_functions/petProvider.dart';
-import 'package:flutter_application_1/src/widgets/wrapperWidget.dart';
 
-import 'models/pets.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -13,7 +10,7 @@ class App extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(title: const Text("whas good")),
         body: Column(
-          children: [wrapperWidget()],
+          
         ),
       ),
     );

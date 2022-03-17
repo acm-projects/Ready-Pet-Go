@@ -1,43 +1,36 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/provider_functions/newTaskProvider.dart';
 import 'package:flutter_application_1/src/provider_functions/petProvider.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import '../models/pets.dart';
 
 // importing material design library
 
 // Creating a stateful widget to manage
 // the state of the app
-Future<Pet> bringTestPet() async {
-  final petProvider = PetProvider();
-  var fPet = petProvider.getFirstPet("01203102");
-  //"5Gsd5WiAWvyWbhboStrb"
-
-  print('hi');
+Future<Pet> bringTestPet(String userId) async {
+  final petProvider = PetProvider(userId);
+  var fPet = petProvider.getFirstPet(userId);
   return fPet;
 }
 
 class HomePage extends StatefulWidget {
+  final String userId;
+  const HomePage(this.userId, {Key? key}) : super(key: key);
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 class _HomePageState extends State<HomePage> {
-  final petProvider = PetProvider();
   late Future<Pet> futurePet;
   @override
   initState() {
     super.initState();
-    futurePet = bringTestPet();
+    futurePet = bringTestPet(widget.userId);
   }
 
 // value set to false
-  bool _value = false;
-  bool _value2 = false;
-  bool _value3 = false;
-  bool _value4 = false;
-  bool _value5 = false;
-  Map _tasks = Map();
+  Map _tasks = {};
 
 // App widget tree
   @override
@@ -46,13 +39,13 @@ class _HomePageState extends State<HomePage> {
       home: Scaffold(
           backgroundColor: Colors.white,
           appBar: AppBar(
-            title: Padding(
-              padding: const EdgeInsets.only(left: 95.0),
+            title: const Padding(
+              padding: EdgeInsets.only(left: 95.0),
               child: Text('Task List'),
             ),
-            backgroundColor: Color(0xFF00A5E0),
+            backgroundColor: const Color(0xFF00A5E0),
             leading: IconButton(
-              icon: Icon(Icons.arrow_back_sharp),
+              icon: const Icon(Icons.arrow_back_sharp),
               tooltip: 'Menu',
               onPressed: () {},
             ), //IconButton
@@ -61,8 +54,10 @@ class _HomePageState extends State<HomePage> {
             future: futurePet,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
-                final taskProvider = newTaskProvider(snapshot.data!);
-                print(snapshot.data!.petId.toString());
+                FirebaseAuth auth = FirebaseAuth.instance;
+                var userID = auth.currentUser!.uid;
+                final taskProvider = NewTaskProvider(snapshot.data!, userID);
+                // print(snapshot.data!.petId.toString());
                 Map tasks = snapshot.data!.tasks;
                 List<Widget> widgetList = <Widget>[];
                 _tasks = {...tasks};
@@ -76,7 +71,7 @@ class _HomePageState extends State<HomePage> {
                   widgetList.add(
                     Container(
                       decoration: BoxDecoration(
-                        border: Border.all(color: Color(0xFF00A5E0)),
+                        border: Border.all(color: const Color(0xFF00A5E0)),
                         //borderRadius: BorderRadius.circular(20),
                       ), //BoxDecoration
 
@@ -124,7 +119,7 @@ class _HomePageState extends State<HomePage> {
               } else if (snapshot.hasError) {
                 return Text('${snapshot.error}');
               } else {
-                return CircularProgressIndicator();
+                return const CircularProgressIndicator();
               }
             },
           ) //SizedBox

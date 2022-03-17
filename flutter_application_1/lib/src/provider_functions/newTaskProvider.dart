@@ -1,29 +1,43 @@
-import 'package:flutter/cupertino.dart';
+
 import 'package:flutter_application_1/src/models/pets.dart';
-import 'package:flutter_application_1/src/provider_functions/petProvider.dart';
+
 
 import 'package:flutter_application_1/src/services/pet_services.dart';
 
-class newTaskProvider {
+class NewTaskProvider {
   Pet pet;
-  final petService = Pet_Services('01203102');
-  newTaskProvider(Pet this.pet);
+  final String userId;
+  
+  NewTaskProvider(this.pet, this.userId);
 
   void toggleTask(taskName) {
+    final petService = PetServices(userId);
     //print(pet.name);
     bool initialVal = pet.tasks[taskName];
-    print("initial value" + initialVal.toString());
+   
     if (initialVal == true) {
-      print('valueTrue');
+      
       pet.tasks[taskName] = false;
-      petService.setPet("01203102", pet);
+      petService.setPet(userId, pet);
       //return false;
     } else {
-      print("hello");
+      
       pet.tasks[taskName] = true;
-      petService.setPet("01203102", pet);
+      petService.setPet(userId, pet);
       //return true;
     }
     //print(initialVal);
+  }
+
+  void addTask(taskName) {
+    final petService = PetServices(userId);
+    pet.tasks.putIfAbsent(taskName, () => false);
+    petService.setPet(userId, pet);
+  }
+
+  void deleteTask(taskName) {
+    final petService = PetServices(userId);
+    pet.tasks.remove(taskName);
+    petService.setPet(userId, pet);
   }
 }

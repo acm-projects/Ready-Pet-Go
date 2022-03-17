@@ -2,19 +2,19 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter_application_1/src/models/user.dart';
 
 
-class User_Services {
-  FirebaseFirestore _db = FirebaseFirestore.instance;
+class UserServices {
+  final FirebaseFirestore _db = FirebaseFirestore.instance;
 
   //get
-  Stream<List<User>> getUsers() {
+  Stream<List<UserModel>> getUsers() {
     return _db.collection('users').snapshots().map((snapshot) =>
-        snapshot.docs.map((doc) => User.fromJson(doc.data())).toList());
+        snapshot.docs.map((doc) => UserModel.fromJson(doc.data())).toList());
   }
 
   //upsert
-  Future<void> setUser(User user) {
+  Future<void> setUser(UserModel user) {
     var options = SetOptions(merge: true);
-    return _db.collection('users').doc(user.userId).set(user.toMap(), options);
+    return _db.collection('users').doc(user.uid).set(user.toMap(), options);
   }
 
   //delete

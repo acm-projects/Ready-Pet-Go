@@ -1,12 +1,12 @@
-import 'package:flutter/services.dart';
+
 
 class Pet {
-  final petId;
-  final name;
-  final age;
-  final breed;
-  final picture;
-  final mood;
+  final String petId;
+  final String name;
+  final String age;
+  final String breed;
+  final String? picture;
+  final String? mood;
   final Map expenses;
   final Map tasks;
 
@@ -14,7 +14,7 @@ class Pet {
       {required this.petId,
       required this.name,
       required this.age,
-      this.breed,
+      required this.breed,
       this.picture,
       this.mood,
       required this.expenses,
