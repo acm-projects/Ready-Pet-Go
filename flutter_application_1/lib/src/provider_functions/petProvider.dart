@@ -48,7 +48,7 @@ class PetProvider with ChangeNotifier {
     return allPets[0];
   }
 
-  Future<Pet> getFirstPet(userId) async {
+  Future<Pet> getFirstPet() async {
     final petService = PetServices(userId);
     Stream<List<Pet>> pets = petService.getPets();
     List<Pet> allPets = await pets.first;

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/widgets/petDisplay.dart';
 import 'register.dart';
-import '../provider_functions/flutterFire.dart';
+import '../provider_functions/authentication_services.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class Authentication extends StatefulWidget {

@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/widgets/petCreationWidget.dart';
-import '../provider_functions/flutterfire.dart';
+import '../provider_functions/authentication_services.dart';
 
 class Register extends StatefulWidget {
   const Register({Key? key}) : super(key: key);
@@ -141,13 +141,13 @@ class _RegisterState extends State<Register> {
               child: MaterialButton(
                 onPressed: () async {
                   if (_formKey.currentState!.validate()) {
-                    bool shouldNavigate = await register(
+                    String shouldNavigate = await register(
                         _emailField.text,
                         _passwordField.text,
                         _nameField.text,
-                        int.parse(_ageField.text));
+                        );
                     // await signUp();
-                    if (shouldNavigate) {
+                    if (shouldNavigate != null) {
                       FirebaseAuth auth = FirebaseAuth.instance;
                       var userID = auth.currentUser!.uid;
                       //Navigate

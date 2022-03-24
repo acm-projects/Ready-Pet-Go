@@ -6,7 +6,7 @@ import '../models/pets.dart';
 
 Future<Pet> bringTestPet(String userId) async {
   final petProvider = PetProvider(userId);
-  var fPet = petProvider.getFirstPet(userId);
+  var fPet = petProvider.getFirstPet();
   return fPet;
 }
 
@@ -33,7 +33,7 @@ class _PetDisplayState extends State<PetDisplay> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: ((context) => HomePage(widget.userId))));
+                          builder: ((context) => taskListDisplay(widget.userId))));
                 }),
                 child: const Text('tasks'),
               ),

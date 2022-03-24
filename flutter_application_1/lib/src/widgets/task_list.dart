@@ -10,18 +10,18 @@ import '../models/pets.dart';
 // the state of the app
 Future<Pet> bringTestPet(String userId) async {
   final petProvider = PetProvider(userId);
-  var fPet = petProvider.getFirstPet(userId);
+  var fPet = petProvider.getFirstPet();
   return fPet;
 }
 
-class HomePage extends StatefulWidget {
+class taskListDisplay extends StatefulWidget {
   final String userId;
-  const HomePage(this.userId, {Key? key}) : super(key: key);
+  const taskListDisplay(this.userId, {Key? key}) : super(key: key);
   @override
-  _HomePageState createState() => _HomePageState();
+  _taskListDisplayState createState() => _taskListDisplayState();
 }
 
-class _HomePageState extends State<HomePage> {
+class _taskListDisplayState extends State<taskListDisplay> {
   late Future<Pet> futurePet;
   @override
   initState() {
