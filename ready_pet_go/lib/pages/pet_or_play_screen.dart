@@ -97,7 +97,7 @@ class _OptionPageState extends State<OptionPage>{
                                       ),
                                     ),
                                     onPressed: (){
-
+                                      Navigator.of(context).pushReplacementNamed('/PlayingScreen');
                                     }
                                 )
                             ),

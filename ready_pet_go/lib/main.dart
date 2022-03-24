@@ -5,6 +5,7 @@ import 'package:ready_pet_go/pages/PettingScreen/petting_screen.dart';
 import 'package:ready_pet_go/pages/WaterScreen/water_screen.dart';
 import 'package:ready_pet_go/pages/WalkScreens/walking_tracker_screen.dart';
 import 'package:ready_pet_go/pages/pet_or_play_screen.dart';
+import 'package:ready_pet_go/pages/PlayingScreen/playing_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
         '/PettingScreen': (context)=> PettingScreen(),
         '/TrackingScreen': (context)=> TrackerScreen(),
         '/OptionScreen': (context)=> OptionPage(),
+        '/PlayingScreen': (context)=> PlayingScreen(),
       },
       debugShowCheckedModeBanner: false,
     );

@@ -82,6 +82,7 @@ flutter:
     - assets/images/TapWater.png
     - assets/images/OnWater.png
     - assets/images/TapWaterWithCheck.png
+    - assets/images/Ball.png
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 
