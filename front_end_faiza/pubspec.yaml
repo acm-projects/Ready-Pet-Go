@@ -40,7 +40,14 @@ dependencies:
   intl: ^0.17.0
   path_provider: ^2.0.9
   sqflite: ^2.0.2
-  flutter_login: ^3.1.0
+  #flutter_login: ^3.1.0
+  
+
+  dependencies:
+  flutter_native_text_input: ^2.2.0
+  flutter_form_builder: ^7.1.1
+  date_field: ^3.0.0
+  #snippetcoder_utils: ^1.0.11
 
 dev_dependencies:
   flutter_test:
