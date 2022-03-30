@@ -65,7 +65,8 @@ flutter:
   # the material Icons class.
   uses-material-design: true
   assets:
-    - ./lib/src/assets/
+    - lib/src/assets/images/dog_logo_transparent.png
+    - lib/src/assets/images/
   # To add assets to your application, add an assets section, like this:
   # assets:
   #   - images/a_dot_burr.jpeg

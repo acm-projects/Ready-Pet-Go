@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class ListIcon extends StatelessWidget{
+class ListIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -12,7 +12,7 @@ class ListIcon extends StatelessWidget{
           width: 100.0,
           height: 100.0,
           child: Image.asset(
-            "../images/Task.png",
+            "lib/src/assets/images/Task.png",
             color: null,
             width: 30,
             height: 5,

@@ -33,7 +33,7 @@ class _PetDisplayState extends State<PetDisplay> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: ((context) => taskListDisplay(widget.userId))));
+                          builder: ((context) => taskListDisplay(snapshot.data!.name, widget.userId))));
                 }),
                 child: const Text('tasks'),
               ),

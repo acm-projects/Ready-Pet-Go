@@ -66,7 +66,7 @@ class LoginPage extends StatelessWidget {
           UserFormField(keyName: 'lasttName', displayName: "Last Name"),
         ],
         title: 'Login/Signup',
-        logo: const AssetImage('../images/dog_logo_transparent.png'),
+        logo: const AssetImage('lib/src/assets/images/dog_logo_transparent.png'),
         onLogin: _authUser
         // await _authUser;
         // debugPrint("Moving to home");

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/src/provider_functions/newTaskProvider.dart';
 import 'package:flutter_application_1/src/provider_functions/petProvider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_application_1/src/widgets/home.dart';
 import '../models/pets.dart';
 
 // importing material design library
@@ -16,7 +17,9 @@ Future<Pet> bringTestPet(String userId) async {
 
 class taskListDisplay extends StatefulWidget {
   final String userId;
-  const taskListDisplay(this.userId, {Key? key}) : super(key: key);
+  final String petName;
+  const taskListDisplay(this.petName, this.userId, {Key? key})
+      : super(key: key);
   @override
   _taskListDisplayState createState() => _taskListDisplayState();
 }
@@ -31,6 +34,12 @@ class _taskListDisplayState extends State<taskListDisplay> {
 
 // value set to false
   Map _tasks = {};
+
+  Map<String, String> images = {
+    'Play': "lib/src/assets/images/dog_toy.png",
+    'Feed': "lib/src/assets/images/dog_food.png",
+    'Walk': "lib/src/assets/images/dog_walk.png",
+  };
 
 // App widget tree
   @override
@@ -47,7 +56,12 @@ class _taskListDisplayState extends State<taskListDisplay> {
             leading: IconButton(
               icon: const Icon(Icons.arrow_back_sharp),
               tooltip: 'Menu',
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) => Home(widget.userId))));
+              },
             ), //IconButton
           ), //AppBar
           body: FutureBuilder<Pet>(
@@ -77,13 +91,17 @@ class _taskListDisplayState extends State<taskListDisplay> {
 
                       /** CheckboxListTile Widget **/
                       child: CheckboxListTile(
-                        title: Text(key.toString()),
+                        title: Text(key.toString() + " " + widget.petName),
                         //	subtitle: const Text(
                         //'A computer science portal for geeks. Here you will find articles on all the technologies.'),
-                        secondary: const CircleAvatar(
+                        secondary: CircleAvatar(
                           backgroundColor: Colors.white,
                           radius: 20,
+                          backgroundImage: AssetImage(
+                            images[key].toString(),
+                          ),
                         ),
+
                         autofocus: false,
                         //isThreeLine: true,
                         activeColor: Colors.white,
@@ -91,6 +109,7 @@ class _taskListDisplayState extends State<taskListDisplay> {
                         selectedTileColor: const Color(0xFF82B26C),
                         selected: _tasks[key],
                         value: _tasks[key],
+
                         onChanged: (value) {
                           setState(() {
                             _tasks[key] = value!;

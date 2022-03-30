@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class PlayIcon extends StatelessWidget{
+class PlayIcon extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -12,7 +12,7 @@ class PlayIcon extends StatelessWidget{
           width: 65.0,
           height: 64.0,
           child: Image.asset(
-            "../images/Toy.png",
+            "lib/src/assets/images/Toy.png",
             color: null,
             width: 70,
             height: 70,
