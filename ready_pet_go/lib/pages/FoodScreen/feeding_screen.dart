@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+
+import '../../main.dart';
 
 class FeedingScreen extends StatefulWidget{
   const FeedingScreen({Key? key}) : super(key: key);
@@ -172,6 +175,21 @@ class _FeedingPageState extends State<FeedingScreen>{
                                   );
                                 },
                                 onAccept: (bool data) {
+                                  localNotifications.show(
+                                      1,
+                                      "Yummy!!!",
+                                      "You fed your pet",
+                                      NotificationDetails(
+                                        android: AndroidNotificationDetails(
+                                            channel.id,
+                                            channel.name,
+                                            //channel.description,
+                                            color:Colors.blue,
+                                            playSound: true,
+                                            icon: '@mipmap/ic_launcher'
+                                        ),
+                                      )
+                                  );
                                   setState(() {
                                     acceptedData = data;
                                     if(acceptedData)

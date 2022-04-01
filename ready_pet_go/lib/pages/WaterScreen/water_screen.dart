@@ -3,6 +3,9 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+
+import '../../main.dart';
 
 class WaterScreen extends StatefulWidget{
   const WaterScreen({Key? key}) : super(key: key);
@@ -38,6 +41,21 @@ class _WaterPageState extends State<WaterScreen>{
             started = false;
             tapWater = 'assets/images/TapWaterWithCheck.png';
             bowlState = 'assets/images/FilledBowl.png';
+            localNotifications.show(
+                1,
+                "No Longer Empty",
+                "You filled the water bowl",
+                NotificationDetails(
+                  android: AndroidNotificationDetails(
+                      channel.id,
+                      channel.name,
+                      //channel.description,
+                      color:Colors.blue,
+                      playSound: true,
+                      icon: '@mipmap/ic_launcher'
+                  ),
+                )
+            );
           } else if (_counter < 3) {
             bowlState = 'assets/images/DogBowlPt2.png';
           } else if(_counter < 5) {
@@ -161,152 +179,6 @@ class _WaterPageState extends State<WaterScreen>{
                       ),
                     ],
                   ),
-                  /*Align(
-                      alignment: Alignment(0.0, -0.3),
-                      child: GestureDetector(
-                        onTap: (){
-                          started = true;
-                          if(!tapped) {
-                            tapped = true;
-                            tapWater = 'assets/images/OnWater.png';
-                          }
-                          else {
-                            tapped = false;
-                            tapWater = 'assets/images/TapWater.png';
-                          }
-                          print(tapped);
-                          startTimer();
-                          //Navigator.of(context).pushReplacementNamed('/HomeScreen');
-                        },
-                        child: Container(
-                          child: ClipRRect(
-                            child: Container(
-                              color: Colors.white,
-                              width: 175.0,
-                              height: 335.0,
-                              child: Image.asset(
-                                tapWater,
-                                color: null,
-                                colorBlendMode: BlendMode.dstATop,
-                                //fit: BoxFit.cover
-                              ),
-                            ),
-                          ),
-                        ),
-                      )
-                  ),*/
-
-                  /*Align(
-                    alignment: Alignment(0.0, 0.4),
-                    child: Container(
-                      child: ClipRRect(
-                        child: Container(
-                          width: 150,
-                          height: 90,
-                          child: Visibility(
-                            child: Image.asset(
-                              "assets/images/DogBowl.png",
-                              color: null,
-                              //fit: BoxFit.cover,
-                              colorBlendMode: BlendMode.dstATop,
-                            ),
-                            visible: true,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  Align(
-                    alignment: Alignment(0.0, 0.4),
-                    child: Container(
-                      child: ClipRRect(
-                        child: Container(
-                          width: 150,
-                          height: 90,
-                          child: Visibility(
-                            child: Image.asset(
-                              "assets/images/DogBowlPt1.png",
-                              color: null,
-                              //fit: BoxFit.cover,
-                              colorBlendMode: BlendMode.dstATop,
-                            ),
-                            visible: (_counter < 5 && started),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  Align(
-                    alignment: Alignment(0.0, 0.4),
-                    child: Container(
-                      child: ClipRRect(
-                        child: Container(
-                          width: 150,
-                          height: 90,
-                          child: Visibility(
-                            child: Image.asset(
-                              "assets/images/DogBowlPt2.png",
-                              color: null,
-                              //fit: BoxFit.cover,
-                              colorBlendMode: BlendMode.dstATop,
-                            ),
-                            visible: (_counter < 3 && started),
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  Align(
-                    alignment: Alignment(0.0, 0.4),
-                    child: Container(
-                      child: ClipRRect(
-                        child: Container(
-                          width: 150,
-                          height: 90,
-                          child: Visibility(
-                            child: Image.asset(
-                              "assets/images/FilledBowl.png",
-                              color: null,
-                              //fit: BoxFit.cover,
-                              colorBlendMode: BlendMode.dstATop,
-                            ),
-                            visible: isFilled,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  /*Align(
-                    alignment: Alignment(-0.17, 0.07),
-                    child: Visibility(
-                      child: Container(
-                          width: 15,
-                          height: 180,
-                          decoration: BoxDecoration(
-                              color: Colors.blue
-                          )
-                      ),
-                      visible: (_counter > 0 && tapped)
-                    )
-                  ),*/
-
-                  Align(
-                    alignment: Alignment(0, 0),
-                      child: Container(
-                        child: Visibility(
-                            child: Icon(
-                                Icons.check,
-                                color: Colors.green,
-                                size: 100.0
-                            ),
-                            visible: isFilled
-                        ),
-                      )
-                  ),*/
                 ]),
           ),
         )

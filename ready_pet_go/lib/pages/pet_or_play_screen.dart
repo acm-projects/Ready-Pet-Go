@@ -51,6 +51,24 @@ class _OptionPageState extends State<OptionPage>{
                         ),
                       ),
 
+                      Align(
+                        alignment: Alignment(0.0, -0.9),
+                        child: Text(
+                          'Choose what you want to do.',
+                          overflow: TextOverflow.visible,
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            height: 1.171875,
+                            fontSize: 25.0,
+                            fontFamily: 'Roboto',
+                            fontWeight: FontWeight.w400,
+                            color: Color.fromARGB(255, 0, 0, 0),
+
+                            /* letterSpacing: 0.0, */
+                          ),
+                        ),
+                      ),
+
                       Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children:[
@@ -60,7 +78,7 @@ class _OptionPageState extends State<OptionPage>{
                               child: CupertinoButton(
                                   color: Colors.lightBlue,
                                   child: Text(
-                                    "Pet the Dog",
+                                    "Pet your pet",
                                     textAlign: TextAlign.center,
                                     style: TextStyle(
                                       height: 1.171875,
@@ -84,7 +102,7 @@ class _OptionPageState extends State<OptionPage>{
                               child: CupertinoButton(
                                     color: Colors.green,
                                     child: Text(
-                                      "Play with the Dog",
+                                      "Play with your pet",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         height: 1.171875,

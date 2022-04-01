@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "754601415758",
+    "project_id": "sonorous-seat-344917",
+    "storage_bucket": "sonorous-seat-344917.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:754601415758:android:f692b660c01e9816e59f1f",
+        "android_client_info": {
+          "package_name": "com.example.ready_pet_go"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "754601415758-m1uuh8ivn03upafsupkd27r2v430r788.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsurdX0Pg8xvTZ9ThXBjGyrGZa4aTJrkE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "754601415758-m1uuh8ivn03upafsupkd27r2v430r788.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
