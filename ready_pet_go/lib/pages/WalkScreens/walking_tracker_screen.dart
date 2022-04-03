@@ -90,7 +90,7 @@ class _TrackingState extends State<TrackerScreen> {
                                               //channel.description,
                                               color:Colors.blue,
                                               playSound: true,
-                                              icon: '@mipmap/ic_launcher'
+                                              icon: '@mipmap/launcher_icon'
                                           ),
                                         )
                                     );
@@ -128,7 +128,7 @@ class _TrackingState extends State<TrackerScreen> {
                                                 //channel.description,
                                                 color:Colors.blue,
                                                 playSound: true,
-                                                icon: '@mipmap/ic_launcher'
+                                                icon: '@mipmap/launcher_icon'
                                             ),
                                           )
                                       );

@@ -186,7 +186,7 @@ class _FeedingPageState extends State<FeedingScreen>{
                                             //channel.description,
                                             color:Colors.blue,
                                             playSound: true,
-                                            icon: '@mipmap/ic_launcher'
+                                            icon: '@mipmap/launcher_icon'
                                         ),
                                       )
                                   );

@@ -71,7 +71,7 @@ class _MyHomePageState extends State<MyApp> {
               //channel.description,
               color:Colors.blue,
               playSound: true,
-              icon: '@mipmap/ic_launcher'
+              icon: '@mipmap/launcher_icon'
             ),
           )
         );
@@ -118,7 +118,7 @@ class _MyHomePageState extends State<MyApp> {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      initialRoute: '/CompletedScreen',
+      initialRoute: '/HomeScreen',
       routes:{
         '/HomeScreen': (context)=> HomePage(),
         '/WaterScreen': (context)=> WaterScreen(),
