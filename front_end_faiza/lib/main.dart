@@ -4,6 +4,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_splash_screen/easy_splash_screen.dart';
 import 'package:front_end_faiza/create_a_pet_page.dart';
+import 'package:front_end_faiza/faiza_homepage.dart';
 import 'package:front_end_faiza/finish_walk.dart';
 import 'package:front_end_faiza/login_page.dart';
 import 'package:front_end_faiza/start_walk.dart';

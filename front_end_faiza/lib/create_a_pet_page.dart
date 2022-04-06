@@ -30,16 +30,18 @@ class _CreateAPetState extends State<CreateAPet> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        //resizeToAvoidBottomPadding: false,
-        resizeToAvoidBottomInset: false,
-        body: Padding(
-      padding: const EdgeInsets.all(20.0),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      resizeToAvoidBottomInset: true,
+      body: SingleChildScrollView(
+          padding: const EdgeInsets.all(20.0),
+          child: Column(
+  
         children: <Widget>[
+          const Padding(
+            padding: const EdgeInsets.only(top: 30),
+          ),
           Image.asset('assets/images/dog_logo_transparent.png', height: 250, width: 250),
-          const SizedBox(height: 20),
-          const Text('Create A Pet To Get Started!', textScaleFactor: 2.0, style: TextStyle(color: Color(0xFF00A5E0))),
+          //const SizedBox(height: 10),
+          const Text('Create Your Pet!', textScaleFactor: 2.0, style: TextStyle(color: Color(0xFF00A5E0))),
           const Padding(
             padding: EdgeInsets.symmetric(vertical: 20.0),
             //child: Text('Customize Your Pet'),
@@ -121,7 +123,7 @@ class _CreateAPetState extends State<CreateAPet> {
                   final name = controller1.text;
                   final breed = controller2.text;
                   final age = controller3.text;
-      
+            
                   // await petProvider.initializePet(name, breed, int.parse(age));
                   // registerPet(widget.userID, name, breed, age);
                   // Navigator.push(
@@ -132,11 +134,11 @@ class _CreateAPetState extends State<CreateAPet> {
                   // );
                 }
               },
-              child: const Text('Submit', style: TextStyle(color: Colors.white)),
+              child: const Text('Go!', style: TextStyle(fontSize: 20, color: Colors.white)),
             ),
           ),
         ],
-      ),
-    ));
+            ),
+          ));
   }
 }
