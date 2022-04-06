@@ -6,6 +6,10 @@ class PlayIcon extends StatelessWidget{
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
+      decoration: BoxDecoration(
+          border: Border.all(width: 2),
+          borderRadius: BorderRadius.all(Radius.circular(34))
+      ),
       child: ClipOval(
         child: Container(
           color: Colors.white,
