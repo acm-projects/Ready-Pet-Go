@@ -1,7 +1,20 @@
 import 'package:flutter/material.dart';
 
+// import '../models/pet_model.dart';
+// import '../providers/pet_provider.dart';
+// import 'home.dart';
+
+// Pet registerPet(String userID, String name, String breed, String age) {
+//   final petProvider = PetProvider(userID);
+//   Pet pet = petProvider.initializePet(name, breed, int.parse(age));
+//   return pet;
+// }
+
 class CreateAPet extends StatefulWidget {
-  const CreateAPet({Key? key}) : super(key: key);
+  //final String userID;
+
+  //const CreateAPet(this.userID, {Key? key}) : super(key: key);
+
 
   @override
   _CreateAPetState createState() => _CreateAPetState();
@@ -9,10 +22,16 @@ class CreateAPet extends StatefulWidget {
 
 class _CreateAPetState extends State<CreateAPet> {
   DateTime? selectedDate;
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final controller1 = TextEditingController();
+  final controller2 = TextEditingController();
+  final controller3 = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        //resizeToAvoidBottomPadding: false,
+        resizeToAvoidBottomInset: false,
         body: Padding(
       padding: const EdgeInsets.all(20.0),
       child: Column(
@@ -26,9 +45,10 @@ class _CreateAPetState extends State<CreateAPet> {
             //child: Text('Customize Your Pet'),
           ),
           Form(
+            key: _formKey,
             child: Column(
-              children: const <Widget>[ 
-              TextField(
+              children: [
+              TextFormField(
                 decoration: InputDecoration(
                     hintStyle: TextStyle(color: Colors.black45),
                     errorStyle: TextStyle(color: Colors.redAccent),
@@ -36,28 +56,83 @@ class _CreateAPetState extends State<CreateAPet> {
                     prefixIcon: Icon(Icons.border_color_outlined),
                     labelText: 'Pet Name',
                 ),
+                controller: controller1,
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  return null;
+                },
               ),
               SizedBox(height: 50),
-              TextField(
+              TextFormField(
                 decoration: InputDecoration(
                     hintStyle: TextStyle(color: Colors.black45),
                     errorStyle: TextStyle(color: Colors.redAccent),
                     border: OutlineInputBorder(),
                     prefixIcon: Icon(Icons.cake_outlined),
-                    labelText: 'Pet Birthday',
+                    labelText: 'Pet Breed',
                 ),
+                controller: controller2,
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  return null;
+                },
               ),
               SizedBox(height: 50),
-              TextField(
+              TextFormField(
                 decoration: InputDecoration(
                     hintStyle: TextStyle(color: Colors.black45),
                     errorStyle: TextStyle(color: Colors.redAccent),
                     border: OutlineInputBorder(),
                     prefixIcon: Icon(Icons.pets_outlined),
-                    labelText: 'Pet Breed',
+                    labelText: 'Pet Age',
                 ),
+                controller: controller3,
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  if (double.tryParse(value) == null) {
+                    return 'Please enter a valid age';
+                  }
+                  return null;
+                },
               ),
               ],
+            ),
+          ),
+          SizedBox(height: 50),
+          Container(
+            width: MediaQuery.of(context).size.width / 1.4,
+            height: 45,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15.0),
+              color: const Color(0xFF00A5E0),
+            ),
+            child: MaterialButton(
+              onPressed: () async {
+                // Validate will return true if the form is valid, or false if
+                // the form is invalid.
+                if (_formKey.currentState!.validate()) {
+                  // Process data.
+                  final name = controller1.text;
+                  final breed = controller2.text;
+                  final age = controller3.text;
+      
+                  // await petProvider.initializePet(name, breed, int.parse(age));
+                  // registerPet(widget.userID, name, breed, age);
+                  // Navigator.push(
+                  //   context,
+                  //   MaterialPageRoute(
+                  //     builder: (context) =>Home(widget.userID),
+                  //   ),
+                  // );
+                }
+              },
+              child: const Text('Submit', style: TextStyle(color: Colors.white)),
             ),
           ),
         ],

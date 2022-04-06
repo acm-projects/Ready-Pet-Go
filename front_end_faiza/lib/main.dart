@@ -38,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
         showLoader: true,
         loadingText: Text("Loading..."),
         //redirect to page you want it to go
-        navigator: FinishScreen(),
+        navigator: CreateAPet(),
         durationInSeconds: 5,
       )),
       debugShowCheckedModeBanner: false,
