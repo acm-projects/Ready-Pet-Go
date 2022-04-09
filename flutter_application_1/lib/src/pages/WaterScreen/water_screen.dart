@@ -3,11 +3,15 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_application_1/src/provider_functions/newTaskProvider.dart';
 import 'package:flutter_application_1/src/widgets/home.dart';
+
+import '../../models/pets.dart';
 
 class WaterScreen extends StatefulWidget {
   final String userID;
-  const WaterScreen(this.userID, {Key? key}) : super(key: key);
+  final Pet pet;
+  const WaterScreen(this.pet, this.userID, {Key? key}) : super(key: key);
 
   @override
   State<WaterScreen> createState() => _WaterPageState();
@@ -68,9 +72,9 @@ class _WaterPageState extends State<WaterScreen> {
               tooltip: 'Menu',
               onPressed: () {
                 Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: ((context) => Home(widget.userID))));
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) => Home(widget.userID))));
               },
             ),
           ),
@@ -119,6 +123,10 @@ class _WaterPageState extends State<WaterScreen> {
                             } else if (!tapped && !isFilled) {
                               tapped = true;
                               tapWater = 'lib/src/assets/images/OnWater.png';
+                              NewTaskProvider taskProvider =
+                                  NewTaskProvider(widget.pet, widget.userID);
+                              taskProvider.toggleTask('Water');
+                              print("hello");
                             } else {
                               tapped = false;
                               tapWater = 'lib/src/assets/images/TapWater.png';

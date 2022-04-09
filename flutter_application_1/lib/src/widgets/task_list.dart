@@ -39,6 +39,8 @@ class _taskListDisplayState extends State<taskListDisplay> {
     'Play': "lib/src/assets/images/dog_toy.png",
     'Feed': "lib/src/assets/images/dog_food.png",
     'Walk': "lib/src/assets/images/dog_walk.png",
+    'Water':
+        "lib/src/assets/images/91c294f141f9a162e40c82c18c20285830a2fc63.png",
   };
 
 // App widget tree

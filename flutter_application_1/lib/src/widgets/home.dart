@@ -7,6 +7,10 @@ import 'package:flutter_application_1/src/pages/FoodScreen/feeding_screen.dart';
 import 'package:flutter_application_1/src/pages/WalkScreens/walking_tracker_screen.dart';
 import 'package:flutter_application_1/src/pages/WaterScreen/water_screen.dart';
 import 'package:flutter_application_1/src/pages/pet_or_play_screen.dart';
+import 'package:flutter_application_1/src/widgets/CompletedScreen.dart';
+import 'package:flutter_application_1/src/widgets/SplashScreen.dart';
+import 'package:flutter_application_1/src/widgets/authentication.dart';
+import 'package:flutter_application_1/src/widgets/login_page.dart';
 import 'package:flutter_application_1/src/widgets/task_list.dart';
 import '../services/pet_services.dart';
 import '../models/pets.dart';
@@ -20,12 +24,6 @@ import '../icon_widgets/play_icon.dart';
 import '../icon_widgets/walk_icon.dart';
 import '../icon_widgets/water_icon.dart';
 
-// Future<Pet> getPetName(String userID) async {
-//   final petService = PetServices(userID);
-//   Stream<List<Pet>> petStream = petService.getPets();
-//   List<Pet> petList = petStream.first;
-//   return petList[0];
-// }
 Future<String?> getPetNameFromDatabase(String userID) async {
   final petProvider = PetProvider(userID);
   Pet pet = await petProvider.getFirstPet();
@@ -46,15 +44,17 @@ class Home extends StatefulWidget {
   State<Home> createState() => _HomeState();
 }
 
+Future<void> _signOut() async {
+  FirebaseAuth auth = FirebaseAuth.instance;
+  await auth.signOut();
+}
+
 class _HomeState extends State<Home> {
   String petName = "";
-  late Pet pet;
+
   void getPetName() {
     getPetNameFromDatabase(widget.userID).then((value) => setState(() {
           petName = value!;
-        }));
-    bringTestPet(widget.userID).then((value) => setState(() {
-          pet = value;
         }));
   }
 
@@ -69,7 +69,7 @@ class _HomeState extends State<Home> {
   Widget build(BuildContext context) {
     double sWidth = MediaQuery.of(context).size.width;
     double sHeight = MediaQuery.of(context).size.height;
-    String name = pet.name;
+
     return Scaffold(
         appBar: AppBar(
           title: Padding(
@@ -78,10 +78,11 @@ class _HomeState extends State<Home> {
           ),
           backgroundColor: Color(0xFF00A5E0),
           leading: IconButton(
-            icon: Icon(Icons.arrow_back_sharp),
-            tooltip: 'Log Out ',
+            icon: Icon(Icons.logout_sharp),
+            tooltip: 'Log Out ', //IMPLEMENT PLEASE
             onPressed: () {
-              Navigator.of(context).pushReplacementNamed('/HomeScreen');
+              _signOut().then((value) => Navigator.push(context,
+                  MaterialPageRoute(builder: ((context) => LoginPage()))));
             },
           ),
         ),
@@ -99,99 +100,141 @@ class _HomeState extends State<Home> {
                       color: const Color.fromARGB(255, 255, 255, 255),
                     ),
                   ),
-                  Column(children: [
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 20),
-                    ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        //const Padding(padding: EdgeInsets.symmetric(vertical: 90),),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: ((context) =>
-                                        OptionPage(widget.userID))));
-                          },
-                          child: PlayIcon(),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: ((context) =>
-                                        WaterScreen(widget.userID))));
-                          },
-                          child: WaterIcon(),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: ((context) =>
-                                        FeedingScreen(pet, widget.userID))));
-                          },
-                          child: FoodIcon(),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: ((context) =>
-                                        TrackerScreen(widget.userID))));
-                          },
-                          child: WalkIcon(),
-                        ),
-                      ],
-                    ),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 45),
-                    ),
-                    PetImage(),
-                    const Padding(
-                      padding: EdgeInsets.symmetric(vertical: 5),
-                    ),
-                    Text(
-                      '''$petName''',
-                      overflow: TextOverflow.visible,
-                      textAlign: TextAlign.left,
-                      style: TextStyle(
-                        height: 1.171875,
-                        fontSize: 48.0,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.w400,
-                        color: Color.fromARGB(255, 0, 0, 0),
+                  FutureBuilder<Pet>(
+                      future: bringTestPet(widget.userID),
+                      builder: (context, snapshot) {
+                        if (snapshot.hasData) {
+                          var petName = snapshot.data!.name;
+                          var pet = snapshot.data!;
 
-                        /* letterSpacing: 0.0, */
-                      ),
-                    ),
-                    //const Padding(padding: EdgeInsets.symmetric(vertical: 5),),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: [
-                        const Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 3),
-                        ),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: ((context) => taskListDisplay(
-                                        petName, widget.userID))));
-                          },
-                          child: ListIcon(),
-                        ),
-                      ],
-                    )
-                  ]),
+                          return Column(children: [
+                            const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 20),
+                            ),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                //const Padding(padding: EdgeInsets.symmetric(vertical: 90),),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: ((context) => OptionPage(
+                                                pet, widget.userID))));
+                                  },
+                                  child: PlayIcon(),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    if (pet.tasks['Water']) {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: ((context) =>
+                                                  CompletedScreen(
+                                                      widget.userID))));
+                                    } else {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: ((context) =>
+                                                  WaterScreen(
+                                                      pet, widget.userID))));
+                                    }
+                                  },
+                                  child: WaterIcon(),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    if (pet.tasks['Feed']) {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: ((context) =>
+                                                  CompletedScreen(
+                                                      widget.userID))));
+                                    } else {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: ((context) =>
+                                                  FeedingScreen(
+                                                      pet, widget.userID))));
+                                    }
+                                  },
+                                  child: FoodIcon(),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    if (pet.tasks['Walk']) {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: ((context) =>
+                                                  CompletedScreen(
+                                                      widget.userID))));
+                                    } else {
+                                      Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                              builder: ((context) =>
+                                                  TrackerScreen(
+                                                      widget.userID))));
+                                    }
+                                  },
+                                  child: WalkIcon(),
+                                ),
+                              ],
+                            ),
+                            const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 45),
+                            ),
+                            PetImage(),
+                            const Padding(
+                              padding: EdgeInsets.symmetric(vertical: 5),
+                            ),
+                            Text(
+                              '''$petName''',
+                              overflow: TextOverflow.visible,
+                              textAlign: TextAlign.left,
+                              style: TextStyle(
+                                height: 1.171875,
+                                fontSize: 48.0,
+                                fontFamily: 'Roboto',
+                                fontWeight: FontWeight.w400,
+                                color: Color.fromARGB(255, 0, 0, 0),
+
+                                /* letterSpacing: 0.0, */
+                              ),
+                            ),
+                            //const Padding(padding: EdgeInsets.symmetric(vertical: 5),),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                const Padding(
+                                  padding: EdgeInsets.symmetric(horizontal: 3),
+                                ),
+                                GestureDetector(
+                                  onTap: () {
+                                    Navigator.push(
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: ((context) =>
+                                                taskListDisplay(
+                                                    petName, widget.userID))));
+                                  },
+                                  child: ListIcon(),
+                                ),
+                              ],
+                            )
+                          ]);
+                        } else {
+                          return SplashScreen();
+                        }
+                      }),
                 ]),
           ),
         ));

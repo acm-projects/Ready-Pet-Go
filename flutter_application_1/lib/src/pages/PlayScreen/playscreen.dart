@@ -1,21 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_application_1/src/provider_functions/newTaskProvider.dart';
 import 'dart:math';
 
 import '../../models/pets.dart';
 import '../pet_or_play_screen.dart';
 
-class PettingScreen extends StatefulWidget {
-  final String userID;
+class PlayingScreen extends StatefulWidget {
   final Pet pet;
-  const PettingScreen(this.pet, this.userID, {Key? key}) : super(key: key);
+  final String userID;
+  const PlayingScreen(this.pet, this.userID, {Key? key}) : super(key: key);
 
   @override
-  State<PettingScreen> createState() => _PettingPageState();
+  State<PlayingScreen> createState() => _PlayingPage();
 }
 
-class _PettingPageState extends State<PettingScreen> {
+class _PlayingPage extends State<PlayingScreen> {
   @override
   void initState() {
     super.initState();
@@ -23,7 +24,7 @@ class _PettingPageState extends State<PettingScreen> {
 
   double top = 120;
   double left = 120;
-  String text = 'Drag the hand to pet your pet';
+  String text = 'Drag a toy to your pet';
   bool setPos = false;
   String image =
       "lib/src/assets/images/e69f6fd7c61b7fca781861df8b44a3c877d16753.png";
@@ -32,9 +33,9 @@ class _PettingPageState extends State<PettingScreen> {
   var happyPet = [
     'Awwww, your pet looks happy!!!',
     'Your pet is loving it!!!',
-    'Don\'t stop petting!!!',
-    'You are giving your pet the zoomies!!!',
-    'You are such a great petter!!!'
+    'Your pet is having fun!',
+    'Your pet is getting zoomies!!!',
+    'Woohoo!!!'
   ];
 
   String getRandText() {
@@ -52,7 +53,7 @@ class _PettingPageState extends State<PettingScreen> {
             appBar: AppBar(
               title: Padding(
                 padding: const EdgeInsets.only(left: 65.0),
-                child: Text('Petting Time'),
+                child: Text('Playing Time'),
               ),
               backgroundColor: Color(0xFF00A5E0),
               leading: IconButton(
@@ -62,7 +63,8 @@ class _PettingPageState extends State<PettingScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: ((context) => OptionPage(widget.pet, widget.userID))));
+                          builder: ((context) =>
+                              OptionPage(widget.pet, widget.userID))));
                 },
               ),
             ),
@@ -98,43 +100,86 @@ class _PettingPageState extends State<PettingScreen> {
                               const Padding(
                                 padding: EdgeInsets.symmetric(vertical: 20),
                               ),
-                              Draggable<bool>(
-                                // Data is the value this Draggable stores.
-                                data: true,
-                                feedback: Container(
-                                  child: ClipRRect(
-                                    child: Container(
-                                      width: 100,
-                                      height: 54,
-                                      child: Image.asset(
-                                        "lib/src/assets/images/Hand.png",
-                                        color: null,
-                                        fit: BoxFit.cover,
-                                        colorBlendMode: BlendMode.dstATop,
+                              Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceEvenly,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Draggable<bool>(
+                                      // Data is the value this Draggable stores.
+                                      data: true,
+                                      feedback: Container(
+                                        child: ClipRRect(
+                                          child: Container(
+                                            width: 100,
+                                            height: 100,
+                                            child: Image.asset(
+                                              "lib/src/assets/images/Toy.png",
+                                              color: null,
+                                              fit: BoxFit.cover,
+                                              colorBlendMode: BlendMode.dstATop,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      childWhenDragging: Container(
+                                        height: 100,
+                                        width: 100,
+                                      ),
+                                      maxSimultaneousDrags: 1,
+                                      child: Container(
+                                        child: ClipRRect(
+                                          child: Container(
+                                            width: 100,
+                                            height: 100,
+                                            child: Image.asset(
+                                              "lib/src/assets/images/Toy.png",
+                                              color: null,
+                                              fit: BoxFit.cover,
+                                              colorBlendMode: BlendMode.dstATop,
+                                            ),
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ),
-                                childWhenDragging: Container(
-                                  height: 54,
-                                  width: 100,
-                                ),
-                                maxSimultaneousDrags: 1,
-                                child: Container(
-                                  child: ClipRRect(
-                                    child: Container(
-                                      width: 100,
-                                      height: 54,
-                                      child: Image.asset(
-                                        "lib/src/assets/images/Hand.png",
-                                        color: null,
-                                        fit: BoxFit.cover,
-                                        colorBlendMode: BlendMode.dstATop,
+                                    Draggable<bool>(
+                                      // Data is the value this Draggable stores.
+                                      data: true,
+                                      feedback: Container(
+                                        child: ClipRRect(
+                                          child: Container(
+                                            width: 100,
+                                            height: 100,
+                                            child: Image.asset(
+                                              "lib/src/assets/images/Ball.png",
+                                              color: null,
+                                              fit: BoxFit.cover,
+                                              colorBlendMode: BlendMode.dstATop,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      childWhenDragging: Container(
+                                        height: 100,
+                                        width: 100,
+                                      ),
+                                      maxSimultaneousDrags: 1,
+                                      child: Container(
+                                        child: ClipRRect(
+                                          child: Container(
+                                            width: 100,
+                                            height: 100,
+                                            child: Image.asset(
+                                              "lib/src/assets/images/Ball.png",
+                                              color: null,
+                                              fit: BoxFit.cover,
+                                              colorBlendMode: BlendMode.dstATop,
+                                            ),
+                                          ),
+                                        ),
                                       ),
                                     ),
-                                  ),
-                                ),
-                              ),
+                                  ]),
 
                               //const Padding(padding: EdgeInsets.symmetric(vertical: 10),),
 
@@ -173,6 +218,10 @@ class _PettingPageState extends State<PettingScreen> {
                                       image =
                                           "lib/src/assets/images/HappyDog.png";
                                       text = getRandText();
+                                      NewTaskProvider taskProvider =
+                                          NewTaskProvider(
+                                              widget.pet, widget.userID);
+                                      taskProvider.toggleTask('Play');
                                     }
                                   });
                                 },

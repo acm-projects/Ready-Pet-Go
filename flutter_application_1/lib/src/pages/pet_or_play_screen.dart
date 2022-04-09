@@ -2,11 +2,16 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_application_1/src/pages/PettingScreen/petting_screen.dart';
+import 'package:flutter_application_1/src/pages/PlayScreen/playscreen.dart';
 import 'package:flutter_application_1/src/widgets/home.dart';
 
+import '../models/pets.dart';
+import '../widgets/CompletedScreen.dart';
+
 class OptionPage extends StatefulWidget {
+  final Pet pet;
   final String userID;
-  const OptionPage(this.userID, {Key? key}) : super(key: key);
+  const OptionPage(this.pet, this.userID, {Key? key}) : super(key: key);
   @override
   State<OptionPage> createState() => _OptionPageState();
 }
@@ -34,8 +39,10 @@ class _OptionPageState extends State<OptionPage> {
                 icon: Icon(Icons.arrow_back_sharp),
                 tooltip: 'Menu',
                 onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: ((context) => Home(widget.userID))));
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => Home(widget.userID))));
                 },
               ),
             ),
@@ -76,9 +83,11 @@ class _OptionPageState extends State<OptionPage> {
                                   ),
                                   onPressed: () {
                                     Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: ((context) => PettingScreen(widget.userID))));
+                                        context,
+                                        MaterialPageRoute(
+                                            builder: ((context) =>
+                                                PettingScreen(widget.pet,
+                                                    widget.userID))));
                                   }),
                             ),
                             const Padding(
@@ -104,7 +113,20 @@ class _OptionPageState extends State<OptionPage> {
                                       ),
                                     ),
                                     onPressed: () {
-                                      //to be implemented?
+                                      if (widget.pet.tasks['Play']) {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: ((context) =>
+                                                    CompletedScreen(widget.userID))));
+                                      } else {
+                                        Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: ((context) =>
+                                                    PlayingScreen(widget.pet,
+                                                        widget.userID))));
+                                      }
                                     })),
                           ]),
                     ]),

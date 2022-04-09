@@ -26,9 +26,10 @@ class PetProvider with ChangeNotifier {
         breed: breed,
         expenses: {},
         tasks: {
-          'Feed dog': false,
-          'Walk dog': false,
-          'Play dog': false,
+          'Feed': false,
+          'Walk': false,
+          'Play': false,
+          'Water': false,
         });
     petService.setPet(userId, newPet);
     //print(newPet.breed);
