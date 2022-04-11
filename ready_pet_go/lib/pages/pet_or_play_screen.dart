@@ -24,7 +24,7 @@ class _OptionPageState extends State<OptionPage>{
         home: Scaffold(
             appBar: AppBar(
               title: Padding(
-                padding: const EdgeInsets.only(left: 85.0),
+                padding: const EdgeInsets.only(left: 100.0),
                 child: Text('Options'),
               ),
               backgroundColor: Color(0xFF00A5E0),

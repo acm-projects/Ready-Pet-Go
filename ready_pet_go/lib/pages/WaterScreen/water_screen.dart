@@ -3,9 +3,6 @@ import 'dart:async';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-
-import '../../main.dart';
 
 class WaterScreen extends StatefulWidget{
   const WaterScreen({Key? key}) : super(key: key);
@@ -23,6 +20,7 @@ class _WaterPageState extends State<WaterScreen>{
 
   String tapWater = 'assets/images/TapWater.png';
   String bowlState = 'assets/images/DogBowl.png';
+  String text = "Tap screen to fill the water bowl";
   bool tapped = false;
   bool started = false;
   bool isFilled = false;
@@ -35,13 +33,14 @@ class _WaterPageState extends State<WaterScreen>{
         if(tapped) {
           _counter--;
           if (_counter == 0) {
+            text = 'Great job! You filled the water bowl!';
             _timer.cancel();
             isFilled = true;
             tapped = false;
             started = false;
             tapWater = 'assets/images/TapWaterWithCheck.png';
             bowlState = 'assets/images/FilledBowl.png';
-            localNotifications.show(
+            /*localNotifications.show(
                 1,
                 "No Longer Empty",
                 "You filled the water bowl",
@@ -55,10 +54,12 @@ class _WaterPageState extends State<WaterScreen>{
                       icon: '@mipmap/launcher_icon'
                   ),
                 )
-            );
+            );*/
           } else if (_counter < 3) {
+            text = 'Just wait, it\'s almost done';
             bowlState = 'assets/images/DogBowlPt2.png';
           } else if(_counter < 5) {
+            text = 'It\'s filling up';
             bowlState = 'assets/images/DogBowlPt1.png';
           }
         }
@@ -77,7 +78,7 @@ class _WaterPageState extends State<WaterScreen>{
       home: Scaffold(
         appBar: AppBar(
           title: Padding(
-            padding: const EdgeInsets.only(left: 85.0),
+            padding: const EdgeInsets.only(left: 90.0),
             child: Text('Water Time'),
           ),
           backgroundColor: Color(0xFF00A5E0),
@@ -108,7 +109,7 @@ class _WaterPageState extends State<WaterScreen>{
                   Align(
                     alignment: Alignment(0.0, -0.9),
                     child: Text(
-                      '''Tap the screen to give the dog water''',
+                      text,
                       overflow: TextOverflow.visible,
                       textAlign: TextAlign.center,
                       style: TextStyle(

@@ -31,13 +31,13 @@ class _HomePageState extends State<HomePage>{
       home: Scaffold(
           appBar: AppBar(
             title: Padding(
-              padding: const EdgeInsets.only(left: 85.0),
-              child: Text('Home Screen'),
+              padding: const EdgeInsets.only(left: 90.0),
+              child: Text('Main Menu'),
             ),
             backgroundColor: Color(0xFF00A5E0),
             leading: IconButton(
               icon: Icon(Icons.arrow_back_sharp),
-              tooltip: 'Log Out ',
+              tooltip: 'Log Out',
               onPressed: () {
                 Navigator.of(context).pushReplacementNamed('/HomeScreen');
               },

@@ -39,7 +39,7 @@ class _PettingPageState extends State<PettingScreen>{
         home: Scaffold(
             appBar: AppBar(
               title: Padding(
-                padding: const EdgeInsets.only(left: 65.0),
+                padding: const EdgeInsets.only(left: 80.0),
                 child: Text('Petting Time'),
               ),
               backgroundColor: Color(0xFF00A5E0),

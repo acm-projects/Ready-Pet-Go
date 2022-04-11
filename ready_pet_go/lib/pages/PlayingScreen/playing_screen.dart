@@ -19,16 +19,19 @@ class _PlayingPage extends State<PlayingScreen>{
   double top = 120;
   double left = 120;
   String text = 'Drag a toy to your pet';
+  String toy = '';
   bool setPos = false;
   String image = "assets/images/e69f6fd7c61b7fca781861df8b44a3c877d16753.png";
-  bool acceptedData = false;
 
   var happyPet = ['Awwww, your pet looks happy!!!', 'Your pet is loving it!!!', 'Your pet is having fun!', 'Your pet is getting zoomies!!!', 'Woohoo!!!'];
 
   String getRandText(){
     var random = new Random();
-    int index = random.nextInt(happyPet.length);
-    return happyPet[index];
+    int index = random.nextInt(happyPet.length + 1);
+    if(index == happyPet.length)
+      return 'You and your pet played with ' + toy;
+    else
+      return happyPet[index];
   }
 
   Widget build(BuildContext context){
@@ -39,7 +42,7 @@ class _PlayingPage extends State<PlayingScreen>{
         home: Scaffold(
             appBar: AppBar(
               title: Padding(
-                padding: const EdgeInsets.only(left: 65.0),
+                padding: const EdgeInsets.only(left: 80.0),
                 child: Text('Playing Time'),
               ),
               backgroundColor: Color(0xFF00A5E0),
@@ -85,9 +88,9 @@ class _PlayingPage extends State<PlayingScreen>{
                                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children:[
-                                  Draggable<bool>(
+                                  Draggable<String>(
                                     // Data is the value this Draggable stores.
-                                    data: true,
+                                    data: 'rope',
                                     feedback: Container(
                                       child: ClipRRect(
                                         child: Container(
@@ -122,9 +125,9 @@ class _PlayingPage extends State<PlayingScreen>{
                                       ),
                                     ),
                                   ),
-                                  Draggable<bool>(
+                                  Draggable<String>(
                                     // Data is the value this Draggable stores.
-                                    data: true,
+                                    data: 'ball',
                                     feedback: Container(
                                       child: ClipRRect(
                                         child: Container(
@@ -166,7 +169,7 @@ class _PlayingPage extends State<PlayingScreen>{
 
                               const Padding(padding: EdgeInsets.symmetric(vertical: 60),),
 
-                              DragTarget<bool>(
+                              DragTarget<String>(
                                 builder: (
                                     BuildContext context,
                                     List<dynamic> accepted,
@@ -190,13 +193,11 @@ class _PlayingPage extends State<PlayingScreen>{
                                     ),
                                   );
                                 },
-                                onAccept: (bool data) {
+                                onAccept: (String data) {
                                   setState(() {
-                                    acceptedData = data;
-                                    if(acceptedData) {
-                                      image = "assets/images/HappyDog.png";
-                                      text = getRandText();
-                                    }
+                                    toy = data;
+                                    image = "assets/images/HappyDog.png";
+                                    text = getRandText();
                                   });
                                 },),
                             ]

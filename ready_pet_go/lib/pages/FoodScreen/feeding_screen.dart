@@ -1,9 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_local_notifications/flutter_local_notifications.dart';
-
-import '../../main.dart';
 
 class FeedingScreen extends StatefulWidget{
   const FeedingScreen({Key? key}) : super(key: key);
@@ -20,6 +17,7 @@ class _FeedingPageState extends State<FeedingScreen>{
   }
   bool acceptedData = false;
   String bowl = 'assets/images/DogBowl.png';
+  String text = 'Drag the food to the bowl';
   @override
   Widget build(BuildContext context){
     double sWidth = MediaQuery.of(context).size.width;
@@ -29,7 +27,7 @@ class _FeedingPageState extends State<FeedingScreen>{
         home: Scaffold(
             appBar: AppBar(
               title: Padding(
-                padding: const EdgeInsets.only(left: 65.0),
+                padding: const EdgeInsets.only(left: 75.0),
                 child: Text('Feeding Time'),
               ),
               backgroundColor: Color(0xFF00A5E0),
@@ -53,7 +51,7 @@ class _FeedingPageState extends State<FeedingScreen>{
                         Align(
                           alignment: Alignment(0.0, -0.9),
                           child: Text(
-                            '''Drag the food to the bowl''',
+                            text,
                             overflow: TextOverflow.visible,
                             textAlign: TextAlign.center,
                             style: TextStyle(
@@ -175,7 +173,7 @@ class _FeedingPageState extends State<FeedingScreen>{
                                   );
                                 },
                                 onAccept: (bool data) {
-                                  localNotifications.show(
+                                  /*localNotifications.show(
                                       1,
                                       "Yummy!!!",
                                       "You fed your pet",
@@ -189,8 +187,9 @@ class _FeedingPageState extends State<FeedingScreen>{
                                             icon: '@mipmap/launcher_icon'
                                         ),
                                       )
-                                  );
+                                  );*/
                                   setState(() {
+                                    text = 'Food is ready!!!';
                                     acceptedData = data;
                                     if(acceptedData)
                                       bowl = 'assets/images/FoodBowl.png';
