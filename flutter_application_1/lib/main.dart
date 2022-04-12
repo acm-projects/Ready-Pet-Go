@@ -2,8 +2,8 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 
-import 'package:flutter_application_1/src/widgets/authentication.dart';
-import 'package:flutter_application_1/src/widgets/login_page.dart';
+
+import 'package:flutter_application_1/src/widgets/login_screen.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -13,6 +13,6 @@ void main() async {
   );
   runApp(const MaterialApp(
     title: 'Firebase Demo',
-    home: LoginPage(),
+    home: LoginScreen(),
   ));
 }

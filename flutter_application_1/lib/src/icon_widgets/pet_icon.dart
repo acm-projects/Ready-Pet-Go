@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
-class PetImage extends StatelessWidget {
-  const PetImage({Key? key}) : super(key: key);
+class PetIcon extends StatelessWidget {
+  const PetIcon({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

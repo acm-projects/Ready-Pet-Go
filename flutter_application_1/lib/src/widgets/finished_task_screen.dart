@@ -1,18 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_application_1/src/widgets/home.dart';
+import 'package:flutter_application_1/src/widgets/home_screen.dart';
 
-class CompletedScreen extends StatefulWidget {
+class FinishedTaskScreen extends StatefulWidget {
   final String userID;
 
-  const CompletedScreen(this.userID, {Key? key}) : super(key: key);
+  const FinishedTaskScreen(this.userID, {Key? key}) : super(key: key);
 
   @override
-  State<CompletedScreen> createState() => _CompleteState();
+  State<FinishedTaskScreen> createState() => _CompleteState();
 }
 
-class _CompleteState extends State<CompletedScreen> {
+class _CompleteState extends State<FinishedTaskScreen> {
   @override
   void initState() {
     super.initState();
@@ -37,7 +37,7 @@ class _CompleteState extends State<CompletedScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: ((context) => Home(widget.userID))));
+                          builder: ((context) => HomeScreen(widget.userID))));
                 },
               ),
             ),

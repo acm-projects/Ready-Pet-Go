@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_application_1/src/widgets/home.dart';
+import 'package:flutter_application_1/src/widgets/home_screen.dart';
 
 class TrackerScreen extends StatefulWidget {
   final String userID;
@@ -41,7 +41,7 @@ class _TrackingState extends State<TrackerScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: ((context) => Home(widget.userID))));
+                          builder: ((context) => HomeScreen(widget.userID))));
                 },
               ),
             ),

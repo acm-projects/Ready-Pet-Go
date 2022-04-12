@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'dart:math';
 
-import '../../models/pets.dart';
-import '../pet_or_play_screen.dart';
+import '../models/pets.dart';
+import 'pet_or_play_screen.dart';
 
 class PettingScreen extends StatefulWidget {
   final String userID;
@@ -62,7 +62,7 @@ class _PettingPageState extends State<PettingScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: ((context) => OptionPage(widget.pet, widget.userID))));
+                          builder: ((context) => PetOrPlayScreen(widget.pet, widget.userID))));
                 },
               ),
             ),

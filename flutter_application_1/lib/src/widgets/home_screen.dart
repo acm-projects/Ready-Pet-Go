@@ -3,23 +3,23 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_application_1/src/pages/FoodScreen/feeding_screen.dart';
-import 'package:flutter_application_1/src/pages/WalkScreens/walking_tracker_screen.dart';
-import 'package:flutter_application_1/src/pages/WaterScreen/water_screen.dart';
-import 'package:flutter_application_1/src/pages/pet_or_play_screen.dart';
-import 'package:flutter_application_1/src/widgets/CompletedScreen.dart';
-import 'package:flutter_application_1/src/widgets/SplashScreen.dart';
-import 'package:flutter_application_1/src/widgets/authentication.dart';
-import 'package:flutter_application_1/src/widgets/login_page.dart';
-import 'package:flutter_application_1/src/widgets/task_list.dart';
+import 'package:flutter_application_1/src/widgets/feed_screen.dart';
+import 'package:flutter_application_1/src/widgets/walking_tracker_screen.dart';
+import 'package:flutter_application_1/src/widgets/water_screen.dart';
+import 'package:flutter_application_1/src/widgets/pet_or_play_screen.dart';
+import 'package:flutter_application_1/src/widgets/finished_task_screen.dart';
+import 'package:flutter_application_1/src/widgets/loading_screen.dart';
+
+import 'package:flutter_application_1/src/widgets/login_screen.dart';
+import 'package:flutter_application_1/src/widgets/task_screen.dart';
 import '../services/pet_services.dart';
 import '../models/pets.dart';
 
-import '../provider_functions/petProvider.dart';
+import '../provider_functions/pet_provider.dart';
 
 import '../icon_widgets/food_icon.dart';
 import '../icon_widgets/list_icon.dart';
-import '../icon_widgets/pet_screen.dart';
+import '../icon_widgets/pet_icon.dart';
 import '../icon_widgets/play_icon.dart';
 import '../icon_widgets/walk_icon.dart';
 import '../icon_widgets/water_icon.dart';
@@ -37,11 +37,11 @@ Future<Pet> bringTestPet(String userId) async {
   return fPet;
 }
 
-class Home extends StatefulWidget {
+class HomeScreen extends StatefulWidget {
   final String userID;
-  const Home(this.userID, {Key? key}) : super(key: key);
+  const HomeScreen(this.userID, {Key? key}) : super(key: key);
   @override
-  State<Home> createState() => _HomeState();
+  State<HomeScreen> createState() => _HomeScreenState();
 }
 
 Future<void> _signOut() async {
@@ -49,7 +49,7 @@ Future<void> _signOut() async {
   await auth.signOut();
 }
 
-class _HomeState extends State<Home> {
+class _HomeScreenState extends State<HomeScreen> {
   String petName = "";
 
   void getPetName() {
@@ -82,7 +82,7 @@ class _HomeState extends State<Home> {
             tooltip: 'Log Out ', //IMPLEMENT PLEASE
             onPressed: () {
               _signOut().then((value) => Navigator.push(context,
-                  MaterialPageRoute(builder: ((context) => LoginPage()))));
+                  MaterialPageRoute(builder: ((context) => LoginScreen()))));
             },
           ),
         ),
@@ -121,7 +121,7 @@ class _HomeState extends State<Home> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: ((context) => OptionPage(
+                                            builder: ((context) => PetOrPlayScreen(
                                                 pet, widget.userID))));
                                   },
                                   child: PlayIcon(),
@@ -133,7 +133,7 @@ class _HomeState extends State<Home> {
                                           context,
                                           MaterialPageRoute(
                                               builder: ((context) =>
-                                                  CompletedScreen(
+                                                  FinishedTaskScreen(
                                                       widget.userID))));
                                     } else {
                                       Navigator.push(
@@ -153,14 +153,14 @@ class _HomeState extends State<Home> {
                                           context,
                                           MaterialPageRoute(
                                               builder: ((context) =>
-                                                  CompletedScreen(
+                                                  FinishedTaskScreen(
                                                       widget.userID))));
                                     } else {
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
                                               builder: ((context) =>
-                                                  FeedingScreen(
+                                                  FeedScreen(
                                                       pet, widget.userID))));
                                     }
                                   },
@@ -173,7 +173,7 @@ class _HomeState extends State<Home> {
                                           context,
                                           MaterialPageRoute(
                                               builder: ((context) =>
-                                                  CompletedScreen(
+                                                  FinishedTaskScreen(
                                                       widget.userID))));
                                     } else {
                                       Navigator.push(
@@ -191,7 +191,7 @@ class _HomeState extends State<Home> {
                             const Padding(
                               padding: EdgeInsets.symmetric(vertical: 45),
                             ),
-                            PetImage(),
+                            PetIcon(),
                             const Padding(
                               padding: EdgeInsets.symmetric(vertical: 5),
                             ),
@@ -223,7 +223,7 @@ class _HomeState extends State<Home> {
                                         context,
                                         MaterialPageRoute(
                                             builder: ((context) =>
-                                                taskListDisplay(
+                                                TaskScreen(
                                                     petName, widget.userID))));
                                   },
                                   child: ListIcon(),
@@ -232,7 +232,7 @@ class _HomeState extends State<Home> {
                             )
                           ]);
                         } else {
-                          return SplashScreen();
+                          return LoadingScreen();
                         }
                       }),
                 ]),

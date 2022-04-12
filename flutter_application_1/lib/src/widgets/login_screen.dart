@@ -4,11 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
 import 'auth_process.dart';
 
-import '../provider_functions/authentication_services.dart';
-import 'home.dart';
+import '../services/authentication_services.dart';
+import 'home_screen.dart';
 
-class LoginPage extends StatelessWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({Key? key}) : super(key: key);
 
   // Duration get loginTime => const Duration(milliseconds: 200);
 

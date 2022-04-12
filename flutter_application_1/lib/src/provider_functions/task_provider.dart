@@ -4,11 +4,11 @@ import 'package:flutter_application_1/src/models/pets.dart';
 
 import 'package:flutter_application_1/src/services/pet_services.dart';
 
-class NewTaskProvider {
+class TaskProvider {
   Pet pet;
   final String userId;
   
-  NewTaskProvider(this.pet, this.userId);
+  TaskProvider(this.pet, this.userId);
 
   void toggleTask(taskName) {
     final petService = PetServices(userId);

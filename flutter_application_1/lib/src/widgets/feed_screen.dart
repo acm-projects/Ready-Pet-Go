@@ -1,21 +1,21 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_application_1/src/provider_functions/newTaskProvider.dart';
-import 'package:flutter_application_1/src/widgets/home.dart';
+import 'package:flutter_application_1/src/provider_functions/task_provider.dart';
+import 'package:flutter_application_1/src/widgets/home_screen.dart';
 
-import '../../models/pets.dart';
+import '../models/pets.dart';
 
-class FeedingScreen extends StatefulWidget {
+class FeedScreen extends StatefulWidget {
   final String userID;
   final Pet pet;
-  const FeedingScreen(this.pet, this.userID, {Key? key}) : super(key: key);
+  const FeedScreen(this.pet, this.userID, {Key? key}) : super(key: key);
 
   @override
-  State<FeedingScreen> createState() => _FeedingPageState();
+  State<FeedScreen> createState() => _FeedingPageState();
 }
 
-class _FeedingPageState extends State<FeedingScreen> {
+class _FeedingPageState extends State<FeedScreen> {
   @override
   void initState() {
     super.initState();
@@ -43,7 +43,7 @@ class _FeedingPageState extends State<FeedingScreen> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: ((context) => Home(widget.userID))));
+                          builder: ((context) => HomeScreen(widget.userID))));
                 },
               ),
             ),
@@ -185,7 +185,7 @@ class _FeedingPageState extends State<FeedingScreen> {
                                   setState(() {
                                     acceptedData = data;
                                     if (acceptedData) {
-                                      var taskProvider = NewTaskProvider(
+                                      var taskProvider = TaskProvider(
                                           widget.pet, widget.userID);
                                       taskProvider.toggleTask('Feed');
                                       bowl =

@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/src/provider_functions/petProvider.dart';
-import 'package:flutter_application_1/src/widgets/home.dart';
-import 'package:flutter_application_1/src/widgets/petDisplay.dart';
+import 'package:flutter_application_1/src/provider_functions/pet_provider.dart';
+import 'package:flutter_application_1/src/widgets/home_screen.dart';
 import '../models/pets.dart';
 
-class PetCreator extends StatefulWidget {
+class PetRegisterScreen extends StatefulWidget {
   final String userID;
 
-  const PetCreator(this.userID, {Key? key}) : super(key: key);
+  const PetRegisterScreen(this.userID, {Key? key}) : super(key: key);
 
   @override
-  _PetCreatorState createState() => _PetCreatorState();
+  _PetRegisterScreenState createState() => _PetRegisterScreenState();
 }
 
-class _PetCreatorState extends State<PetCreator> {
+class _PetRegisterScreenState extends State<PetRegisterScreen> {
   DateTime? selectedDate;
   Pet? pet;
 
@@ -127,7 +126,7 @@ class _PetCreatorState extends State<PetCreator> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => Home(widget.userID)));
+                              builder: (context) => HomeScreen(widget.userID)));
 
                       // await petProvider.initializePet(name, breed, int.parse(age));
                       // registerPet(widget.userID, name, breed, age);

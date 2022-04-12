@@ -1,22 +1,22 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_application_1/src/pages/PettingScreen/petting_screen.dart';
-import 'package:flutter_application_1/src/pages/PlayScreen/playscreen.dart';
-import 'package:flutter_application_1/src/widgets/home.dart';
+import 'package:flutter_application_1/src/widgets/petting_screen.dart';
+import 'package:flutter_application_1/src/widgets/playscreen.dart';
+import 'package:flutter_application_1/src/widgets/home_screen.dart';
 
 import '../models/pets.dart';
-import '../widgets/CompletedScreen.dart';
+import 'finished_task_screen.dart';
 
-class OptionPage extends StatefulWidget {
+class PetOrPlayScreen extends StatefulWidget {
   final Pet pet;
   final String userID;
-  const OptionPage(this.pet, this.userID, {Key? key}) : super(key: key);
+  const PetOrPlayScreen(this.pet, this.userID, {Key? key}) : super(key: key);
   @override
-  State<OptionPage> createState() => _OptionPageState();
+  State<PetOrPlayScreen> createState() => _PetOrPlayScreenState();
 }
 
-class _OptionPageState extends State<OptionPage> {
+class _PetOrPlayScreenState extends State<PetOrPlayScreen> {
   @override
   void initState() {
     super.initState();
@@ -42,7 +42,7 @@ class _OptionPageState extends State<OptionPage> {
                   Navigator.push(
                       context,
                       MaterialPageRoute(
-                          builder: ((context) => Home(widget.userID))));
+                          builder: ((context) => HomeScreen(widget.userID))));
                 },
               ),
             ),
@@ -118,7 +118,7 @@ class _OptionPageState extends State<OptionPage> {
                                             context,
                                             MaterialPageRoute(
                                                 builder: ((context) =>
-                                                    CompletedScreen(widget.userID))));
+                                                    FinishedTaskScreen(widget.userID))));
                                       } else {
                                         Navigator.push(
                                             context,

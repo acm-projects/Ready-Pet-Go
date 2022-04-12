@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/src/provider_functions/newTaskProvider.dart';
-import 'package:flutter_application_1/src/provider_functions/petProvider.dart';
+import 'package:flutter_application_1/src/provider_functions/task_provider.dart';
+import 'package:flutter_application_1/src/provider_functions/pet_provider.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_application_1/src/widgets/home.dart';
+import 'package:flutter_application_1/src/widgets/home_screen.dart';
 import '../models/pets.dart';
 
 // importing material design library
@@ -15,16 +15,16 @@ Future<Pet> bringTestPet(String userId) async {
   return fPet;
 }
 
-class taskListDisplay extends StatefulWidget {
+class TaskScreen extends StatefulWidget {
   final String userId;
   final String petName;
-  const taskListDisplay(this.petName, this.userId, {Key? key})
+  const TaskScreen(this.petName, this.userId, {Key? key})
       : super(key: key);
   @override
-  _taskListDisplayState createState() => _taskListDisplayState();
+  _TaskScreenState createState() => _TaskScreenState();
 }
 
-class _taskListDisplayState extends State<taskListDisplay> {
+class _TaskScreenState extends State<TaskScreen> {
   late Future<Pet> futurePet;
   @override
   initState() {
@@ -62,7 +62,7 @@ class _taskListDisplayState extends State<taskListDisplay> {
                 Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: ((context) => Home(widget.userId))));
+                        builder: ((context) => HomeScreen(widget.userId))));
               },
             ), //IconButton
           ), //AppBar
@@ -72,7 +72,7 @@ class _taskListDisplayState extends State<taskListDisplay> {
               if (snapshot.hasData) {
                 FirebaseAuth auth = FirebaseAuth.instance;
                 var userID = auth.currentUser!.uid;
-                final taskProvider = NewTaskProvider(snapshot.data!, userID);
+                final taskProvider = TaskProvider(snapshot.data!, userID);
                 // print(snapshot.data!.petId.toString());
                 Map tasks = snapshot.data!.tasks;
                 List<Widget> widgetList = <Widget>[];

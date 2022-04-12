@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'petCreationWidget.dart';
+import 'pet_register_screen.dart';
 
 
-import 'home.dart';
+import 'home_screen.dart';
 
 class AuthProcess extends StatefulWidget {
   final String userID;
@@ -38,7 +38,7 @@ class _AuthProcessState extends State<AuthProcess> {
           context,
           MaterialPageRoute(
             builder: (BuildContext context) {
-              return Home(widget.userID);
+              return HomeScreen(widget.userID);
             },
           ),
         );
@@ -47,7 +47,7 @@ class _AuthProcessState extends State<AuthProcess> {
           context,
           MaterialPageRoute(
             builder: (BuildContext context) {
-              return PetCreator(widget.userID);
+              return PetRegisterScreen(widget.userID);
             },
           ),
         );

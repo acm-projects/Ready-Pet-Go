@@ -1,11 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:flutter_application_1/src/provider_functions/newTaskProvider.dart';
+import 'package:flutter_application_1/src/provider_functions/task_provider.dart';
 import 'dart:math';
 
-import '../../models/pets.dart';
-import '../pet_or_play_screen.dart';
+import '../models/pets.dart';
+import 'pet_or_play_screen.dart';
 
 class PlayingScreen extends StatefulWidget {
   final Pet pet;
@@ -64,7 +64,7 @@ class _PlayingPage extends State<PlayingScreen> {
                       context,
                       MaterialPageRoute(
                           builder: ((context) =>
-                              OptionPage(widget.pet, widget.userID))));
+                              PetOrPlayScreen(widget.pet, widget.userID))));
                 },
               ),
             ),
@@ -218,8 +218,8 @@ class _PlayingPage extends State<PlayingScreen> {
                                       image =
                                           "lib/src/assets/images/HappyDog.png";
                                       text = getRandText();
-                                      NewTaskProvider taskProvider =
-                                          NewTaskProvider(
+                                      TaskProvider taskProvider =
+                                          TaskProvider(
                                               widget.pet, widget.userID);
                                       taskProvider.toggleTask('Play');
                                     }
