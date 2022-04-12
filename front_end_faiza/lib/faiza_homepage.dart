@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:front_end_faiza/food_icon.dart';
 import 'package:front_end_faiza/list_icon.dart';
 import 'package:front_end_faiza/play_icon.dart';
@@ -29,15 +27,17 @@ class _HomePageState extends State<HomePage>{
     double sHeight = MediaQuery.of(context).size.height;
     return MaterialApp(
         debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'Nunito'),
       home: Scaffold(
           appBar: AppBar(
             title: Padding(
               padding: const EdgeInsets.only(left: 85.0),
-              child: Text('Home Screen'),
+              child: Text('Home Screen', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700),),
             ),
-            backgroundColor: Color(0xFF00A5E0),
+            backgroundColor: Colors.white,
+            elevation: 0,
             leading: IconButton(
-              icon: Icon(Icons.arrow_back_sharp),
+              icon: Icon(Icons.arrow_back_sharp, color: Colors.black, size: 30),
               tooltip: 'Log Out ',
               onPressed: () {
                 Navigator.of(context).pushReplacementNamed('/HomeScreen');
@@ -103,8 +103,8 @@ class _HomePageState extends State<HomePage>{
                         style: TextStyle(
                           height: 1.171875,
                           fontSize: 48.0,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.w400,
+                          //fontFamily: 'Nunito',
+                          fontWeight: FontWeight.w700,
                           color: Color.fromARGB(255, 0, 0, 0),
 
                           /* letterSpacing: 0.0, */

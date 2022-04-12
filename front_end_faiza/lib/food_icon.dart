@@ -16,7 +16,7 @@ class FoodIcon extends StatelessWidget{
           width: 65.0,
           height: 64.0,
           child: Image.asset(
-            "assets/images/8d995a431eb0a65ffb2e71117c684dcb438d10b6.png",
+            "assets/images/tempfood.png",
             color: null,
             fit: BoxFit.cover,
             width: 49,

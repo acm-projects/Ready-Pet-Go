@@ -12,7 +12,7 @@ class ListIcon extends StatelessWidget{
           width: 100.0,
           height: 100.0,
           child: Image.asset(
-            "assets/images/Task.png",
+            "assets/images/temptasks.png",
             color: null,
             width: 30,
             height: 5,

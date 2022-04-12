@@ -16,7 +16,7 @@ class WalkIcon extends StatelessWidget{
           width: 65.0,
           height: 64.0,
           child: Image.asset(
-            "assets/images/Walk.png",
+            "assets/images/tempwalk2.png",
             color: null,
             width: 30,
             height: 5,
