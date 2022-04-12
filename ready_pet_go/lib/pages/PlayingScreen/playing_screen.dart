@@ -41,10 +41,8 @@ class _PlayingPage extends State<PlayingScreen>{
         debugShowCheckedModeBanner: false,
         home: Scaffold(
             appBar: AppBar(
-              title: Padding(
-                padding: const EdgeInsets.only(left: 80.0),
-                child: Text('Playing Time'),
-              ),
+              centerTitle: true,
+              title: Text('Playing Time'),
               backgroundColor: Color(0xFF00A5E0),
               leading: IconButton(
                 icon: Icon(Icons.arrow_back_sharp),

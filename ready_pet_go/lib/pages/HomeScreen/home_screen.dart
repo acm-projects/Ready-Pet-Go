@@ -30,18 +30,55 @@ class _HomePageState extends State<HomePage>{
         debugShowCheckedModeBanner: false,
       home: Scaffold(
           appBar: AppBar(
-            title: Padding(
-              padding: const EdgeInsets.only(left: 90.0),
-              child: Text('Main Menu'),
+            //centerTitle: true,
+            title: Text('Ready Pet Go',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontStyle: FontStyle.italic,
+              ),
             ),
-            backgroundColor: Color(0xFF00A5E0),
-            leading: IconButton(
-              icon: Icon(Icons.arrow_back_sharp),
-              tooltip: 'Log Out',
-              onPressed: () {
-                Navigator.of(context).pushReplacementNamed('/HomeScreen');
-              },
-            ),
+            backgroundColor: Colors.white,
+            elevation: 0,
+            actions: <Widget>[
+              IconButton(
+                icon: const Icon(Icons.question_mark_rounded, color: Colors.black),
+                tooltip: 'Instructions',
+                onPressed: () => showDialog<String>(
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                    title: const Text(
+                        'Guidelines',
+                    ),
+                    content: const Text('Here are some instructions to guide you.\n\n'
+                        '1. Click on the icons in the top row to do certain tasks. You will be given instructions'
+                        ' on how to do those tasks.\n\n'
+                        '2. Click on the list icon in the bottom to check your tasks. '
+                        'Do these tasks daily and take great care of your pet.\n\n'
+                        'HAVE FUN!!!'),
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () => Navigator.pop(context, 'OK'),
+                        child: const Text('OK'),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              /*IconButton(
+                icon: Icon(Icons.settings, color: Colors.black),
+                tooltip: 'Settings',
+                onPressed: () {
+                  Navigator.of(context).pushReplacementNamed('/HomeScreen');
+                },
+              ),*/
+              IconButton(
+                icon: Icon(Icons.logout, color: Colors.black),
+                tooltip: 'Log Out',
+                onPressed: () {
+                  Navigator.of(context).pushReplacementNamed('/HomeScreen');
+                },
+              ),
+            ]
           ),
         body: Center(
           child: Container(

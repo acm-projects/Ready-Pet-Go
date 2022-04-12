@@ -23,10 +23,8 @@ class _OptionPageState extends State<OptionPage>{
         debugShowCheckedModeBanner: false,
         home: Scaffold(
             appBar: AppBar(
-              title: Padding(
-                padding: const EdgeInsets.only(left: 100.0),
-                child: Text('Options'),
-              ),
+              centerTitle: true,
+              title: Text('Options'),
               backgroundColor: Color(0xFF00A5E0),
               leading: IconButton(
                 icon: Icon(Icons.arrow_back_sharp),

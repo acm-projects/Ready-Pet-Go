@@ -38,10 +38,8 @@ class _PettingPageState extends State<PettingScreen>{
         debugShowCheckedModeBanner: false,
         home: Scaffold(
             appBar: AppBar(
-              title: Padding(
-                padding: const EdgeInsets.only(left: 80.0),
-                child: Text('Petting Time'),
-              ),
+              centerTitle: true,
+              title: Text('Petting Time'),
               backgroundColor: Color(0xFF00A5E0),
               leading: IconButton(
                 icon: Icon(Icons.arrow_back_sharp),

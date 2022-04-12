@@ -77,10 +77,8 @@ class _WaterPageState extends State<WaterScreen>{
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title: Padding(
-            padding: const EdgeInsets.only(left: 90.0),
-            child: Text('Water Time'),
-          ),
+          centerTitle: true,
+          title: Text('Water Time'),
           backgroundColor: Color(0xFF00A5E0),
           leading: IconButton(
             icon: Icon(Icons.arrow_back_sharp),

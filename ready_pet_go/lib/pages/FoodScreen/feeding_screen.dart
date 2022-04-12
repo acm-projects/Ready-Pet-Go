@@ -26,10 +26,8 @@ class _FeedingPageState extends State<FeedingScreen>{
         debugShowCheckedModeBanner: false,
         home: Scaffold(
             appBar: AppBar(
-              title: Padding(
-                padding: const EdgeInsets.only(left: 75.0),
-                child: Text('Feeding Time'),
-              ),
+              centerTitle: true,
+              title: Text('Feeding time'),
               backgroundColor: Color(0xFF00A5E0),
               leading: IconButton(
                 icon: Icon(Icons.arrow_back_sharp),
