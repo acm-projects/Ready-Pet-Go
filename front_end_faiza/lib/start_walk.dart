@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-class BouncingButton extends StatefulWidget {
+class StartWalk extends StatefulWidget {
   @override
-  _BouncingButtonState createState() => _BouncingButtonState();
+  _StartWalkState createState() => _StartWalkState();
 }
-class _BouncingButtonState extends State<BouncingButton> with SingleTickerProviderStateMixin {
+class _StartWalkState extends State<StartWalk> with SingleTickerProviderStateMixin {
   late double _scale;
   late AnimationController _controller;
   @override
@@ -52,7 +52,7 @@ class _BouncingButtonState extends State<BouncingButton> with SingleTickerProvid
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Center(child: Text('Ready To Walk\n    Your Dog?\n\n',style: TextStyle(color: Colors.white, fontSize: 40.0),)),
+            Center(child: Text('Ready To Walk\n    Your Dog?\n\n',style: TextStyle(color: Colors.white, fontFamily: 'Nunito', fontWeight: FontWeight.w700, fontSize: 40.0),)),
             SizedBox(
               height: 20.0,
             ),
@@ -95,6 +95,7 @@ Widget  _animatedButton() {
         child: Text(
           'START WALK!',
           style: TextStyle(
+            fontFamily: 'Nunito', fontWeight: FontWeight.w700,
               fontSize: 25.0,
               //fontWeight: FontWeight.bold,
               color: Colors.white),

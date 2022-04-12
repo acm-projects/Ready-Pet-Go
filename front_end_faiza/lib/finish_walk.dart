@@ -30,6 +30,7 @@ class _FinishScreenState extends State<FinishScreen> with SingleTickerProviderSt
   Widget build(BuildContext context) {
     _scale = 1 - _controller.value;
     return Scaffold(
+      //theme: ThemeData(fontFamily: 'Nunito'),
       backgroundColor: Color(0xFF00A5E0),
       appBar: AppBar(
         title: Padding(
@@ -53,17 +54,17 @@ class _FinishScreenState extends State<FinishScreen> with SingleTickerProviderSt
         body: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Center(child: Text('You\'ve finished your\n             walk!\n',style: TextStyle(color: Colors.white, fontSize: 40.0),)),
+            Center(child: Text('You\'ve finished your\n             walk!\n',style: TextStyle(color: Colors.white, fontFamily: 'Nunito', fontWeight: FontWeight.w700, fontSize: 40.0),)),
             SizedBox(
               height: 20.0,
             ),
             Center(child: Icon(Icons.directions_walk, size: 50, color: Colors.white,)),
-            Center(child: Text('Distance: 5.19 Miles',style: TextStyle(color: Colors.white, fontSize: 25.0),)),
+            Center(child: Text('Distance: 5.19 Miles',style: TextStyle(color: Colors.white, fontFamily: 'Nunito', fontWeight: FontWeight.w700, fontSize: 25.0),)),
             SizedBox(
               height: 20.0,
             ),
             Center(child: Icon(Icons.alarm, size: 50, color: Colors.white,)),
-            Center(child: Text('Time: 53:04 Minutes\n',style: TextStyle(color: Colors.white, fontSize: 25.0),)),
+            Center(child: Text('Time: 53:04 Minutes\n',style: TextStyle(color: Colors.white, fontFamily: 'Nunito', fontWeight: FontWeight.w700, fontSize: 25.0),)),
             SizedBox(
               height: 20.0,
             ),
@@ -106,6 +107,8 @@ Widget  _animatedButton() {
         child: Text(
           'DONE',
           style: TextStyle(
+            fontFamily: 'Nunito', 
+            fontWeight: FontWeight.w700,
               fontSize: 25.0,
               //fontWeight: FontWeight.bold,
               color: Colors.white),

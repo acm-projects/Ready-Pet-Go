@@ -30,20 +30,64 @@ class _HomePageState extends State<HomePage>{
       theme: ThemeData(fontFamily: 'Nunito'),
       home: Scaffold(
           appBar: AppBar(
-            title: Padding(
-              padding: const EdgeInsets.only(left: 85.0),
-              child: Text('Home Screen', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700),),
+            title: Text('Ready Pet Go',
+              style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w700,
+                  //fontStyle: FontStyle.italic,
+              ),
             ),
             backgroundColor: Colors.white,
             elevation: 0,
-            leading: IconButton(
-              icon: Icon(Icons.arrow_back_sharp, color: Colors.black, size: 30),
-              tooltip: 'Log Out ',
-              onPressed: () {
-                Navigator.of(context).pushReplacementNamed('/HomeScreen');
-              },
-            ),
+            // leading: IconButton(
+            //   icon: Icon(Icons.arrow_back_sharp, color: Colors.black, size: 30),
+            //   tooltip: 'Log Out ',
+            //   onPressed: () {
+            //     Navigator.of(context).pushReplacementNamed('/HomeScreen');
+            //   },
+            // ),
+            actions: <Widget>[
+              IconButton(
+                icon: const Icon(Icons.question_mark_rounded, color: Colors.black),
+                tooltip: 'Instructions',
+                onPressed: () => showDialog<String>(
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                    title: const Text(
+                        'Help Guide',
+                    ),
+                    content: const Text('Here are some instructions to guide you!\n\n'
+                        '1. Click on the icons in the top row to do certain tasks. You will be given instructions'
+                        ' on how to do those tasks.\n\n'
+                        '2. Click on the list icon in the bottom to check your to-do list.\n\n '
+                        '3. Do these tasks daily and take great care of your pet.\n\n'
+                        'Have fun!'),
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () => Navigator.pop(context, 'OK'),
+                        child: const Text('OK'),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              /*IconButton(
+                icon: Icon(Icons.settings, color: Colors.black),
+                tooltip: 'Settings',
+                onPressed: () {
+                  Navigator.of(context).pushReplacementNamed('/HomeScreen');
+                },
+              ),*/
+              IconButton(
+                icon: Icon(Icons.logout, color: Colors.black),
+                tooltip: 'Log Out',
+                onPressed: () {
+                  Navigator.of(context).pushReplacementNamed('/HomeScreen');
+                },
+              ),
+            ]
           ),
+          
         body: Center(
           child: Container(
             width: sWidth,
