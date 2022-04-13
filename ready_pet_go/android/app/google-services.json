@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "96068490076",
+    "project_id": "ready-pet-go",
+    "storage_bucket": "ready-pet-go.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:96068490076:android:b26f65323bc708000aa799",
+        "android_client_info": {
+          "package_name": "com.example.ready_pet_go"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "96068490076-4vru0psjtv2d5h1mlj2lub0qjd1gllfi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLn_GiYk1CTw8FGWYV8EODSp7jcy0KxCo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "96068490076-4vru0psjtv2d5h1mlj2lub0qjd1gllfi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
