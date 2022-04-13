@@ -7,8 +7,10 @@ import 'package:front_end_faiza/create_a_pet_page.dart';
 import 'package:front_end_faiza/faiza_homepage.dart';
 import 'package:front_end_faiza/finish_walk.dart';
 import 'package:front_end_faiza/login_page.dart';
+import 'package:front_end_faiza/pet_or_play_screen.dart';
 import 'package:front_end_faiza/start_walk.dart';
 import 'package:front_end_faiza/task_list.dart';
+import 'package:front_end_faiza/test_map.dart';
 
 void main() {
   runApp(const SplashScreen());
@@ -41,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
         showLoader: true,
         loadingText: Text("Loading...", style: TextStyle(fontFamily: 'Nunito', fontWeight: FontWeight.w700, fontSize: 15)),
         //redirect to page you want it to go
-        navigator: HomePage(),
+        navigator: TestMap(),
         durationInSeconds: 5,
       )),
       debugShowCheckedModeBanner: false,

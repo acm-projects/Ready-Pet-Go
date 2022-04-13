@@ -11,7 +11,7 @@ class PetImage extends StatelessWidget{
       child: ClipRRect(
         borderRadius: BorderRadius.zero,
         child: Image.asset(
-          "assets/images/e69f6fd7c61b7fca781861df8b44a3c877d16753.png",
+          "assets/images/dog.png",
           color: null,
           fit: BoxFit.cover,
           width: 240.0,

@@ -30,7 +30,7 @@ class _HomePageState extends State<HomePage>{
       theme: ThemeData(fontFamily: 'Nunito'),
       home: Scaffold(
           appBar: AppBar(
-            title: Text('Ready Pet Go',
+            title: Text('Ready, Pet, GO!',
               style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w700,
@@ -39,13 +39,6 @@ class _HomePageState extends State<HomePage>{
             ),
             backgroundColor: Colors.white,
             elevation: 0,
-            // leading: IconButton(
-            //   icon: Icon(Icons.arrow_back_sharp, color: Colors.black, size: 30),
-            //   tooltip: 'Log Out ',
-            //   onPressed: () {
-            //     Navigator.of(context).pushReplacementNamed('/HomeScreen');
-            //   },
-            // ),
             actions: <Widget>[
               IconButton(
                 icon: const Icon(Icons.question_mark_rounded, color: Colors.black),
@@ -56,10 +49,9 @@ class _HomePageState extends State<HomePage>{
                     title: const Text(
                         'Help Guide',
                     ),
-                    content: const Text('Here are some instructions to guide you!\n\n'
-                        '1. Click on the icons in the top row to do certain tasks. You will be given instructions'
-                        ' on how to do those tasks.\n\n'
-                        '2. Click on the list icon in the bottom to check your to-do list.\n\n '
+                    content: const Text(
+                        '1. Click on the icons in the top row to do certain tasks.\n\n'
+                        '2. Click on the list icon in the bottom left to check your to-do list.\n\n'
                         '3. Do these tasks daily and take great care of your pet.\n\n'
                         'Have fun!'),
                     actions: <Widget>[
@@ -141,7 +133,7 @@ class _HomePageState extends State<HomePage>{
                       PetImage(),
                       const Padding(padding: EdgeInsets.symmetric(vertical: 5),),
                       Text(
-                        '''Max ''',
+                        '''Scout ''',
                         overflow: TextOverflow.visible,
                         textAlign: TextAlign.left,
                         style: TextStyle(
