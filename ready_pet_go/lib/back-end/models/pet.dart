@@ -16,7 +16,7 @@ class Pet {
       // this.picture,
       this.mood,
       this.expenses,
-      this.tasks});
+      required this.tasks});
 
   //data from server
   factory Pet.fromMap(map) {
