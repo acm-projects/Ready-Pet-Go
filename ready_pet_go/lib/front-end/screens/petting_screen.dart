@@ -107,7 +107,7 @@ class _PettingPageState extends State<PettingScreen> {
                                       width: 100,
                                       height: 54,
                                       child: Image.asset(
-                                        "lib/src/assets/images/Hand.png",
+                                        "assets/images/Hand.png",
                                         color: null,
                                         fit: BoxFit.cover,
                                         colorBlendMode: BlendMode.dstATop,
@@ -126,7 +126,7 @@ class _PettingPageState extends State<PettingScreen> {
                                       width: 100,
                                       height: 54,
                                       child: Image.asset(
-                                        "lib/src/assets/images/Hand.png",
+                                        "assets/images/Hand.png",
                                         color: null,
                                         fit: BoxFit.cover,
                                         colorBlendMode: BlendMode.dstATop,
