@@ -27,7 +27,7 @@ import '../icon_widgets/water_icon.dart';
 Future<String?> getPetNameFromDatabase(String userID) async {
   final petProvider = PetProvider(userID);
   Pet pet = await petProvider.getFirstPet();
-  debugPrint(pet.name + " home page dog name");
+  debugPrint(pet.name! + " home page dog name");
   return pet.name;
 }
 
@@ -121,14 +121,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: ((context) => PetOrPlayScreen(
-                                                pet, widget.userID))));
+                                            builder: ((context) =>
+                                                PetOrPlayScreen(
+                                                    pet, widget.userID))));
                                   },
                                   child: PlayIcon(),
                                 ),
                                 GestureDetector(
                                   onTap: () {
-                                    if (pet.tasks['Water']) {
+                                    if (pet.tasks!['Water']) {
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
@@ -148,7 +149,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                 ),
                                 GestureDetector(
                                   onTap: () {
-                                    if (pet.tasks['Feed']) {
+                                    if (pet.tasks!['Feed']) {
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
@@ -159,16 +160,15 @@ class _HomeScreenState extends State<HomeScreen> {
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
-                                              builder: ((context) =>
-                                                  FeedScreen(
-                                                      pet, widget.userID))));
+                                              builder: ((context) => FeedScreen(
+                                                  pet, widget.userID))));
                                     }
                                   },
                                   child: FoodIcon(),
                                 ),
                                 GestureDetector(
                                   onTap: () {
-                                    if (pet.tasks['Walk']) {
+                                    if (pet.tasks!['Walk']) {
                                       Navigator.push(
                                           context,
                                           MaterialPageRoute(
@@ -222,9 +222,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                     Navigator.push(
                                         context,
                                         MaterialPageRoute(
-                                            builder: ((context) =>
-                                                TaskScreen(
-                                                    petName, widget.userID))));
+                                            builder: ((context) => TaskScreen(
+                                                petName!, widget.userID))));
                                   },
                                   child: ListIcon(),
                                 ),
