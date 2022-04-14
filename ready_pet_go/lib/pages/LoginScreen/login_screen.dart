@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_login/flutter_login.dart';
-import 'dashboard_screen.dart';
+//import 'package:flutter_login/flutter_login.dart';
+//import 'dashboard_screen.dart';
 
-
+/*
 const users = {
    'dribbble@gmail.com': '12345',
    'hunter@gmail.com': 'hunter',
@@ -158,4 +158,4 @@ class StudentLoginScreen extends StatelessWidget {
    }
 
 
-}
+}*/

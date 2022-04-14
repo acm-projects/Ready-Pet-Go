@@ -81,6 +81,18 @@ flutter:
     - family: Bold
       fonts:
         - asset: fonts/static/Nunito-Bold.ttf
+    - family: Luckiest Guy
+      fonts:
+        - asset: fonts/LuckiestGuy-Regular.ttf
+    - family: TitanOne
+      fonts:
+        - asset: fonts/TitanOne-Regular.ttf
+    - family: Chewy
+      fonts:
+        - asset: fonts/Chewy-Regular.ttf
+    - family: Ranchers
+      fonts:
+        - asset: fonts/Ranchers-Regular.ttf
 
   # To add assets to your application, add an assets section, like this:
   assets:

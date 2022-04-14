@@ -28,15 +28,18 @@ class _HomePageState extends State<HomePage>{
     double sHeight = MediaQuery.of(context).size.height;
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(fontFamily: 'Merriweather'),
+        theme: ThemeData(fontFamily: 'Chewy'),
         home: Scaffold(
           appBar: AppBar(
             //centerTitle: true,
-            title: Text('Ready Pet Go',
+            title: Text('Ready,  Pet,  GO!',
               style: TextStyle(color: Colors.black,
-                  fontSize: 25.0,
-                fontWeight: FontWeight.w700,
-              fontStyle: FontStyle.italic),
+                fontSize: 30.0,
+                //fontWeight: FontWeight.w700,
+                //fontStyle: FontStyle.italic,
+                  //fontFamily: 'Nunito'
+              ),
+
             ),
             backgroundColor: Colors.white,
             elevation: 0,
@@ -48,10 +51,10 @@ class _HomePageState extends State<HomePage>{
                   context: context,
                   builder: (BuildContext context) => AlertDialog(
                     title: const Text(
-                        'Guidelines',
+                        'GUIDELINES',
                         style: TextStyle(
-                          fontSize: 25.0,
-                          fontFamily: 'Bold',
+                          fontSize: 30.0,
+                          fontFamily: 'Nunito',
                           fontWeight: FontWeight.w700,
                         )
                     ),
