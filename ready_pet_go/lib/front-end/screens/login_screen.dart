@@ -1,22 +1,28 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_login/flutter_login.dart';
+
+import '../../back-end/services/authentication_services.dart';
 import 'auth_process.dart';
 
-import 'package:ready_pet_go/back-end/services/authentication_services.dart';
-import 'home_screen.dart';
-final auth = AuthenticationServices();
-class LoginScreen extends StatelessWidget {
-  
-  
-  // Duration get loginTime => const Duration(milliseconds: 200);
+final AuthenticationServices authServices = AuthenticationServices();
+
+class LoginScreen extends StatefulWidget {
   const LoginScreen({Key? key}) : super(key: key);
+  @override
+  State<LoginScreen> createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
+  // const LoginPage({Key? key}) : super(key: key);
+
+  // Duration get loginTime => const Duration(milliseconds: 200);
+
   //SIGN IN
   Future<String?> _authUser(LoginData data) async {
     //object to use functions from authentication services
     // final authService = AuthenticationServices();
-    bool signInStatus = await auth.signIn(data.name, data.password);
+    bool signInStatus = await authServices.signIn(data.name, data.password);
     if (signInStatus) {
       debugPrint("Login successfull login page");
       return null;
@@ -28,6 +34,7 @@ class LoginScreen extends StatelessWidget {
   Future<String?> _signupUser(SignupData data) async {
     //object to use functions from authentication services
     // final authService = AuthenticationServices();
+
     String fullName = "";
     data.additionalSignupData?.forEach((key, value) {
       fullName += value;
@@ -35,7 +42,7 @@ class LoginScreen extends StatelessWidget {
         fullName += " ";
       }
     });
-    String signInStatus = await auth.register(
+    String signInStatus = await authServices.register(
       data.name.toString(),
       data.password.toString(),
       fullName,
@@ -47,6 +54,7 @@ class LoginScreen extends StatelessWidget {
     debugPrint(signInStatus);
     return "Email already used!";
   }
+  //Can be improved: strong password
 
   //TODO: recover password
   Future<String?> _recoverPassword(String name) async {
@@ -65,25 +73,13 @@ class LoginScreen extends StatelessWidget {
           UserFormField(keyName: 'firstName', displayName: "First Name"),
           UserFormField(keyName: 'lasttName', displayName: "Last Name"),
         ],
-        title: 'Login/Signup',
-        logo:
-            const AssetImage('lib/src/assets/images/dog_logo_transparent.png'),
-        onLogin: _authUser
-        // await _authUser;
-        // debugPrint("Moving to home");
-        // var userID = FirebaseAuth.instance.currentUser?.uid;
-        // Navigator.of(context).pushReplacement(MaterialPageRoute(
-        //   builder: (context) => Home(userID.toString()), //Home page here
-        // ));
-        , //when sign in button is pressed
-        onSignup: _signupUser
-        // _signupUser;
-        // var userID = FirebaseAuth.instance.currentUser?.uid;
-        // debugPrint("Moving to register pet");
-        // Navigator.of(context).pushReplacement(MaterialPageRoute(
-        //   builder: (context) => PetRegister(userID.toString()), //Home page here
-        // ));
-        , //when submit button is pressed
+        title: "Login/SignUp",
+        logo: const AssetImage('assets/dog_icon_login_screen.png'),
+        onLogin: _authUser,
+        //when sign in button is pressed
+        // onSignup: _signupUser,
+        onSignup: _signupUser,
+        //when submit button is pressed
         onSubmitAnimationCompleted: () {
           //after sign in//register successful
           var userID = FirebaseAuth.instance.currentUser?.uid;
@@ -93,20 +89,6 @@ class LoginScreen extends StatelessWidget {
             builder: (context) =>
                 AuthProcess(userID.toString()), //Home page here
           ));
-          // String petStatus = _authNavigator(userID.toString()).toString();
-          // if (petStatus == "pet existed") {
-          //   Navigator.of(context).pushReplacement(MaterialPageRoute(
-          //     builder: (context) => Home(userID.toString()), //Home page here
-          //   ));
-          //   debugPrint("Moved to Home!");
-          // } else if (petStatus == "no pet existed") {
-          //   debugPrint("Moving to reigster pet");
-          //   Navigator.of(context).pushReplacement(MaterialPageRoute(
-          //     builder: (context) => PetRegister(userID.toString()), //Home page here
-          //   ));
-          // } else {
-          //   return "Error";
-          // }
         },
         onRecoverPassword: _recoverPassword,
         theme: LoginTheme(
@@ -115,13 +97,17 @@ class LoginScreen extends StatelessWidget {
           accentColor: const Color(0xFF00A5E0),
           errorColor: Colors.red,
           titleStyle: const TextStyle(
+            fontFamily: 'Nunito',
+            fontWeight: FontWeight.w700,
             color: Color(0xFF00A5E0),
             fontSize: 40.0,
             //fontStyle: 'San Francisco',
             //letterSpacing: 0,
-            fontWeight: FontWeight.w600,
+            //fontWeight: FontWeight.w600,
           ),
           bodyStyle: const TextStyle(
+            fontFamily: 'Nunito',
+            fontWeight: FontWeight.w700,
             fontStyle: FontStyle.italic,
             decoration: TextDecoration.underline,
           ),
@@ -131,11 +117,15 @@ class LoginScreen extends StatelessWidget {
 
           // ),
           textFieldStyle: TextStyle(
+            fontFamily: 'Nunito',
+            fontWeight: FontWeight.w700,
             color: Colors.grey[600],
             //shadows: [Shadow(color: Colors.yellow, blurRadius: 2)],
           ),
           buttonStyle: const TextStyle(
-            fontWeight: FontWeight.w800,
+            fontFamily: 'Nunito',
+            fontWeight: FontWeight.w700,
+            //fontWeight: FontWeight.w800,
             color: Colors.white,
           ),
           //card: Card(margin: EdgeInsets.only(top: 20.0)),
@@ -151,10 +141,16 @@ class LoginScreen extends StatelessWidget {
             fillColor: Colors.white,
             contentPadding: EdgeInsets.zero,
             errorStyle: const TextStyle(
+              fontFamily: 'Nunito',
+              fontWeight: FontWeight.w700,
               backgroundColor: Colors.red,
               color: Colors.white,
             ),
-            labelStyle: const TextStyle(fontSize: 12),
+            labelStyle: const TextStyle(
+              fontSize: 12,
+              fontFamily: 'Nunito',
+              fontWeight: FontWeight.w700,
+            ),
             // enabledBorder: UnderlineInputBorder(
             //   borderSide: BorderSide(color: Color(0xFF12366B), width: 4),
             //   borderRadius: inputBorder,
