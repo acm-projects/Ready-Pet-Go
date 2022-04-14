@@ -34,16 +34,16 @@ class _SplashScreenState extends State<SplashScreen> {
         title: Text(
           "Ready, Pet, Go!",
           style: TextStyle(
-            fontFamily: 'Nunito', 
-            fontWeight: FontWeight.w700,
-            fontSize: 25,
+            fontFamily: 'Chewy', 
+            //fontWeight: FontWeight.w700,
+            fontSize: 35,
             //fontWeight: FontWeight.bold,
           ),
         ),
         showLoader: true,
-        loadingText: Text("Loading...", style: TextStyle(fontFamily: 'Nunito', fontWeight: FontWeight.w700, fontSize: 15)),
+        loadingText: Text("Loading...", style: TextStyle(fontFamily: 'Nunito', fontWeight: FontWeight.w700, fontSize: 18)),
         //redirect to page you want it to go
-        navigator: PetOrPlayScreen(),
+        navigator: HomePage(),
         durationInSeconds: 5,
       )),
       debugShowCheckedModeBanner: false,

@@ -32,9 +32,10 @@ class _HomePageState extends State<HomePage>{
           appBar: AppBar(
             title: Text('Ready, Pet, GO!',
               style: TextStyle(
+                  fontFamily: 'Chewy',
                   color: Colors.black,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 25,
+                  //fontWeight: FontWeight.w700,
+                  fontSize: 30,
                   //fontStyle: FontStyle.italic,
               ),
             ),
