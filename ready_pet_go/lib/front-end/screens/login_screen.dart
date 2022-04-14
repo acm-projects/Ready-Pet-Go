@@ -6,12 +6,12 @@ import 'auth_process.dart';
 
 import 'package:ready_pet_go/back-end/services/authentication_services.dart';
 import 'home_screen.dart';
-
+final auth = AuthenticationServices();
 class LoginScreen extends StatelessWidget {
   
-  final auth = AuthenticationServices();
+  
   // Duration get loginTime => const Duration(milliseconds: 200);
-   LoginScreen({Key? key}) : super(key: key);
+  const LoginScreen({Key? key}) : super(key: key);
   //SIGN IN
   Future<String?> _authUser(LoginData data) async {
     //object to use functions from authentication services
