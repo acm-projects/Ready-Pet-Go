@@ -31,12 +31,10 @@ class _PetOrPlayScreenState extends State<PetOrPlayScreen> {
         theme: ThemeData(fontFamily: 'Nunito'),
         home: Scaffold(
             appBar: AppBar(
-              title: Padding(
-                padding: const EdgeInsets.only(left: 85.0),
-                //child: Text('Options'),
-              ),
+              centerTitle: true,
+              title: Text('OPTIONS', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w700, fontSize: 30)),
               backgroundColor: Colors.white,
-              elevation: 0,
+              elevation: 3,
               leading: IconButton(
                 icon: Icon(Icons.arrow_back_sharp, color: Colors.black,),
                 tooltip: 'Menu',

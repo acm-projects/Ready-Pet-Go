@@ -1,5 +1,5 @@
 // import 'package:flutter/material.dart';
-// import 'package:flutter_login/flutter_login.dart';
+// //import 'package:flutter_login/flutter_login.dart';
 // //import 'dashboard_screen.dart';
 
 
@@ -81,9 +81,9 @@
 //         titleStyle: const TextStyle(
 //           color: Color(0xFF00A5E0),
 //           fontSize: 40.0,
-//           //fontStyle: 'San Francisco',
+//           fontFamily: 'Nunito',
 //           //letterSpacing: 0,
-//           fontWeight: FontWeight.w600,
+//           fontWeight: FontWeight.w700,
 //         ),
 //         bodyStyle: const TextStyle(
 //           fontStyle: FontStyle.italic,

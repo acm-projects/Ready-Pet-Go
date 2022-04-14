@@ -39,7 +39,7 @@ Widget build(BuildContext context) {
 		  child: Text('TO-DO LIST', style: TextStyle(color: Colors.black, fontFamily: 'Nunito', fontWeight: FontWeight.w700, fontSize: 30)),
     ),
 		backgroundColor: Colors.white,
-    elevation: 0,
+    elevation: 3,
 		leading: IconButton(
 			icon: Icon(Icons.arrow_back_sharp, color: Colors.black,),
 			tooltip: 'Menu',

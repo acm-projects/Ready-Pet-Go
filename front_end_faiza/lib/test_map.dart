@@ -117,7 +117,7 @@ class _TestMapState extends State<TestMap> {
         appBar: AppBar(
           centerTitle: false,
           backgroundColor: Colors.white,
-          
+          elevation: 3,
           title: const Text('Walking Your Pet...', style: TextStyle(color: Colors.black, fontFamily: 'Nunito', fontWeight: FontWeight.w700, fontSize: 20)),
           actions: [
             TextButton(

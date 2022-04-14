@@ -34,6 +34,7 @@ class _HomePageState extends State<HomePage>{
               style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.w700,
+                  fontSize: 25,
                   //fontStyle: FontStyle.italic,
               ),
             ),

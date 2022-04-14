@@ -43,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
         showLoader: true,
         loadingText: Text("Loading...", style: TextStyle(fontFamily: 'Nunito', fontWeight: FontWeight.w700, fontSize: 15)),
         //redirect to page you want it to go
-        navigator: TestMap(),
+        navigator: PetOrPlayScreen(),
         durationInSeconds: 5,
       )),
       debugShowCheckedModeBanner: false,
