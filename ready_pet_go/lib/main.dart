@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:ready_pet_go/front-end/screens/loading_screen.dart';
 import 'package:ready_pet_go/front-end/screens/login_screen.dart';
 
 import 'firebase_options.dart';
@@ -11,7 +12,7 @@ void main() async {
   );
   runApp(const MaterialApp(
     title: 'Ready Pet Go',
-    home: LoginScreen(),
+    home: LoadingScreen(),
     debugShowCheckedModeBanner: false,
   ));
 }
