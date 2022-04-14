@@ -18,8 +18,7 @@ Future<Pet> bringTestPet(String userId) async {
 class TaskScreen extends StatefulWidget {
   final String userId;
   final String petName;
-  const TaskScreen(this.petName, this.userId, {Key? key})
-      : super(key: key);
+  const TaskScreen(this.petName, this.userId, {Key? key}) : super(key: key);
   @override
   _TaskScreenState createState() => _TaskScreenState();
 }
@@ -36,11 +35,10 @@ class _TaskScreenState extends State<TaskScreen> {
   Map _tasks = {};
 
   Map<String, String> images = {
-    'Play': "lib/src/assets/images/dog_toy.png",
-    'Feed': "lib/src/assets/images/dog_food.png",
-    'Walk': "lib/src/assets/images/dog_walk.png",
-    'Water':
-        "lib/src/assets/images/91c294f141f9a162e40c82c18c20285830a2fc63.png",
+    'Play': "assets/dog_toy.png",
+    'Feed': "assets/dog_food.png",
+    'Walk': "assets/dog_walk.png",
+    'Water': "assets/91c294f141f9a162e40c82c18c20285830a2fc63.png",
   };
 
 // App widget tree
@@ -83,6 +81,8 @@ class _TaskScreenState extends State<TaskScreen> {
                       height: 30,
                     ),
                   );
+                  
+                  var String = "";
 
                   widgetList.add(
                     Container(
