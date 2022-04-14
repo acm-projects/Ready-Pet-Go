@@ -36,6 +36,7 @@ class Pet {
       'name': name,
       'age': age,
       'breed': breed,
+      'petID': petID,
       // 'picture': picture,
       'mood': mood,
       'expenses': expenses,
