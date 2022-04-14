@@ -29,7 +29,7 @@ class _PlayingPage extends State<PlayingScreen>{
     var random = new Random();
     int index = random.nextInt(happyPet.length + 1);
     if(index == happyPet.length)
-      return 'You and your pet played with ' + toy;
+      return 'You and your pet played with a ' + toy + '!';
     else
       return happyPet[index];
   }
@@ -39,13 +39,21 @@ class _PlayingPage extends State<PlayingScreen>{
     double sHeight = MediaQuery.of(context).size.height;
     return MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(fontFamily: 'Nunito'),
         home: Scaffold(
             appBar: AppBar(
               centerTitle: true,
-              title: Text('Playing Time'),
-              backgroundColor: Color(0xFF00A5E0),
+              title: Text('PLAY TIME',
+              style: TextStyle(
+                  //fontFamily: 'Bold',
+                  fontWeight: FontWeight.w900,
+                  fontSize: 30.0,
+                color: Colors.black
+                ),
+              ),
+              backgroundColor: Colors.white,
               leading: IconButton(
-                icon: Icon(Icons.arrow_back_sharp),
+                icon: Icon(Icons.arrow_back_sharp, color: Colors.black),
                 tooltip: 'Menu',
                 onPressed: () {
                   Navigator.of(context).pushReplacementNamed('/OptionScreen');
@@ -70,8 +78,8 @@ class _PlayingPage extends State<PlayingScreen>{
                             style: TextStyle(
                               height: 1.171875,
                               fontSize: 25.0,
-                              fontFamily: 'Roboto',
-                              fontWeight: FontWeight.w400,
+                              //fontFamily: 'Roboto',
+                              fontWeight: FontWeight.w700,
                               color: Color.fromARGB(255, 0, 0, 0),
 
                               /* letterSpacing: 0.0, */

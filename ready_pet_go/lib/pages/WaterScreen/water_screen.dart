@@ -56,10 +56,10 @@ class _WaterPageState extends State<WaterScreen>{
                 )
             );*/
           } else if (_counter < 3) {
-            text = 'Just wait, it\'s almost done';
+            text = 'Just wait, it\'s almost done...';
             bowlState = 'assets/images/DogBowlPt2.png';
           } else if(_counter < 5) {
-            text = 'It\'s filling up';
+            text = 'It\'s filling up...';
             bowlState = 'assets/images/DogBowlPt1.png';
           }
         }
@@ -75,13 +75,23 @@ class _WaterPageState extends State<WaterScreen>{
     double sHeight = MediaQuery.of(context).size.height;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
+      theme: ThemeData(fontFamily: 'Nunito'),
       home: Scaffold(
         appBar: AppBar(
           centerTitle: true,
-          title: Text('Water Time'),
-          backgroundColor: Color(0xFF00A5E0),
+          title: Text('WATER TIME',
+            style: TextStyle(
+                color: Colors.black,
+                //fontFamily: 'Bold',
+                fontSize: 30.0,
+                fontWeight: FontWeight.w900,
+            )
+          ),
+          backgroundColor: Colors.white,
+          //elevation: 0.5,
           leading: IconButton(
-            icon: Icon(Icons.arrow_back_sharp),
+            icon: Icon(Icons.arrow_back_sharp,
+            color: Colors.black),
             tooltip: 'Menu',
             onPressed: () {
               Navigator.of(context).pushReplacementNamed('/HomeScreen');
@@ -113,8 +123,8 @@ class _WaterPageState extends State<WaterScreen>{
                       style: TextStyle(
                         height: 1.171875,
                         fontSize: 25.0,
-                        fontFamily: 'Roboto',
-                        fontWeight: FontWeight.w400,
+                        //fontFamily: 'Roboto',
+                        fontWeight: FontWeight.w700,
                         color: Color.fromARGB(255, 0, 0, 0),
 
                         /* letterSpacing: 0.0, */

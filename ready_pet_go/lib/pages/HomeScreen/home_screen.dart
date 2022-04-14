@@ -28,14 +28,15 @@ class _HomePageState extends State<HomePage>{
     double sHeight = MediaQuery.of(context).size.height;
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-      home: Scaffold(
+        theme: ThemeData(fontFamily: 'Merriweather'),
+        home: Scaffold(
           appBar: AppBar(
             //centerTitle: true,
             title: Text('Ready Pet Go',
-              style: TextStyle(
-                  color: Colors.black,
-                  fontStyle: FontStyle.italic,
-              ),
+              style: TextStyle(color: Colors.black,
+                  fontSize: 25.0,
+                fontWeight: FontWeight.w700,
+              fontStyle: FontStyle.italic),
             ),
             backgroundColor: Colors.white,
             elevation: 0,
@@ -48,13 +49,23 @@ class _HomePageState extends State<HomePage>{
                   builder: (BuildContext context) => AlertDialog(
                     title: const Text(
                         'Guidelines',
+                        style: TextStyle(
+                          fontSize: 25.0,
+                          fontFamily: 'Bold',
+                          fontWeight: FontWeight.w700,
+                        )
                     ),
                     content: const Text('Here are some instructions to guide you.\n\n'
                         '1. Click on the icons in the top row to do certain tasks. You will be given instructions'
                         ' on how to do those tasks.\n\n'
                         '2. Click on the list icon in the bottom to check your tasks. '
                         'Do these tasks daily and take great care of your pet.\n\n'
-                        'HAVE FUN!!!'),
+                        'HAVE FUN!!!',
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontFamily: 'Nunito',
+                      fontWeight: FontWeight.w700,
+                    )),
                     actions: <Widget>[
                       TextButton(
                         onPressed: () => Navigator.pop(context, 'OK'),
@@ -139,8 +150,8 @@ class _HomePageState extends State<HomePage>{
                         style: TextStyle(
                           height: 1.171875,
                           fontSize: 48.0,
-                          fontFamily: 'Roboto',
-                          fontWeight: FontWeight.w400,
+                          fontFamily: 'Nunito',
+                          fontWeight: FontWeight.w700,
                           color: Color.fromARGB(255, 0, 0, 0),
 
                           /* letterSpacing: 0.0, */

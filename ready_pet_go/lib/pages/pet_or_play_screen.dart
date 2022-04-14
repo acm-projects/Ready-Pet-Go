@@ -21,13 +21,21 @@ class _OptionPageState extends State<OptionPage>{
     double sHeight = MediaQuery.of(context).size.height;
     return MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(fontFamily: 'Nunito'),
         home: Scaffold(
             appBar: AppBar(
+              //elevation: 0,
               centerTitle: true,
-              title: Text('Options'),
-              backgroundColor: Color(0xFF00A5E0),
+              title: Text('OPTIONS',
+                style: TextStyle(
+                  color: Colors.black,
+                  fontWeight: FontWeight.w700,
+                  fontSize: 30
+                ),
+              ),
+              backgroundColor: Colors.white,
               leading: IconButton(
-                icon: Icon(Icons.arrow_back_sharp),
+                icon: Icon(Icons.arrow_back_sharp, color: Colors.black),
                 tooltip: 'Menu',
                 onPressed: () {
                   Navigator.of(context).pushReplacementNamed('/HomeScreen');
@@ -49,73 +57,82 @@ class _OptionPageState extends State<OptionPage>{
                         ),
                       ),
 
-                      Align(
-                        alignment: Alignment(0.0, -0.9),
-                        child: Text(
-                          'Choose what you want to do.',
-                          overflow: TextOverflow.visible,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            height: 1.171875,
-                            fontSize: 25.0,
-                            fontFamily: 'Roboto',
-                            fontWeight: FontWeight.w400,
-                            color: Color.fromARGB(255, 0, 0, 0),
-
-                            /* letterSpacing: 0.0, */
-                          ),
-                        ),
-                      ),
-
                       Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children:[
                             SizedBox(
-                              width: 240,
+                              width: 330,
                               height: 80,
-                              child: CupertinoButton(
-                                  color: Colors.lightBlue,
-                                  child: Text(
-                                    "Pet your pet",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      height: 1.171875,
-                                      fontSize: 20.0,
-                                      fontFamily: 'Roboto',
-                                      fontWeight: FontWeight.w400,
-                                      color: Color.fromARGB(255, 255, 255, 255),
-
-                                      /* letterSpacing: 0.0, */
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(100.0),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Color(0x80000000),
+                                      blurRadius: 12.0,
+                                      offset: Offset(0.0, 5.0),
                                     ),
-                                  ),
-                                  onPressed: (){
-                                    Navigator.of(context).pushReplacementNamed('/PettingScreen');
-                                  }
-                              ),
-                            ),
-                            const Padding(padding: EdgeInsets.symmetric(vertical: 60),),
-                            SizedBox(
-                              width: 240,
-                              height: 80,
-                              child: CupertinoButton(
-                                    color: Colors.green,
+                                  ],
+                                ),
+                                child: CupertinoButton(
+                                    borderRadius: BorderRadius.circular(100.0),
+                                    color: Color(0xFF00A5E0),
                                     child: Text(
-                                      "Play with your pet",
+                                      "Pet Your Dog!",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         height: 1.171875,
-                                        fontSize: 20.0,
-                                        fontFamily: 'Roboto',
-                                        fontWeight: FontWeight.w400,
+                                        fontSize: 30.0,
+                                        fontFamily: 'Nunito',
+                                        fontWeight: FontWeight.w700,
                                         color: Color.fromARGB(255, 255, 255, 255),
 
                                         /* letterSpacing: 0.0, */
                                       ),
                                     ),
                                     onPressed: (){
-                                      Navigator.of(context).pushReplacementNamed('/PlayingScreen');
+                                      Navigator.of(context).pushReplacementNamed('/PettingScreen');
                                     }
-                                )
+                                ),
+                              ),
+
+                            ),
+                            const Padding(padding: EdgeInsets.symmetric(vertical: 60),),
+                            SizedBox(
+                              width: 330,
+                              height: 80,
+                              child: Container(
+                                  decoration:BoxDecoration(
+                                      borderRadius: BorderRadius.circular(100.0),
+                                      boxShadow: [
+                                        BoxShadow(
+                                          color: Color(0x80000000),
+                                          blurRadius: 12.0,
+                                          offset: Offset(0.0, 5.0),
+                                        ),
+                                      ],
+                                  ),
+                                  child: CupertinoButton(
+                                      borderRadius: BorderRadius.circular(100.0),
+                                      color: Color(0xff82B26C),
+                                      child: Text(
+                                        "Play With Toys!",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          height: 1.171875,
+                                          fontSize: 30.0,
+                                          fontFamily: 'Nunito',
+                                          fontWeight: FontWeight.w700,
+                                          color: Color.fromARGB(255, 255, 255, 255),
+
+                                          /* letterSpacing: 0.0, */
+                                        ),
+                                      ),
+                                      onPressed: (){
+                                        Navigator.of(context).pushReplacementNamed('/PlayingScreen');
+                                      }
+                                  )
+                              ),
                             ),
                           ]
                       ),

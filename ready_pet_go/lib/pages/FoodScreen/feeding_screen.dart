@@ -24,13 +24,20 @@ class _FeedingPageState extends State<FeedingScreen>{
     double sHeight = MediaQuery.of(context).size.height;
     return MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(fontFamily: 'Nunito'),
         home: Scaffold(
             appBar: AppBar(
+              //elevation: 0,
               centerTitle: true,
-              title: Text('Feeding time'),
-              backgroundColor: Color(0xFF00A5E0),
+              title: Text('FOOD TIME',
+                style: TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.w700,
+                  fontSize: 30,
+              )),
+              backgroundColor: Colors.white,
               leading: IconButton(
-                icon: Icon(Icons.arrow_back_sharp),
+                icon: Icon(Icons.arrow_back_sharp, color: Colors.black),
                 tooltip: 'Menu',
                 onPressed: () {
                   Navigator.of(context).pushReplacementNamed('/HomeScreen');
@@ -54,9 +61,9 @@ class _FeedingPageState extends State<FeedingScreen>{
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               height: 1.171875,
-                              fontSize: 30.0,
-                              fontFamily: 'Roboto',
-                              fontWeight: FontWeight.w400,
+                              fontSize: 25.0,
+                              //fontFamily: 'Roboto',
+                              fontWeight: FontWeight.w700,
                               color: Color.fromARGB(255, 0, 0, 0),
 
                               /* letterSpacing: 0.0, */
@@ -137,7 +144,7 @@ class _FeedingPageState extends State<FeedingScreen>{
                                 child: Visibility(
                                     child: Icon(
                                         Icons.check,
-                                        color: Colors.green,
+                                        color: Color(0xff82B26C),
                                         size: 100.0
                                     ),
                                     visible: acceptedData
