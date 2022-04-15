@@ -28,10 +28,11 @@ class _PetOrPlayScreenState extends State<PetOrPlayScreen> {
     double sHeight = MediaQuery.of(context).size.height;
     return MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(fontFamily: 'Nunito'),
         home: Scaffold(
             appBar: AppBar(
               centerTitle: true,
-              title: Text('OPTIONS', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400, fontSize: 30)),
+              title: Text('OPTIONS', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w900, fontSize: 30)),
               backgroundColor: Colors.white,
               elevation: 3,
               leading: IconButton(

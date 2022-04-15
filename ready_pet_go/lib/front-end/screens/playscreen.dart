@@ -25,6 +25,7 @@ class _PlayingPage extends State<PlayingScreen> {
   double top = 120;
   double left = 120;
   String text = 'Drag a toy to your pet';
+  String toy = '';
   bool setPos = false;
   String image =
       "assets/images/e69f6fd7c61b7fca781861df8b44a3c877d16753.png";
@@ -38,10 +39,13 @@ class _PlayingPage extends State<PlayingScreen> {
     'Woohoo!!!'
   ];
 
-  String getRandText() {
+  String getRandText(){
     var random = new Random();
-    int index = random.nextInt(happyPet.length);
-    return happyPet[index];
+    int index = random.nextInt(happyPet.length + 1);
+    if(index == happyPet.length)
+      return 'You and your pet played with a ' + toy + '!';
+    else
+      return happyPet[index];
   }
 
   Widget build(BuildContext context) {
@@ -110,10 +114,10 @@ class _PlayingPage extends State<PlayingScreen> {
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceEvenly,
                                   crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Draggable<bool>(
+                                  children:[
+                                    Draggable<String>(
                                       // Data is the value this Draggable stores.
-                                      data: true,
+                                      data: 'rope',
                                       feedback: Container(
                                         child: ClipRRect(
                                           child: Container(
@@ -148,9 +152,9 @@ class _PlayingPage extends State<PlayingScreen> {
                                         ),
                                       ),
                                     ),
-                                    Draggable<bool>(
+                                    Draggable<String>(
                                       // Data is the value this Draggable stores.
-                                      data: true,
+                                      data: 'ball',
                                       feedback: Container(
                                         child: ClipRRect(
                                           child: Container(
@@ -185,7 +189,8 @@ class _PlayingPage extends State<PlayingScreen> {
                                         ),
                                       ),
                                     ),
-                                  ]),
+                                  ]
+                              ),
 
                               //const Padding(padding: EdgeInsets.symmetric(vertical: 10),),
 
@@ -193,12 +198,12 @@ class _PlayingPage extends State<PlayingScreen> {
                                 padding: EdgeInsets.symmetric(vertical: 60),
                               ),
 
-                              DragTarget<bool>(
+                              DragTarget<String>(
                                 builder: (
-                                  BuildContext context,
-                                  List<dynamic> accepted,
-                                  List<dynamic> rejected,
-                                ) {
+                                    BuildContext context,
+                                    List<dynamic> accepted,
+                                    List<dynamic> rejected,
+                                    ) {
                                   return Container(
                                     child: ClipRRect(
                                       child: Container(
@@ -217,21 +222,13 @@ class _PlayingPage extends State<PlayingScreen> {
                                     ),
                                   );
                                 },
-                                onAccept: (bool data) {
+                                onAccept: (String data) {
                                   setState(() {
-                                    acceptedData = data;
-                                    if (acceptedData) {
-                                      image =
-                                          "assets/images/HappyDog.png";
-                                      text = getRandText();
-                                      TaskProvider taskProvider =
-                                          TaskProvider(
-                                              widget.pet, widget.userID);
-                                      taskProvider.toggleTask('Play');
-                                    }
+                                    toy = data;
+                                    image = "assets/images/HappyDog.png";
+                                    text = getRandText();
                                   });
-                                },
-                              ),
+                                },),
                             ])
                       ],
                     )))));

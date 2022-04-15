@@ -25,6 +25,7 @@ class _WaterPageState extends State<WaterScreen> {
 
   String tapWater = 'assets/images/TapWater.png';
   String bowlState = 'assets/images/DogBowl.png';
+  String text = "Tap screen to fill the water bowl";
   bool tapped = false;
   bool started = false;
   bool isFilled = false;
@@ -37,6 +38,7 @@ class _WaterPageState extends State<WaterScreen> {
         if (tapped) {
           _counter--;
           if (_counter == 0) {
+            text = 'Great job! You filled the water bowl!';
             _timer.cancel();
             isFilled = true;
             tapped = false;
@@ -44,8 +46,10 @@ class _WaterPageState extends State<WaterScreen> {
             tapWater = 'assets/images/TapWaterWithCheck.png';
             bowlState = 'assets/images/FilledBowl.png';
           } else if (_counter < 3) {
+            text = 'Just wait, it\'s almost done...';
             bowlState = 'assets/images/DogBowlPt2.png';
-          } else if (_counter < 5) {
+          } else if(_counter < 5) {
+            text = 'It\'s filling up...';
             bowlState = 'assets/images/DogBowlPt1.png';
           }
         } else
@@ -102,7 +106,7 @@ class _WaterPageState extends State<WaterScreen> {
                     Align(
                       alignment: Alignment(0.0, -0.9),
                       child: Text(
-                        '''Tap the screen to give the dog water''',
+                        text,
                         overflow: TextOverflow.visible,
                         textAlign: TextAlign.center,
                         style: TextStyle(
