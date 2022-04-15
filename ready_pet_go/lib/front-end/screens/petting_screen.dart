@@ -25,8 +25,7 @@ class _PettingPageState extends State<PettingScreen> {
   double left = 120;
   String text = 'Drag the hand to pet your pet';
   bool setPos = false;
-  String image =
-      "lib/src/assets/images/e69f6fd7c61b7fca781861df8b44a3c877d16753.png";
+  String image = "assets/images/e69f6fd7c61b7fca781861df8b44a3c877d16753.png";
   bool acceptedData = false;
 
   var happyPet = [

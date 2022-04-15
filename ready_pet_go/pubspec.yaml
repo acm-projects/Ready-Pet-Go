@@ -73,6 +73,33 @@ flutter:
   assets:
     - assets/
     - assets/images/
+    - assets/images/e69f6fd7c61b7fca781861df8b44a3c877d16753.png
+    - assets/images/31312dc9bfd271c97b39383f5298a128c49ea891.png
+    - assets/images/8d995a431eb0a65ffb2e71117c684dcb438d10b6.png
+    - assets/images/584cfbedab1a1a9cb7749c65e6bf9e4e22005996.png
+    - assets/images/91c294f141f9a162e40c82c18c20285830a2fc63.png
+    - assets/images/Toy.png
+    - assets/images/Walk.png
+    - assets/images/Task.png
+    - assets/images/b691e5abfa20715589768f51a7c08a39a92d5d5e.png
+    - assets/images/FoodShelf.png
+    - assets/images/Shelf.png
+    - assets/images/DogBowl.png
+    - assets/images/DogFood.png
+    - assets/images/FoodPiece.png
+    - assets/images/Hand.png
+    - assets/images/FilledBowl.png
+    - assets/images/DogBowlPt1.png
+    - assets/images/DogBowlPt2.png
+    - assets/images/FoodBowl.png
+    - assets/images/HappyDog.png
+    - assets/images/TapWater.png
+    - assets/images/OnWater.png
+    - assets/images/TapWaterWithCheck.png
+    - assets/images/Ball.png
+    - assets/images/DogIcon.png
+    - assets/images/dog_icon.png
+    - assets/images/raindrop.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

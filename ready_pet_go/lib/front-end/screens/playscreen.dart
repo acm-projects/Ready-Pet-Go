@@ -170,7 +170,7 @@ class _PlayingPage extends State<PlayingScreen> {
                                             width: 100,
                                             height: 100,
                                             child: Image.asset(
-                                              "lib/src/assets/images/Ball.png",
+                                              "assets/images/Ball.png",
                                               color: null,
                                               fit: BoxFit.cover,
                                               colorBlendMode: BlendMode.dstATop,
