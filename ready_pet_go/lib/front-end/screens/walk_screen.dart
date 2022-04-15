@@ -9,11 +9,14 @@ import 'package:pedometer/pedometer.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
 
+import '../../back-end/models/pet.dart';
 import '../../back-end/services/polyline_services.dart';
 import 'finish_walk_screen.dart';
 
 class WalkScreen extends StatefulWidget {
-  const WalkScreen({Key? key}) : super(key: key);
+  final String userId;
+  final Pet pet;
+  const WalkScreen(this.pet, this.userId, {Key? key}) : super(key: key);
 
   @override
   State<WalkScreen> createState() => _WalkScreenState();
@@ -306,7 +309,7 @@ class _WalkScreenState extends State<WalkScreen> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => FinishScreen(totalDistanceFinal, durationFinal),
+        builder: (context) => FinishScreen(widget.pet,widget.userId,totalDistanceFinal, durationFinal),
       ),
     );
   }

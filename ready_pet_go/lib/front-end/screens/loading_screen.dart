@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:easy_splash_screen/easy_splash_screen.dart';
+import 'package:ready_pet_go/front-end/screens/login_screen.dart';
 
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({Key? key}) : super(key: key);
@@ -26,9 +27,11 @@ class _LoadingScreenState extends State<LoadingScreen> {
         showLoader: true,
         loadingText: Text("Loading..."),
         //redirect to page you want it to go
-        durationInSeconds: 5,
+        navigator: LoginScreen(),
+        durationInSeconds: 2,
       )),
       debugShowCheckedModeBanner: false,
+      
     );
   }
 }
