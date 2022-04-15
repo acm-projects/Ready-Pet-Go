@@ -134,8 +134,8 @@ class _FeedingPageState extends State<FeedScreen> {
                               ),
                               Visibility(
                                   child: const SizedBox(
-                                    width: 100,
-                                    height: 100,
+                                    width: 110,
+                                    height: 110,
                                   ),
                                   visible: !acceptedData),
                               Visibility(
