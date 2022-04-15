@@ -36,11 +36,10 @@ class _TaskScreenState extends State<TaskScreen> {
   Map _tasks = {};
 
   Map<String, String> images = {
-    'Play': "lib/src/assets/images/dog_toy.png",
-    'Feed': "lib/src/assets/images/dog_food.png",
-    'Walk': "lib/src/assets/images/dog_walk.png",
-    'Water':
-        "lib/src/assets/images/91c294f141f9a162e40c82c18c20285830a2fc63.png",
+    'Play': "assets/images/temptoy.png",
+    'Feed': "assets/images/tempfood2.png",
+    'Walk': "assets/images/tempwalk2.png",
+    'Water': "assets/images/tempwater2.png",
   };
 
 // App widget tree
@@ -50,13 +49,15 @@ class _TaskScreenState extends State<TaskScreen> {
       home: Scaffold(
           backgroundColor: Colors.white,
           appBar: AppBar(
-            title: const Padding(
-              padding: EdgeInsets.only(left: 95.0),
-              child: Text('Task List'),
+            centerTitle: true,
+		        title: Padding(
+		        padding: const EdgeInsets.only(left: 0.0),
+		        child: Text('TO-DO LIST', style: TextStyle(color: Colors.black, fontFamily: 'Nunito', fontWeight: FontWeight.w700, fontSize: 30)),
             ),
-            backgroundColor: const Color(0xFF00A5E0),
+            backgroundColor: Colors.white,
+            elevation: 3,
             leading: IconButton(
-              icon: const Icon(Icons.arrow_back_sharp),
+              icon: const Icon(Icons.arrow_back_sharp, color: Colors.black),
               tooltip: 'Menu',
               onPressed: () {
                 Navigator.push(
@@ -93,7 +94,7 @@ class _TaskScreenState extends State<TaskScreen> {
 
                       /** CheckboxListTile Widget **/
                       child: CheckboxListTile(
-                        title: Text(key.toString() + " " + widget.petName),
+                        title: Text(key.toString() + " " + widget.petName, style: TextStyle(fontFamily: 'Nunito', fontWeight: FontWeight.w700)),
                         //	subtitle: const Text(
                         //'A computer science portal for geeks. Here you will find articles on all the technologies.'),
                         secondary: CircleAvatar(
@@ -101,11 +102,11 @@ class _TaskScreenState extends State<TaskScreen> {
                           radius: 20,
                           backgroundImage: AssetImage(
                             images[key].toString(),
+
                           ),
                         ),
 
                         autofocus: false,
-                        //isThreeLine: true,
                         activeColor: Colors.white,
                         checkColor: const Color(0xFF82B26C),
                         selectedTileColor: const Color(0xFF82B26C),

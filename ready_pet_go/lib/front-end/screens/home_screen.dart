@@ -72,20 +72,80 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
         appBar: AppBar(
-          title: Padding(
-            padding: const EdgeInsets.only(left: 85.0),
-            child: Text('Home Screen'),
+          centerTitle: true,
+          title: Text('Ready, Pet, GO!',
+              style: TextStyle(
+                  fontFamily: 'Chewy',
+                  color: Colors.black,
+                  //fontWeight: FontWeight.w700,
+                  fontSize: 30,
+                  //fontStyle: FontStyle.italic,
+              ),
+            ),
+          backgroundColor: Colors.white,
+          elevation: 0,
+          actions: <Widget>[
+              IconButton(
+                icon: const Icon(Icons.question_mark_rounded, color: Colors.black),
+                tooltip: 'Instructions',
+                onPressed: () => showDialog<String>(
+                  context: context,
+                  builder: (BuildContext context) => AlertDialog(
+                    title: const Text(
+                        'Help Guide',
+                        style: TextStyle(
+                                //height: 1.171875,
+                                //fontSize: 48.0,
+                                fontFamily: 'Nunito',
+                                fontWeight: FontWeight.w700,
+                                color: Color.fromARGB(255, 0, 0, 0),
+
+                                /* letterSpacing: 0.0, */
+                              ),
+                    ),
+                    content: const Text(
+                        '1. Click on the icons in the top row to do certain tasks.\n\n'
+                        '2. Click on the list icon in the bottom left to check your to-do list.\n\n'
+                        '3. Do these tasks daily and take great care of your pet.\n\n'
+                        'Have fun!', 
+                        style: TextStyle(
+                                //height: 1.171875,
+                                //fontSize: 48.0,
+                                fontFamily: 'Nunito',
+                                fontWeight: FontWeight.w700,
+                                color: Color.fromARGB(255, 0, 0, 0),
+
+                                /* letterSpacing: 0.0, */
+                              ),
+                        ),
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () => Navigator.pop(context, 'OK'),
+                        child: const Text('OK'),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              IconButton(
+                icon: Icon(Icons.logout, color: Colors.black),
+                tooltip: 'Log Out',
+                onPressed: () {
+                  _signOut().then((value) => Navigator.push(context,
+                   MaterialPageRoute(builder: ((context) => LoginScreen()))));
+                },
+              ),
+            ]
           ),
-          backgroundColor: Color(0xFF00A5E0),
-          leading: IconButton(
-            icon: Icon(Icons.logout_sharp),
-            tooltip: 'Log Out ', //IMPLEMENT PLEASE
-            onPressed: () {
-              _signOut().then((value) => Navigator.push(context,
-                  MaterialPageRoute(builder: ((context) => LoginScreen()))));
-            },
-          ),
-        ),
+          // leading: IconButton(
+          //   icon: Icon(Icons.logout_sharp),
+          //   tooltip: 'Log Out ', //IMPLEMENT PLEASE
+          //   onPressed: () {
+          //     _signOut().then((value) => Navigator.push(context,
+          //         MaterialPageRoute(builder: ((context) => LoginScreen()))));
+          //   },
+          // ),
+        
         body: Center(
           child: Container(
             width: sWidth,
@@ -202,8 +262,8 @@ class _HomeScreenState extends State<HomeScreen> {
                               style: TextStyle(
                                 height: 1.171875,
                                 fontSize: 48.0,
-                                fontFamily: 'Roboto',
-                                fontWeight: FontWeight.w400,
+                                fontFamily: 'Nunito',
+                                fontWeight: FontWeight.w700,
                                 color: Color.fromARGB(255, 0, 0, 0),
 
                                 /* letterSpacing: 0.0, */

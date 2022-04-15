@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_splash_screen/easy_splash_screen.dart';
+import 'package:ready_pet_go/front-end/screens/home_screen.dart';
+import 'package:ready_pet_go/front-end/screens/login_screen.dart';
 
 class LoadingScreen extends StatefulWidget {
   const LoadingScreen({Key? key}) : super(key: key);
@@ -14,18 +16,20 @@ class _LoadingScreenState extends State<LoadingScreen> {
     return MaterialApp(
       home: Scaffold(
           body: EasySplashScreen(
-        logo: Image.asset('lib/src/assets/images/dog_logo_transparent.png'),
+        logo: Image.asset('assets/images/dog_icon_login_screen.png'),
         logoSize: 120,
         title: Text(
-          "Ready, Pet, Go!",
+          "Ready, Pet, GO!",
           style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.bold,
+            fontFamily: 'Chewy', 
+            //fontWeight: FontWeight.w700,
+            fontSize: 35,
           ),
         ),
         showLoader: true,
-        loadingText: Text("Loading..."),
+        loadingText: Text("Loading...", style: TextStyle(fontFamily: 'Nunito', fontWeight: FontWeight.w700, fontSize: 18)),
         //redirect to page you want it to go
+        navigator: LoginScreen(),
         durationInSeconds: 5,
       )),
       debugShowCheckedModeBanner: false,

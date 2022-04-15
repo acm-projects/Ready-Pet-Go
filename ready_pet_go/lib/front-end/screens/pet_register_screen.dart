@@ -32,12 +32,12 @@ class _PetRegisterScreenState extends State<PetRegisterScreen> {
               const Padding(
                 padding: const EdgeInsets.only(top: 30),
               ),
-              Image.asset('lib/src/assets/images/dog_logo_transparent.png',
+              Image.asset('assets/images/dog_icon_login_screen.png',
                   height: 250, width: 250),
               //const SizedBox(height: 10),
               const Text('Create Your Pet!',
                   textScaleFactor: 2.0,
-                  style: TextStyle(color: Color(0xFF00A5E0))),
+                  style: TextStyle(fontFamily: 'Nunito', fontWeight: FontWeight.w700, color: Color(0xFF00A5E0))),
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 20.0),
                 //child: Text('Customize Your Pet'),
@@ -53,6 +53,7 @@ class _PetRegisterScreenState extends State<PetRegisterScreen> {
                         border: OutlineInputBorder(),
                         prefixIcon: Icon(Icons.border_color_outlined),
                         labelText: 'Pet Name',
+                        labelStyle: TextStyle(fontFamily: 'Nunito', fontWeight: FontWeight.w700),
                       ),
                       controller: controller1,
                       validator: (String? value) {
@@ -70,6 +71,7 @@ class _PetRegisterScreenState extends State<PetRegisterScreen> {
                         border: OutlineInputBorder(),
                         prefixIcon: Icon(Icons.cake_outlined),
                         labelText: 'Pet Breed',
+                        labelStyle: TextStyle(fontFamily: 'Nunito', fontWeight: FontWeight.w700),
                       ),
                       controller: controller2,
                       validator: (String? value) {
@@ -87,6 +89,7 @@ class _PetRegisterScreenState extends State<PetRegisterScreen> {
                         border: OutlineInputBorder(),
                         prefixIcon: Icon(Icons.pets_outlined),
                         labelText: 'Pet Age',
+                        labelStyle: TextStyle(fontFamily: 'Nunito', fontWeight: FontWeight.w700),
                       ),
                       controller: controller3,
                       validator: (String? value) {
@@ -139,8 +142,8 @@ class _PetRegisterScreenState extends State<PetRegisterScreen> {
                       // );
                     }
                   },
-                  child: const Text('Go!',
-                      style: TextStyle(fontSize: 20, color: Colors.white)),
+                  child: const Text('GO!',
+                      style: TextStyle(fontFamily: 'Nunito', fontWeight: FontWeight.w700, fontSize: 20, color: Colors.white)),
                 ),
               ),
             ],
