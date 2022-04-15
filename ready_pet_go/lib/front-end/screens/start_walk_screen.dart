@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ready_pet_go/front-end/screens/walk_screen.dart';
 
 import '../../back-end/models/pet.dart';
+import 'home_screen.dart';
 
 class StartWalkScreen extends StatefulWidget {
   final String userId;
@@ -56,7 +57,12 @@ class _StartWalkScreenState extends State<StartWalkScreen>
           leading: IconButton(
             icon: const Icon(Icons.arrow_back_sharp),
             tooltip: 'Menu',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: ((context) => HomeScreen(widget.userId))));
+            },
           )),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
