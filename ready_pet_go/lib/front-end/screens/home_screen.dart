@@ -23,7 +23,6 @@ import '../icon_widgets/water_icon.dart';
 Future<String?> getPetNameFromDatabase(String userID) async {
   final petProvider = PetProvider(userID);
   Pet pet = await petProvider.getFirstPet();
-  debugPrint(pet.name! + " home page dog name");
   return pet.name;
 }
 
@@ -68,14 +67,15 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
         appBar: AppBar(
-          centerTitle: true,
-          title: Text('Ready, Pet, GO!',
+            centerTitle: true,
+            title: const Text(
+              'Ready, Pet, GO!',
               style: TextStyle(
-                  fontFamily: 'Chewy',
-                  color: Colors.black,
-                  //fontWeight: FontWeight.w200,
-                  fontSize: 28,
-                  //fontStyle: FontStyle.italic,
+                fontFamily: 'Chewy',
+                color: Colors.black,
+                //fontWeight: FontWeight.w200,
+                fontSize: 28,
+                //fontStyle: FontStyle.italic,
               ),
             ),
             backgroundColor: Colors.white,
@@ -88,7 +88,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 onPressed: () => showDialog<String>(
                   context: context,
                   builder: (BuildContext context) => AlertDialog(
-                    title: Text(
+                    title: const Text(
                       'Help Guide',
                       style: TextStyle(
                         //height: 1.171875,
@@ -100,7 +100,7 @@ class _HomeScreenState extends State<HomeScreen> {
                         /* letterSpacing: 0.0, */
                       ),
                     ),
-                    content: Text(
+                    content: const Text(
                       '1. Click on the icons in the top row to do certain tasks.\n\n'
                       '2. Click on the list icon in the bottom left to check your to-do list.\n\n'
                       '3. Do these tasks daily and take great care of your pet.\n\n'
@@ -112,23 +112,24 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontWeight: FontWeight.w700,
                         color: Color.fromARGB(255, 0, 0, 0),
 
-                                /* letterSpacing: 0.0, */
-                              ),
-                        ),
+                        /* letterSpacing: 0.0, */
+                      ),
+                    ),
                     actions: <Widget>[
                       TextButton(
                         onPressed: () => Navigator.pop(context, 'OK'),
-                        child: Text('OK',
+                        child: const Text(
+                          'OK',
                           style: TextStyle(
-                                //height: 1.171875,
-                                //fontSize: 48.0,
-                                fontFamily: 'Nunito',
-                                fontWeight: FontWeight.w700,
-                                color: Color(0xFF00A5E0),
+                            //height: 1.171875,
+                            //fontSize: 48.0,
+                            fontFamily: 'Nunito',
+                            fontWeight: FontWeight.w700,
+                            color: Color(0xFF00A5E0),
 
-                                /* letterSpacing: 0.0, */
-                              ),),
-                              
+                            /* letterSpacing: 0.0, */
+                          ),
+                        ),
                       ),
                     ],
                   ),

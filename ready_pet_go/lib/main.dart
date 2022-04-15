@@ -3,7 +3,6 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:ready_pet_go/front-end/screens/loading_screen.dart';
-import 'package:ready_pet_go/front-end/screens/login_screen.dart';
 
 import 'firebase_options.dart';
 
@@ -12,15 +11,14 @@ const AndroidNotificationChannel channel = AndroidNotificationChannel(
     'High Importance notifications', //title
     //'This channel is used for important descriptions', //description
     importance: Importance.high,
-    playSound: true
-);
+    playSound: true);
 
-final FlutterLocalNotificationsPlugin localNotifications = FlutterLocalNotificationsPlugin();
+final FlutterLocalNotificationsPlugin localNotifications =
+    FlutterLocalNotificationsPlugin();
 
-Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async{
+Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp();
 }
-
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,7 +27,9 @@ Future<void> main() async {
   );
   FirebaseMessaging.onBackgroundMessage(_firebaseMessagingBackgroundHandler);
 
-  await localNotifications.resolvePlatformSpecificImplementation<AndroidFlutterLocalNotificationsPlugin>()
+  await localNotifications
+      .resolvePlatformSpecificImplementation<
+          AndroidFlutterLocalNotificationsPlugin>()
       ?.createNotificationChannel(channel);
 
   await FirebaseMessaging.instance.setForegroundNotificationPresentationOptions(
@@ -50,59 +50,49 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyApp> {
-
   @override
-  void initState(){
+  void initState() {
     super.initState();
-    FirebaseMessaging.onMessage.listen((RemoteMessage message){
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
       RemoteNotification? notification = message.notification;
       AndroidNotification? android = message.notification?.android;
-      if(notification != null && android != null){
+      if (notification != null && android != null) {
         localNotifications.show(
             notification.hashCode,
             notification.title,
             notification.body,
             NotificationDetails(
-              android: AndroidNotificationDetails(
-                  channel.id,
-                  channel.name,
+              android: AndroidNotificationDetails(channel.id, channel.name,
                   //channel.description,
-                  color:Colors.blue,
+                  color: Colors.blue,
                   playSound: true,
-                  icon: '@mipmap/launcher_icon'
-              ),
-            )
-        );
+                  icon: '@mipmap/launcher_icon'),
+            ));
       }
     });
 
-    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message){
+    FirebaseMessaging.onMessageOpenedApp.listen((RemoteMessage message) {
       RemoteNotification? notification = message.notification;
       AndroidNotification? android = message.notification?.android;
-      if(notification != null && android != null){
+      if (notification != null && android != null) {
         showDialog(
             context: context,
-            builder: (_){
+            builder: (_) {
               return AlertDialog(
-                  title: Text('Main'),
+                  title: const Text('Main'),
                   content: SingleChildScrollView(
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text('Wassup')
-                        ],
-                      )
-                  )
-              );
-            }
-        );
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [Text('Wassup')],
+                  )));
+            });
       }
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Ready Pet Go',
       home: LoadingScreen(),
       debugShowCheckedModeBanner: false,
