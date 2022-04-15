@@ -1,17 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:ready_pet_go/back-end/models/pet.dart';
+import 'package:ready_pet_go/back-end/provider_functions/task_provider.dart';
+
+import 'home_screen.dart';
 
 class FinishScreen extends StatefulWidget {
+  final String userID;
+  final Pet pet;
   final double _totalDistance;
   final String _totalDuration;
-  const FinishScreen(this._totalDistance, this._totalDuration, {Key? key}) : super(key: key);
+
+  const FinishScreen(
+      this.pet, this.userID, this._totalDistance, this._totalDuration,
+      {Key? key})
+      : super(key: key);
   @override
   _FinishScreenState createState() => _FinishScreenState();
 }
-class _FinishScreenState extends State<FinishScreen> with SingleTickerProviderStateMixin {
+
+class _FinishScreenState extends State<FinishScreen>
+    with SingleTickerProviderStateMixin {
   late double _scale;
   late AnimationController _controller;
   @override
   void initState() {
+    final TaskProvider taskProvider = TaskProvider(widget.pet, widget.userID);
+    taskProvider.toggleTask('Walk');
     _controller = AnimationController(
       vsync: this,
       duration: const Duration(
@@ -20,15 +34,17 @@ class _FinishScreenState extends State<FinishScreen> with SingleTickerProviderSt
       lowerBound: 0.0,
       upperBound: 0.1,
     )..addListener(() {
-      setState(() {});
-    });
+        setState(() {});
+      });
     super.initState();
   }
+
   @override
   void dispose() {
     super.dispose();
     _controller.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     _scale = 1 - _controller.value;
@@ -38,7 +54,6 @@ class _FinishScreenState extends State<FinishScreen> with SingleTickerProviderSt
           title: const Padding(
             padding: EdgeInsets.only(left: 95.0),
             child: Text(' '),
-
           ),
           elevation: 0.0,
           bottomOpacity: 0.0,
@@ -51,16 +66,12 @@ class _FinishScreenState extends State<FinishScreen> with SingleTickerProviderSt
             icon: const Icon(Icons.arrow_back_sharp),
             tooltip: 'Menu',
             onPressed: () {
-              // TODO: go back to previous screen
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(
-              //     builder: (context) =>Home(FirebaseAuth.instance.currentUser?.uid as String),
-              //   ),
-              // );
-            },
-          )
-      ),
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: ((context) => HomeScreen(widget.userID))));
+              },
+          )),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
@@ -93,7 +104,8 @@ class _FinishScreenState extends State<FinishScreen> with SingleTickerProviderSt
       ),
     );
   }
-  Widget  _animatedButton() {
+
+  Widget _animatedButton() {
     return Container(
       height: 70,
       width: 200,
@@ -123,13 +135,16 @@ class _FinishScreenState extends State<FinishScreen> with SingleTickerProviderSt
               fontSize: 25.0,
               //fontWeight: FontWeight.bold,
               color: Colors.white),
+              
         ),
       ),
     );
   }
+
   void _tapDown(TapDownDetails details) {
     _controller.forward();
   }
+
   void _tapUp(TapUpDetails details) {
     _controller.reverse();
   }

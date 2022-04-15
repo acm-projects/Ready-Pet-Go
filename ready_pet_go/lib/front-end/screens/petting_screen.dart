@@ -25,8 +25,7 @@ class _PettingPageState extends State<PettingScreen> {
   double left = 120;
   String text = 'Drag the hand to pet your pet';
   bool setPos = false;
-  String image =
-      "lib/src/assets/images/e69f6fd7c61b7fca781861df8b44a3c877d16753.png";
+  String image = "assets/images/e69f6fd7c61b7fca781861df8b44a3c877d16753.png";
   bool acceptedData = false;
 
   var happyPet = [
@@ -107,7 +106,7 @@ class _PettingPageState extends State<PettingScreen> {
                                       width: 100,
                                       height: 54,
                                       child: Image.asset(
-                                        "lib/src/assets/images/Hand.png",
+                                        "assets/images/Hand.png",
                                         color: null,
                                         fit: BoxFit.cover,
                                         colorBlendMode: BlendMode.dstATop,
@@ -126,7 +125,7 @@ class _PettingPageState extends State<PettingScreen> {
                                       width: 100,
                                       height: 54,
                                       child: Image.asset(
-                                        "lib/src/assets/images/Hand.png",
+                                        "assets/images/Hand.png",
                                         color: null,
                                         fit: BoxFit.cover,
                                         colorBlendMode: BlendMode.dstATop,
@@ -171,7 +170,7 @@ class _PettingPageState extends State<PettingScreen> {
                                     acceptedData = data;
                                     if (acceptedData) {
                                       image =
-                                          "lib/src/assets/images/HappyDog.png";
+                                          "assets/images/HappyDog.png";
                                       text = getRandText();
                                     }
                                   });

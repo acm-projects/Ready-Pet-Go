@@ -33,6 +33,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
         durationInSeconds: 5,
       )),
       debugShowCheckedModeBanner: false,
+      
     );
   }
 }

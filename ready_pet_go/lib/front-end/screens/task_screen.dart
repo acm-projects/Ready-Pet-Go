@@ -18,8 +18,7 @@ Future<Pet> bringTestPet(String userId) async {
 class TaskScreen extends StatefulWidget {
   final String userId;
   final String petName;
-  const TaskScreen(this.petName, this.userId, {Key? key})
-      : super(key: key);
+  const TaskScreen(this.petName, this.userId, {Key? key}) : super(key: key);
   @override
   _TaskScreenState createState() => _TaskScreenState();
 }
@@ -84,6 +83,8 @@ class _TaskScreenState extends State<TaskScreen> {
                       height: 30,
                     ),
                   );
+                  
+                  var String = "";
 
                   widgetList.add(
                     Container(

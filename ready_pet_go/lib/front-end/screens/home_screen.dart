@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/semantics.dart';
 import 'package:flutter/widgets.dart';
+import 'package:ready_pet_go/front-end/screens/start_walk_screen.dart';
 
 import './feed_screen.dart';
 import './walking_tracker_screen.dart';
@@ -240,8 +241,8 @@ class _HomeScreenState extends State<HomeScreen> {
                                           context,
                                           MaterialPageRoute(
                                               builder: ((context) =>
-                                                  TrackerScreen(
-                                                      widget.userID))));
+                                                  StartWalkScreen(
+                                                      pet, widget.userID))));
                                     }
                                   },
                                   child: WalkIcon(),
@@ -291,7 +292,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             )
                           ]);
                         } else {
-                          return LoadingScreen();
+                          return CircularProgressIndicator();
                         }
                       }),
                 ]),

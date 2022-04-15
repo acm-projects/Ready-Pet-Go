@@ -23,8 +23,8 @@ class _WaterPageState extends State<WaterScreen> {
     super.initState();
   }
 
-  String tapWater = 'lib/src/assets/images/TapWater.png';
-  String bowlState = 'lib/src/assets/images/DogBowl.png';
+  String tapWater = 'assets/images/TapWater.png';
+  String bowlState = 'assets/images/DogBowl.png';
   bool tapped = false;
   bool started = false;
   bool isFilled = false;
@@ -41,12 +41,12 @@ class _WaterPageState extends State<WaterScreen> {
             isFilled = true;
             tapped = false;
             started = false;
-            tapWater = 'lib/src/assets/images/TapWaterWithCheck.png';
-            bowlState = 'lib/src/assets/images/FilledBowl.png';
+            tapWater = 'assets/images/TapWaterWithCheck.png';
+            bowlState = 'assets/images/FilledBowl.png';
           } else if (_counter < 3) {
-            bowlState = 'lib/src/assets/images/DogBowlPt2.png';
+            bowlState = 'assets/images/DogBowlPt2.png';
           } else if (_counter < 5) {
-            bowlState = 'lib/src/assets/images/DogBowlPt1.png';
+            bowlState = 'assets/images/DogBowlPt1.png';
           }
         } else
           _timer.cancel();
@@ -119,17 +119,17 @@ class _WaterPageState extends State<WaterScreen> {
                             if (isFilled) {
                               tapped = false;
                               tapWater =
-                                  'lib/src/assets/images/TapWaterWithCheck.png';
+                                  'assets/images/TapWaterWithCheck.png';
                             } else if (!tapped && !isFilled) {
                               tapped = true;
-                              tapWater = 'lib/src/assets/images/OnWater.png';
+                              tapWater = 'assets/images/OnWater.png';
                               TaskProvider taskProvider =
                                   TaskProvider(widget.pet, widget.userID);
                               taskProvider.toggleTask('Water');
                               print("hello");
                             } else {
                               tapped = false;
-                              tapWater = 'lib/src/assets/images/TapWater.png';
+                              tapWater = 'assets/images/TapWater.png';
                             }
                             print(tapped);
                             startTimer();

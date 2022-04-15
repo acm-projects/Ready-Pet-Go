@@ -22,7 +22,7 @@ class _FeedingPageState extends State<FeedScreen> {
   }
 
   bool acceptedData = false;
-  String bowl = 'lib/src/assets/images/DogBowl.png';
+  String bowl = 'assets/images/DogBowl.png';
   @override
   Widget build(BuildContext context) {
     double sWidth = MediaQuery.of(context).size.width;
@@ -88,7 +88,7 @@ class _FeedingPageState extends State<FeedScreen> {
                                       width: 80,
                                       height: 100,
                                       child: Image.asset(
-                                        "lib/src/assets/images/DogFood.png",
+                                        "assets/images/DogFood.png",
                                         color: null,
                                         fit: BoxFit.cover,
                                         colorBlendMode: BlendMode.dstATop,
@@ -107,7 +107,7 @@ class _FeedingPageState extends State<FeedScreen> {
                                       width: 80,
                                       height: 100,
                                       child: Image.asset(
-                                        "lib/src/assets/images/DogFood.png",
+                                        "assets/images/DogFood.png",
                                         color: null,
                                         fit: BoxFit.cover,
                                         colorBlendMode: BlendMode.dstATop,
@@ -124,7 +124,7 @@ class _FeedingPageState extends State<FeedScreen> {
                                 width: 300,
                                 height: 30,
                                 child: Image.asset(
-                                  "lib/src/assets/images/Shelf.png",
+                                  "assets/images/Shelf.png",
                                   color: null,
                                   fit: BoxFit.cover,
                                   width: 500,
@@ -189,7 +189,7 @@ class _FeedingPageState extends State<FeedScreen> {
                                           widget.pet, widget.userID);
                                       taskProvider.toggleTask('Feed');
                                       bowl =
-                                          'lib/src/assets/images/FoodBowl.png';
+                                          'assets/images/FoodBowl.png';
                                     }
                                   });
                                 },
