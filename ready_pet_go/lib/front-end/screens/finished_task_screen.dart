@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import './home_screen.dart';
 
 class FinishedTaskScreen extends StatefulWidget {
@@ -18,6 +16,7 @@ class _CompleteState extends State<FinishedTaskScreen> {
     super.initState();
   }
 
+  @override
   Widget build(BuildContext context) {
     double sWidth = MediaQuery.of(context).size.width;
     double sHeight = MediaQuery.of(context).size.height;
@@ -63,7 +62,7 @@ class _CompleteState extends State<FinishedTaskScreen> {
                           color: const Color.fromARGB(255, 255, 255, 255),
                         ),
                       ),
-                      Align(
+                      const Align(
                         alignment: Alignment(0.0, -0.9),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),

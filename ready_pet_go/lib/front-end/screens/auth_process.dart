@@ -1,6 +1,5 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'pet_register_screen.dart';
 
 
@@ -25,7 +24,7 @@ class _AuthProcessState extends State<AuthProcess> {
     return FutureBuilder(
       future: _petStatusCheck(),
       builder: (context, snapshot) {
-        return Center(child: CircularProgressIndicator());
+        return const Center(child: CircularProgressIndicator());
       },
     );
   }

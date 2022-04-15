@@ -216,19 +216,15 @@ class _WalkScreenState extends State<WalkScreen> {
   void _updateMarkerAndDistance(LatLng pos, Uint8List imageData) async {
     if (_origin == null) {
       _stopWatchTimer.onExecute.add(StopWatchExecute.start);
-      // pos = LatLng(32.99158608709951, -96.75185037197004);
       setState(() {
         _origin = Marker(
-          // icon: BitmapDescriptor.fromBytes(imageData),
           markerId: const MarkerId('origin'),
           infoWindow: const InfoWindow(title: 'Origin'),
           icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
           position: pos,
         );
       });
-      // destination = null;
-      // debugPrint(_origin.toString() + " first " + destination.toString());
-      // first temp marker is the origin
+
       _tempPos = pos;
     } else {
       setState(() {
@@ -236,7 +232,6 @@ class _WalkScreenState extends State<WalkScreen> {
           icon: BitmapDescriptor.fromBytes(imageData),
           markerId: const MarkerId('currentPosition'),
           infoWindow: const InfoWindow(title: 'Current Position'),
-          // icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
           position: pos,
         );
       });
