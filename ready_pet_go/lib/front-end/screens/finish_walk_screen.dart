@@ -66,27 +66,60 @@ class _FinishScreenState extends State<FinishScreen>
             icon: const Icon(Icons.arrow_back_sharp),
             tooltip: 'Menu',
             onPressed: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: ((context) => HomeScreen(widget.userID))));
-              },
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: ((context) => HomeScreen(widget.userID))));
+            },
           )),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const Center(child: Text('You\'ve finished your\n             walk!\n',
-          style: TextStyle(color: Colors.white, fontFamily: 'Nunito', fontWeight: FontWeight.w700, fontSize: 40.0),)),
+          const Center(
+              child: Text(
+            'You\'ve finished your\n             walk!\n',
+            style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Nunito',
+                fontWeight: FontWeight.w700,
+                fontSize: 40.0),
+          )),
           const SizedBox(
             height: 20.0,
           ),
-          const Center(child: Icon(Icons.directions_walk, size: 50, color: Colors.white,)),
-          Center(child: Text('Distance: ${widget._totalDistance.toStringAsFixed(1)} Feet',style: const TextStyle(color: Colors.white, fontFamily: 'Nunito', fontWeight: FontWeight.w700, fontSize: 25.0),)),
+          const Center(
+              child: Icon(
+            Icons.directions_walk,
+            size: 50,
+            color: Colors.white,
+          )),
+          Center(
+              child: Text(
+            'Distance: ${widget._totalDistance.toStringAsFixed(1)} Feet',
+            style: const TextStyle(
+                color: Colors.white,
+                fontFamily: 'Nunito',
+                fontWeight: FontWeight.w700,
+                fontSize: 25.0),
+          )),
           const SizedBox(
             height: 20.0,
           ),
-          const Center(child: Icon(Icons.alarm, size: 50, color: Colors.white,)),
-          Center(child: Text('Time: ${widget._totalDuration}\n',style: const TextStyle(color: Colors.white, fontFamily: 'Nunito', fontWeight: FontWeight.w700, fontSize: 25.0),)),
+          const Center(
+              child: Icon(
+            Icons.alarm,
+            size: 50,
+            color: Colors.white,
+          )),
+          Center(
+              child: Text(
+            'Time: ${widget._totalDuration}\n',
+            style: const TextStyle(
+                color: Colors.white,
+                fontFamily: 'Nunito',
+                fontWeight: FontWeight.w700,
+                fontSize: 25.0),
+          )),
           const SizedBox(
             height: 20.0,
           ),
@@ -111,6 +144,7 @@ class _FinishScreenState extends State<FinishScreen>
       width: 200,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100.0),
+          // ignore: prefer_const_literals_to_create_immutables
           boxShadow: [
             const BoxShadow(
               color: Color(0x80000000),
@@ -126,17 +160,24 @@ class _FinishScreenState extends State<FinishScreen>
               Color(0xff82B26C),
             ],
           )),
-      child: const Center(
-        child: Text(
-          'DONE',
+      child: TextButton(
+        child: const Text(
+          'DONE!',
           style: TextStyle(
-            fontFamily: 'Nunito', 
-            fontWeight: FontWeight.w700,
+              fontFamily: 'Nunito',
+              fontWeight: FontWeight.w700,
               fontSize: 25.0,
               //fontWeight: FontWeight.bold,
               color: Colors.white),
-              
         ),
+        onPressed: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HomeScreen(widget.userID),
+            ),
+          );
+        },
       ),
     );
   }

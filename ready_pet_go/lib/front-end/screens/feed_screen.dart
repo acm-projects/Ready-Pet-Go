@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:ready_pet_go/back-end/provider_functions/task_provider.dart';
 import './home_screen.dart';
 
@@ -34,17 +32,16 @@ class _FeedingPageState extends State<FeedScreen> {
         home: Scaffold(
             appBar: AppBar(
               centerTitle: true,
-              title: Text('FOOD TIME',
+              title: const Text('FOOD TIME',
                   style: TextStyle(
                     color: Colors.black,
                     //fontFamily: 'Bold',
                     fontSize: 30.0,
                     fontWeight: FontWeight.w900,
-                  )
-              ),
+                  )),
               backgroundColor: Colors.white,
               leading: IconButton(
-                icon: Icon(Icons.arrow_back_sharp, color: Colors.black),
+                icon: const Icon(Icons.arrow_back_sharp, color: Colors.black),
                 tooltip: 'Menu',
                 onPressed: () {
                   Navigator.push(
@@ -64,12 +61,12 @@ class _FeedingPageState extends State<FeedScreen> {
                       alignment: Alignment.center,
                       children: [
                         Align(
-                          alignment: Alignment(0.0, -0.9),
+                          alignment: const Alignment(0.0, -0.9),
                           child: Text(
                             text,
                             overflow: TextOverflow.visible,
                             textAlign: TextAlign.center,
-                            style: TextStyle(
+                            style: const TextStyle(
                               height: 1.171875,
                               fontSize: 25.0,
                               //fontFamily: 'Roboto',
@@ -123,9 +120,6 @@ class _FeedingPageState extends State<FeedScreen> {
                                   ),
                                 ),
                               ),
-
-                              //const Padding(padding: EdgeInsets.symmetric(vertical: 10),),
-
                               Container(
                                 color: Colors.white,
                                 width: 300,
@@ -139,11 +133,9 @@ class _FeedingPageState extends State<FeedScreen> {
                                   colorBlendMode: BlendMode.dstATop,
                                 ),
                               ),
-
                               const Padding(
                                 padding: EdgeInsets.symmetric(vertical: 30),
                               ),
-
                               Container(
                                 child: Visibility(
                                     child: Container(
@@ -152,18 +144,15 @@ class _FeedingPageState extends State<FeedScreen> {
                                     ),
                                     visible: !acceptedData),
                               ),
-
                               Container(
                                 child: Visibility(
                                     child: Icon(Icons.check,
                                         color: Colors.green, size: 100.0),
                                     visible: acceptedData),
                               ),
-
                               const Padding(
                                 padding: EdgeInsets.symmetric(vertical: 30),
                               ),
-
                               DragTarget<bool>(
                                 builder: (
                                   BuildContext context,
@@ -195,8 +184,7 @@ class _FeedingPageState extends State<FeedScreen> {
                                       var taskProvider = TaskProvider(
                                           widget.pet, widget.userID);
                                       taskProvider.toggleTask('Feed');
-                                      bowl =
-                                          'assets/images/FoodBowl.png';
+                                      bowl = 'assets/images/FoodBowl.png';
                                       text = 'Food is ready!';
                                     }
                                   });

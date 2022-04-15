@@ -30,14 +30,17 @@ class _PetRegisterScreenState extends State<PetRegisterScreen> {
           child: Column(
             children: <Widget>[
               const Padding(
-                padding: const EdgeInsets.only(top: 30),
+                padding: EdgeInsets.only(top: 30),
               ),
               Image.asset('assets/images/dog_icon_login_screen.png',
                   height: 250, width: 250),
               //const SizedBox(height: 10),
               const Text('Create Your Pet!',
                   textScaleFactor: 2.0,
-                  style: TextStyle(fontFamily: 'Nunito', fontWeight: FontWeight.w700, color: Color(0xFF00A5E0))),
+                  style: TextStyle(
+                      fontFamily: 'Nunito',
+                      fontWeight: FontWeight.w700,
+                      color: Color(0xFF00A5E0))),
               const Padding(
                 padding: EdgeInsets.symmetric(vertical: 20.0),
                 //child: Text('Customize Your Pet'),
@@ -47,13 +50,14 @@ class _PetRegisterScreenState extends State<PetRegisterScreen> {
                 child: Column(
                   children: [
                     TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintStyle: TextStyle(color: Colors.black45),
                         errorStyle: TextStyle(color: Colors.redAccent),
                         border: OutlineInputBorder(),
                         prefixIcon: Icon(Icons.border_color_outlined),
                         labelText: 'Pet Name',
-                        labelStyle: TextStyle(fontFamily: 'Nunito', fontWeight: FontWeight.w700),
+                        labelStyle: TextStyle(
+                            fontFamily: 'Nunito', fontWeight: FontWeight.w700),
                       ),
                       controller: controller1,
                       validator: (String? value) {
@@ -63,15 +67,16 @@ class _PetRegisterScreenState extends State<PetRegisterScreen> {
                         return null;
                       },
                     ),
-                    SizedBox(height: 50),
+                    const SizedBox(height: 50),
                     TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintStyle: TextStyle(color: Colors.black45),
                         errorStyle: TextStyle(color: Colors.redAccent),
                         border: OutlineInputBorder(),
                         prefixIcon: Icon(Icons.cake_outlined),
                         labelText: 'Pet Breed',
-                        labelStyle: TextStyle(fontFamily: 'Nunito', fontWeight: FontWeight.w700),
+                        labelStyle: TextStyle(
+                            fontFamily: 'Nunito', fontWeight: FontWeight.w700),
                       ),
                       controller: controller2,
                       validator: (String? value) {
@@ -81,15 +86,16 @@ class _PetRegisterScreenState extends State<PetRegisterScreen> {
                         return null;
                       },
                     ),
-                    SizedBox(height: 50),
+                    const SizedBox(height: 50),
                     TextFormField(
-                      decoration: InputDecoration(
+                      decoration: const InputDecoration(
                         hintStyle: TextStyle(color: Colors.black45),
                         errorStyle: TextStyle(color: Colors.redAccent),
                         border: OutlineInputBorder(),
                         prefixIcon: Icon(Icons.pets_outlined),
                         labelText: 'Pet Age',
-                        labelStyle: TextStyle(fontFamily: 'Nunito', fontWeight: FontWeight.w700),
+                        labelStyle: TextStyle(
+                            fontFamily: 'Nunito', fontWeight: FontWeight.w700),
                       ),
                       controller: controller3,
                       validator: (String? value) {
@@ -105,7 +111,7 @@ class _PetRegisterScreenState extends State<PetRegisterScreen> {
                   ],
                 ),
               ),
-              SizedBox(height: 50),
+              const SizedBox(height: 50),
               Container(
                 width: MediaQuery.of(context).size.width / 1.4,
                 height: 45,
@@ -122,11 +128,11 @@ class _PetRegisterScreenState extends State<PetRegisterScreen> {
                       final name = controller1.text;
                       final breed = controller2.text;
                       final age = controller3.text;
-                      
-                      PetProvider pet_provider = PetProvider(widget.userID);
 
-                      pet = pet_provider.initializePet(
-                          widget.userID, name, breed, int.parse(age) );
+                      PetProvider petProvider = PetProvider(widget.userID);
+
+                      pet = petProvider.initializePet(
+                          widget.userID, name, breed, int.parse(age));
                       Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -143,7 +149,11 @@ class _PetRegisterScreenState extends State<PetRegisterScreen> {
                     }
                   },
                   child: const Text('GO!',
-                      style: TextStyle(fontFamily: 'Nunito', fontWeight: FontWeight.w700, fontSize: 20, color: Colors.white)),
+                      style: TextStyle(
+                          fontFamily: 'Nunito',
+                          fontWeight: FontWeight.w700,
+                          fontSize: 20,
+                          color: Colors.white)),
                 ),
               ),
             ],

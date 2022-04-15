@@ -1,16 +1,11 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/semantics.dart';
-import 'package:flutter/widgets.dart';
 import 'package:ready_pet_go/front-end/screens/start_walk_screen.dart';
 
 import './feed_screen.dart';
-import './walking_tracker_screen.dart';
 import './water_screen.dart';
 import './pet_or_play_screen.dart';
 import './finished_task_screen.dart';
-import './loading_screen.dart';
 
 import './login_screen.dart';
 import './task_screen.dart';
@@ -73,52 +68,54 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
         appBar: AppBar(
-          centerTitle: true,
-          title: Text('Ready, Pet, GO!',
+            centerTitle: true,
+            title: const Text(
+              'Ready, Pet, GO!',
               style: TextStyle(
-                  fontFamily: 'Chewy',
-                  color: Colors.black,
-                  //fontWeight: FontWeight.w700,
-                  fontSize: 30,
-                  //fontStyle: FontStyle.italic,
+                fontFamily: 'Chewy',
+                color: Colors.black,
+                //fontWeight: FontWeight.w700,
+                fontSize: 30,
+                //fontStyle: FontStyle.italic,
               ),
             ),
-          backgroundColor: Colors.white,
-          elevation: 0,
-          actions: <Widget>[
+            backgroundColor: Colors.white,
+            elevation: 0,
+            actions: <Widget>[
               IconButton(
-                icon: const Icon(Icons.question_mark_rounded, color: Colors.black),
+                icon: const Icon(Icons.question_mark_rounded,
+                    color: Colors.black),
                 tooltip: 'Instructions',
                 onPressed: () => showDialog<String>(
                   context: context,
-                  builder: (BuildContext context) => AlertDialog(
-                    title: const Text(
-                        'Help Guide',
-                        style: TextStyle(
-                                //height: 1.171875,
-                                //fontSize: 48.0,
-                                fontFamily: 'Nunito',
-                                fontWeight: FontWeight.w700,
-                                color: Color.fromARGB(255, 0, 0, 0),
+                  builder: (BuildContext context) => const AlertDialog(
+                    title: Text(
+                      'Help Guide',
+                      style: TextStyle(
+                        //height: 1.171875,
+                        //fontSize: 48.0,
+                        fontFamily: 'Nunito',
+                        fontWeight: FontWeight.w700,
+                        color: Color.fromARGB(255, 0, 0, 0),
 
-                                /* letterSpacing: 0.0, */
-                              ),
+                        /* letterSpacing: 0.0, */
+                      ),
                     ),
-                    content: const Text(
-                        '1. Click on the icons in the top row to do certain tasks.\n\n'
-                        '2. Click on the list icon in the bottom left to check your to-do list.\n\n'
-                        '3. Do these tasks daily and take great care of your pet.\n\n'
-                        'Have fun!', 
-                        style: TextStyle(
-                                //height: 1.171875,
-                                //fontSize: 48.0,
-                                fontFamily: 'Nunito',
-                                fontWeight: FontWeight.w700,
-                                color: Color.fromARGB(255, 0, 0, 0),
+                    content: Text(
+                      '1. Click on the icons in the top row to do certain tasks.\n\n'
+                      '2. Click on the list icon in the bottom left to check your to-do list.\n\n'
+                      '3. Do these tasks daily and take great care of your pet.\n\n'
+                      'Have fun!',
+                      style: TextStyle(
+                        //height: 1.171875,
+                        //fontSize: 48.0,
+                        fontFamily: 'Nunito',
+                        fontWeight: FontWeight.w700,
+                        color: Color.fromARGB(255, 0, 0, 0),
 
-                                /* letterSpacing: 0.0, */
-                              ),
-                        ),
+                        /* letterSpacing: 0.0, */
+                      ),
+                    ),
                     // actions: <Widget>[
                     //   TextButton(
                     //     onPressed: () => Navigator.pop(context, 'OK'),
@@ -129,24 +126,25 @@ class _HomeScreenState extends State<HomeScreen> {
                 ),
               ),
               IconButton(
-                icon: Icon(Icons.logout, color: Colors.black),
+                icon: const Icon(Icons.logout, color: Colors.black),
                 tooltip: 'Log Out',
                 onPressed: () {
-                  _signOut().then((value) => Navigator.push(context,
-                   MaterialPageRoute(builder: ((context) => LoginScreen()))));
+                  _signOut().then((value) => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: ((context) => const LoginScreen()))));
                 },
               ),
-            ]
-          ),
-          // leading: IconButton(
-          //   icon: Icon(Icons.logout_sharp),
-          //   tooltip: 'Log Out ', //IMPLEMENT PLEASE
-          //   onPressed: () {
-          //     _signOut().then((value) => Navigator.push(context,
-          //         MaterialPageRoute(builder: ((context) => LoginScreen()))));
-          //   },
-          // ),
-        
+            ]),
+        // leading: IconButton(
+        //   icon: Icon(Icons.logout_sharp),
+        //   tooltip: 'Log Out ', //IMPLEMENT PLEASE
+        //   onPressed: () {
+        //     _signOut().then((value) => Navigator.push(context,
+        //         MaterialPageRoute(builder: ((context) => LoginScreen()))));
+        //   },
+        // ),
+
         body: Center(
           child: Container(
             width: sWidth,
@@ -225,7 +223,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                   pet, widget.userID))));
                                     }
                                   },
-                                  child: FoodIcon(),
+                                  child: const FoodIcon(),
                                 ),
                                 GestureDetector(
                                   onTap: () {
@@ -252,7 +250,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             const Padding(
                               padding: EdgeInsets.symmetric(vertical: 45),
                             ),
-                            PetIcon(),
+                            const PetIcon(),
                             const Padding(
                               padding: EdgeInsets.symmetric(vertical: 5),
                             ),
@@ -260,7 +258,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               '''$petName''',
                               overflow: TextOverflow.visible,
                               textAlign: TextAlign.left,
-                              style: TextStyle(
+                              style: const TextStyle(
                                 height: 1.171875,
                                 fontSize: 48.0,
                                 fontFamily: 'Nunito',
@@ -292,7 +290,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             )
                           ]);
                         } else {
-                          return CircularProgressIndicator();
+                          return const CircularProgressIndicator();
                         }
                       }),
                 ]),
