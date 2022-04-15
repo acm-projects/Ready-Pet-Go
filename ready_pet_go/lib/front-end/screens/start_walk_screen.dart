@@ -4,10 +4,10 @@ import 'package:ready_pet_go/front-end/screens/walk_screen.dart';
 import '../../back-end/models/pet.dart';
 
 class StartWalkScreen extends StatefulWidget {
-  @override
   final String userId;
   final Pet pet;
   const StartWalkScreen(this.pet, this.userId, {Key? key}) : super(key: key);
+  @override
   _StartWalkScreenState createState() => _StartWalkScreenState();
 }
 
@@ -123,7 +123,7 @@ class _StartWalkScreenState extends State<StartWalkScreen>
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) =>  WalkScreen(widget.pet, widget.userId),
+              builder: (context) => WalkScreen(widget.pet, widget.userId),
             ),
           );
         },

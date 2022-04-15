@@ -144,6 +144,7 @@ class _FinishScreenState extends State<FinishScreen>
       width: 200,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100.0),
+          // ignore: prefer_const_literals_to_create_immutables
           boxShadow: [
             const BoxShadow(
               color: Color(0x80000000),

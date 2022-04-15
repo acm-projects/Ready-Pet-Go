@@ -1,6 +1,4 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import './home_screen.dart';
 
 class FinishedTaskScreen extends StatefulWidget {
@@ -18,6 +16,7 @@ class _CompleteState extends State<FinishedTaskScreen> {
     super.initState();
   }
 
+  @override
   Widget build(BuildContext context) {
     double sWidth = MediaQuery.of(context).size.width;
     double sHeight = MediaQuery.of(context).size.height;
@@ -25,13 +24,13 @@ class _CompleteState extends State<FinishedTaskScreen> {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
             appBar: AppBar(
-              title: Padding(
-                padding: const EdgeInsets.only(left: 85.0),
+              title: const Padding(
+                padding: EdgeInsets.only(left: 85.0),
                 child: Text('Completed Task'),
               ),
-              backgroundColor: Color(0xFF00A5E0),
+              backgroundColor: const Color(0xFF00A5E0),
               leading: IconButton(
-                icon: Icon(Icons.arrow_back_sharp),
+                icon: const Icon(Icons.arrow_back_sharp),
                 tooltip: 'Menu',
                 onPressed: () {
                   Navigator.push(
@@ -55,7 +54,7 @@ class _CompleteState extends State<FinishedTaskScreen> {
                           color: const Color.fromARGB(255, 255, 255, 255),
                         ),
                       ),
-                      Align(
+                      const Align(
                         alignment: Alignment(0.0, -0.9),
                         child: Text(
                           'You already did this task. No need to do it yet.',
