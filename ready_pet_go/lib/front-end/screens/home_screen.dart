@@ -73,13 +73,13 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
         appBar: AppBar(
-          centerTitle: true,
+          //centerTitle: true,
           title: Text('Ready, Pet, GO!',
               style: TextStyle(
                   fontFamily: 'Chewy',
                   color: Colors.black,
-                  //fontWeight: FontWeight.w700,
-                  fontSize: 30,
+                  //fontWeight: FontWeight.w200,
+                  fontSize: 28,
                   //fontStyle: FontStyle.italic,
               ),
             ),
@@ -119,12 +119,21 @@ class _HomeScreenState extends State<HomeScreen> {
                                 /* letterSpacing: 0.0, */
                               ),
                         ),
-                    // actions: <Widget>[
-                    //   TextButton(
-                    //     onPressed: () => Navigator.pop(context, 'OK'),
-                    //     child: const Text('OK'),
-                    //   ),
-                    // ],
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () => Navigator.pop(context, 'OK'),
+                        child: const Text('OK',
+                        style: TextStyle(
+                                //height: 1.171875,
+                                //fontSize: 48.0,
+                                fontFamily: 'Nunito',
+                                fontWeight: FontWeight.w700,
+                                color: Color(0xFF00A5E0),
+
+                                /* letterSpacing: 0.0, */
+                              ),),
+                      ),
+                    ],
                   ),
                 ),
               ),

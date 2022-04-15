@@ -61,7 +61,7 @@ class _PlayingPage extends State<PlayingScreen> {
                 style: TextStyle(
                   //fontFamily: 'Bold',
                     fontWeight: FontWeight.w900,
-                    fontSize: 30.0,
+                    fontSize: 28.0,
                     color: Colors.black
                 ),
               ),

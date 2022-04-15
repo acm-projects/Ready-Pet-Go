@@ -56,7 +56,7 @@ class _PettingPageState extends State<PettingScreen> {
                 style: TextStyle(
                     color: Colors.black,
                     fontWeight: FontWeight.w700,
-                    fontSize: 30
+                    fontSize: 28,
                 ),
               ),
               backgroundColor: Colors.white,

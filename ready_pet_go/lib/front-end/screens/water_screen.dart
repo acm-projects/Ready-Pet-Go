@@ -72,7 +72,7 @@ class _WaterPageState extends State<WaterScreen> {
                 style: TextStyle(
                   color: Colors.black,
                   //fontFamily: 'Bold',
-                  fontSize: 30.0,
+                  fontSize: 28.0,
                   fontWeight: FontWeight.w900,
                 )
             ),
