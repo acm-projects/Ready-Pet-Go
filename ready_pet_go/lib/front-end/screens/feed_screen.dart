@@ -29,15 +29,21 @@ class _FeedingPageState extends State<FeedScreen> {
     double sHeight = MediaQuery.of(context).size.height;
     return MaterialApp(
         debugShowCheckedModeBanner: false,
+        theme: ThemeData(fontFamily: 'Nunito'),
         home: Scaffold(
             appBar: AppBar(
-              title: Padding(
-                padding: const EdgeInsets.only(left: 65.0),
-                child: Text('Feeding Time'),
+              centerTitle: true,
+              title: Text('FOOD TIME',
+                  style: TextStyle(
+                    color: Colors.black,
+                    //fontFamily: 'Bold',
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.w900,
+                  )
               ),
-              backgroundColor: Color(0xFF00A5E0),
+              backgroundColor: Colors.white,
               leading: IconButton(
-                icon: Icon(Icons.arrow_back_sharp),
+                icon: Icon(Icons.arrow_back_sharp, color: Colors.black),
                 tooltip: 'Menu',
                 onPressed: () {
                   Navigator.push(
@@ -64,9 +70,9 @@ class _FeedingPageState extends State<FeedScreen> {
                             textAlign: TextAlign.center,
                             style: TextStyle(
                               height: 1.171875,
-                              fontSize: 30.0,
-                              fontFamily: 'Roboto',
-                              fontWeight: FontWeight.w400,
+                              fontSize: 25.0,
+                              //fontFamily: 'Roboto',
+                              fontWeight: FontWeight.w700,
                               color: Color.fromARGB(255, 0, 0, 0),
 
                               /* letterSpacing: 0.0, */

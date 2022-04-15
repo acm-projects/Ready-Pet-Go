@@ -69,6 +69,34 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
+  fonts:
+    - family: Merriweather
+      fonts:
+        - asset: fonts/Merriweather-BoldItalic.ttf
+    - family: Lobster
+      fonts:
+        - asset: fonts/Lobster-Regular.ttf
+    - family: Nunito
+      fonts:
+        - asset: fonts/Nunito-VariableFont_wght.ttf
+        - asset: fonts/Nunito-Italic-VariableFont_wght.ttf
+          style: italic
+    - family: Bold
+      fonts:
+        - asset: fonts/static/Nunito-Bold.ttf
+    - family: Luckiest Guy
+      fonts:
+        - asset: fonts/LuckiestGuy-Regular.ttf
+    - family: TitanOne
+      fonts:
+        - asset: fonts/TitanOne-Regular.ttf
+    - family: Chewy
+      fonts:
+        - asset: fonts/Chewy-Regular.ttf
+    - family: Ranchers
+      fonts:
+        - asset: fonts/Ranchers-Regular.ttf
+
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
