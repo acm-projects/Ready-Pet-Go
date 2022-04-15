@@ -6,13 +6,17 @@ class WalkIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Container(
+      decoration: BoxDecoration(
+            border: Border.all(width: 2),
+          borderRadius: BorderRadius.all(Radius.circular(34))
+          ),
       child: ClipOval(
         child: Container(
           color: Colors.white,
           width: 65.0,
           height: 64.0,
           child: Image.asset(
-            "lib/src/assets/images/Walk.png",
+            "assets/images/tempwalk2.png",
             color: null,
             width: 30,
             height: 5,

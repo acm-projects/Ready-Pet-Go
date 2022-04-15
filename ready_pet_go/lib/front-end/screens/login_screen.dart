@@ -73,8 +73,8 @@ class _LoginScreenState extends State<LoginScreen> {
           UserFormField(keyName: 'firstName', displayName: "First Name"),
           UserFormField(keyName: 'lasttName', displayName: "Last Name"),
         ],
-        title: "Login/SignUp",
-        logo: const AssetImage('assets/dog_icon_login_screen.png'),
+        title: "Ready, Pet, GO!",
+        logo: const AssetImage('assets/images/dog_icon_login_screen.png'),
         onLogin: _authUser,
         //when sign in button is pressed
         // onSignup: _signupUser,
@@ -125,6 +125,7 @@ class _LoginScreenState extends State<LoginScreen> {
           buttonStyle: const TextStyle(
             fontFamily: 'Nunito',
             fontWeight: FontWeight.w700,
+            fontSize: 17,
             //fontWeight: FontWeight.w800,
             color: Colors.white,
           ),

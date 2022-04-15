@@ -30,13 +30,12 @@ class _PetOrPlayScreenState extends State<PetOrPlayScreen> {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
             appBar: AppBar(
-              title: Padding(
-                padding: const EdgeInsets.only(left: 85.0),
-                child: Text('Options'),
-              ),
-              backgroundColor: Color(0xFF00A5E0),
+              centerTitle: true,
+              title: Text('OPTIONS', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400, fontSize: 30)),
+              backgroundColor: Colors.white,
+              elevation: 3,
               leading: IconButton(
-                icon: Icon(Icons.arrow_back_sharp),
+                icon: Icon(Icons.arrow_back_sharp, color: Colors.black,),
                 tooltip: 'Menu',
                 onPressed: () {
                   Navigator.push(
@@ -64,23 +63,48 @@ class _PetOrPlayScreenState extends State<PetOrPlayScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             SizedBox(
-                              width: 240,
+                              width: 330,
                               height: 80,
-                              child: CupertinoButton(
-                                  color: Colors.lightBlue,
-                                  child: Text(
-                                    "Pet the Dog",
-                                    textAlign: TextAlign.center,
-                                    style: TextStyle(
-                                      height: 1.171875,
-                                      fontSize: 20.0,
-                                      fontFamily: 'Roboto',
-                                      fontWeight: FontWeight.w400,
-                                      color: Color.fromARGB(255, 255, 255, 255),
-
-                                      /* letterSpacing: 0.0, */
+                              child: Container(
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(100.0),
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Color(0x80000000),
+                                      blurRadius: 12.0,
+                                      offset: Offset(0.0, 5.0),
                                     ),
-                                  ),
+                                  ],
+                                ),
+                                child: CupertinoButton(
+                                  borderRadius: BorderRadius.circular(100.0),
+                                    color: Color(0xFF00A5E0),
+                                    child: Text(
+                                      "Pet Your Dog!",
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                        //height: 1.171875,
+                                        fontSize: 30.0,
+                                        fontFamily: 'Nunito',
+                                        fontWeight: FontWeight.w700,
+                                        color: Color.fromARGB(255, 255, 255, 255),
+                                      ),
+                                    ),
+                              // child: CupertinoButton(
+                              //     color: Colors.lightBlue,
+                              //     child: Text(
+                              //       "Pet the Dog",
+                              //       textAlign: TextAlign.center,
+                              //       style: TextStyle(
+                              //         height: 1.171875,
+                              //         fontSize: 20.0,
+                              //         fontFamily: 'Roboto',
+                              //         fontWeight: FontWeight.w400,
+                              //         color: Color.fromARGB(255, 255, 255, 255),
+
+                              //         /* letterSpacing: 0.0, */
+                              //       ),
+                              //     ),
                                   onPressed: () {
                                     Navigator.push(
                                         context,
@@ -90,28 +114,39 @@ class _PetOrPlayScreenState extends State<PetOrPlayScreen> {
                                                     widget.userID))));
                                   }),
                             ),
+                            ),
                             const Padding(
                               padding: EdgeInsets.symmetric(vertical: 60),
                             ),
                             SizedBox(
-                                width: 240,
+                                width: 330,
                                 height: 80,
-                                child: CupertinoButton(
-                                    color: Colors.green,
-                                    child: Text(
-                                      "Play with the Dog",
-                                      textAlign: TextAlign.center,
-                                      style: TextStyle(
-                                        height: 1.171875,
-                                        fontSize: 20.0,
-                                        fontFamily: 'Roboto',
-                                        fontWeight: FontWeight.w400,
-                                        color:
-                                            Color.fromARGB(255, 255, 255, 255),
-
-                                        /* letterSpacing: 0.0, */
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(100.0),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Color(0x80000000),
+                                        blurRadius: 12.0,
+                                        offset: Offset(0.0, 5.0),
                                       ),
-                                    ),
+                                    ],
+                                  ),
+                                  child: CupertinoButton(
+                                    borderRadius: BorderRadius.circular(100.0),
+                                      color: Color(0xff82B26C),
+                                      child: Text(
+                                        "Play With Toys!",
+                                        textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          height: 1.171875,
+                                          fontSize: 30.0,
+                                          fontFamily: 'Nunito',
+                                          fontWeight: FontWeight.w700,
+                                          color:
+                                              Color.fromARGB(255, 255, 255, 255),
+                                        ),
+                                      ),
                                     onPressed: () {
                                       if (widget.pet.tasks!['Play']) {
                                         Navigator.push(
@@ -127,7 +162,7 @@ class _PetOrPlayScreenState extends State<PetOrPlayScreen> {
                                                     PlayingScreen(widget.pet,
                                                         widget.userID))));
                                       }
-                                    })),
+                                    }))),
                           ]),
                     ]),
               ),

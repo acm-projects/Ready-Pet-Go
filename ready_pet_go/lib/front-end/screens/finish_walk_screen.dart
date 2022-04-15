@@ -75,39 +75,18 @@ class _FinishScreenState extends State<FinishScreen>
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          const Center(
-              child: Text(
-            'You\'ve finished your\n             walk!\n',
-            style: TextStyle(color: Colors.white, fontSize: 40.0),
-          )),
+          const Center(child: Text('You\'ve finished your\n             walk!\n',
+          style: TextStyle(color: Colors.white, fontFamily: 'Nunito', fontWeight: FontWeight.w700, fontSize: 40.0),)),
           const SizedBox(
             height: 20.0,
           ),
-          const Center(
-              child: Icon(
-            Icons.directions_walk,
-            size: 50,
-            color: Colors.white,
-          )),
-          Center(
-              child: Text(
-            'Distance: ${widget._totalDistance.toStringAsFixed(1)} Feet',
-            style: const TextStyle(color: Colors.white, fontSize: 25.0),
-          )),
+          const Center(child: Icon(Icons.directions_walk, size: 50, color: Colors.white,)),
+          Center(child: Text('Distance: ${widget._totalDistance.toStringAsFixed(1)} Feet',style: const TextStyle(color: Colors.white, fontFamily: 'Nunito', fontWeight: FontWeight.w700, fontSize: 25.0),)),
           const SizedBox(
             height: 20.0,
           ),
-          const Center(
-              child: Icon(
-            Icons.alarm,
-            size: 50,
-            color: Colors.white,
-          )),
-          Center(
-              child: Text(
-            'Time: ${widget._totalDuration}\n',
-            style: const TextStyle(color: Colors.white, fontSize: 25.0),
-          )),
+          const Center(child: Icon(Icons.alarm, size: 50, color: Colors.white,)),
+          Center(child: Text('Time: ${widget._totalDuration}\n',style: const TextStyle(color: Colors.white, fontFamily: 'Nunito', fontWeight: FontWeight.w700, fontSize: 25.0),)),
           const SizedBox(
             height: 20.0,
           ),
@@ -151,6 +130,8 @@ class _FinishScreenState extends State<FinishScreen>
         child: Text(
           'DONE',
           style: TextStyle(
+            fontFamily: 'Nunito', 
+            fontWeight: FontWeight.w700,
               fontSize: 25.0,
               //fontWeight: FontWeight.bold,
               color: Colors.white),

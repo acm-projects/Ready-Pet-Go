@@ -35,10 +35,10 @@ class _TaskScreenState extends State<TaskScreen> {
   Map _tasks = {};
 
   Map<String, String> images = {
-    'Play': "assets/dog_toy.png",
-    'Feed': "assets/dog_food.png",
-    'Walk': "assets/dog_walk.png",
-    'Water': "assets/91c294f141f9a162e40c82c18c20285830a2fc63.png",
+    'Play': "assets/images/temptoy.png",
+    'Feed': "assets/images/tempfood2.png",
+    'Walk': "assets/images/tempwalk2.png",
+    'Water': "assets/images/tempwater2.png",
   };
 
 // App widget tree
@@ -48,13 +48,20 @@ class _TaskScreenState extends State<TaskScreen> {
       home: Scaffold(
           backgroundColor: Colors.white,
           appBar: AppBar(
-            title: const Padding(
-              padding: EdgeInsets.only(left: 95.0),
-              child: Text('Task List'),
+            centerTitle: true,
+            title: Padding(
+              padding: const EdgeInsets.only(left: 0.0),
+              child: Text('TO-DO LIST',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'Nunito',
+                      fontWeight: FontWeight.w700,
+                      fontSize: 30)),
             ),
-            backgroundColor: const Color(0xFF00A5E0),
+            backgroundColor: Colors.white,
+            elevation: 3,
             leading: IconButton(
-              icon: const Icon(Icons.arrow_back_sharp),
+              icon: const Icon(Icons.arrow_back_sharp, color: Colors.black),
               tooltip: 'Menu',
               onPressed: () {
                 Navigator.push(
@@ -81,8 +88,18 @@ class _TaskScreenState extends State<TaskScreen> {
                       height: 30,
                     ),
                   );
-                  
-                  var String = "";
+
+                  String text = "";
+                  String petName = widget.petName;
+                  if (key == 'Walk') {
+                    text = "Take $petName on a walk!";
+                  } else if (key == 'Water') {
+                    text = "Give $petName some water!";
+                  } else if (key == 'Feed') {
+                    text = "Feed $petName";
+                  } else {
+                    text = "Play with $petName";
+                  }
 
                   widgetList.add(
                     Container(
@@ -93,7 +110,10 @@ class _TaskScreenState extends State<TaskScreen> {
 
                       /** CheckboxListTile Widget **/
                       child: CheckboxListTile(
-                        title: Text(key.toString() + " " + widget.petName),
+                        title: Text(text,
+                            style: TextStyle(
+                                fontFamily: 'Nunito',
+                                fontWeight: FontWeight.w700)),
                         //	subtitle: const Text(
                         //'A computer science portal for geeks. Here you will find articles on all the technologies.'),
                         secondary: CircleAvatar(
@@ -105,7 +125,6 @@ class _TaskScreenState extends State<TaskScreen> {
                         ),
 
                         autofocus: false,
-                        //isThreeLine: true,
                         activeColor: Colors.white,
                         checkColor: const Color(0xFF82B26C),
                         selectedTileColor: const Color(0xFF82B26C),
