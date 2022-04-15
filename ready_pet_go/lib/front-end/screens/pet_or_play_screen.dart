@@ -31,11 +31,7 @@ class _PetOrPlayScreenState extends State<PetOrPlayScreen> {
         home: Scaffold(
             appBar: AppBar(
               centerTitle: true,
-              title: const Text('OPTIONS',
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w900,
-                      fontSize: 30)),
+              title: Text('OPTIONS', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w900, fontSize: 28)),
               backgroundColor: Colors.white,
               elevation: 3,
               leading: IconButton(

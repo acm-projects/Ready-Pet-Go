@@ -36,7 +36,7 @@ class _FeedingPageState extends State<FeedScreen> {
                   style: TextStyle(
                     color: Colors.black,
                     //fontFamily: 'Bold',
-                    fontSize: 30.0,
+                    fontSize: 28.0,
                     fontWeight: FontWeight.w900,
                   )),
               backgroundColor: Colors.white,
@@ -147,7 +147,7 @@ class _FeedingPageState extends State<FeedScreen> {
                               Container(
                                 child: Visibility(
                                     child: Icon(Icons.check,
-                                        color: Colors.green, size: 100.0),
+                                        color: Color(0xff82B26C), size: 110.0),
                                     visible: acceptedData),
                               ),
                               const Padding(

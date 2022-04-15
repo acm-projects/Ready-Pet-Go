@@ -92,9 +92,9 @@ class _TaskScreenState extends State<TaskScreen> {
                   String text = "";
                   String petName = widget.petName;
                   if (key == 'Walk') {
-                    text = "Take $petName on a walk!";
+                    text = "Take $petName on a walk";
                   } else if (key == 'Water') {
-                    text = "Give $petName some water!";
+                    text = "Give $petName some water";
                   } else if (key == 'Feed') {
                     text = "Feed $petName";
                   } else {

@@ -24,13 +24,21 @@ class _CompleteState extends State<FinishedTaskScreen> {
         debugShowCheckedModeBanner: false,
         home: Scaffold(
             appBar: AppBar(
-              title: const Padding(
-                padding: EdgeInsets.only(left: 85.0),
-                child: Text('Completed Task'),
-              ),
-              backgroundColor: const Color(0xFF00A5E0),
+             
+              centerTitle: true,
+              //title: Text('OPTIONS', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w900, fontSize: 30)),
+              backgroundColor: Colors.white,
+              elevation: 0,
+              
+               
+        
+              // title: Padding(
+              //   padding: const EdgeInsets.only(left: 85.0),
+              //   child: Text('Completed Task'),
+              // ),
+              // backgroundColor: Color(0xFF00A5E0),
               leading: IconButton(
-                icon: const Icon(Icons.arrow_back_sharp),
+                icon: Icon(Icons.arrow_back_sharp, color: Colors.black),
                 tooltip: 'Menu',
                 onPressed: () {
                   Navigator.push(
@@ -56,18 +64,21 @@ class _CompleteState extends State<FinishedTaskScreen> {
                       ),
                       const Align(
                         alignment: Alignment(0.0, -0.9),
-                        child: Text(
-                          'You already did this task. No need to do it yet.',
-                          overflow: TextOverflow.visible,
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            height: 1.171875,
-                            fontSize: 25.0,
-                            fontFamily: 'Roboto',
-                            fontWeight: FontWeight.w400,
-                            color: Color.fromARGB(255, 0, 0, 0),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Text(
+                            'This task has been completed for the day!\n\n Come back tomorrow!',
+                            overflow: TextOverflow.visible,
+                            textAlign: TextAlign.center,
+                            style: TextStyle(
+                              height: 1.171875,
+                              fontSize: 25.0,
+                              fontFamily: 'Nunito',
+                              fontWeight: FontWeight.w700,
+                              color: Color.fromARGB(255, 0, 0, 0),
 
-                            /* letterSpacing: 0.0, */
+                              /* letterSpacing: 0.0, */
+                            ),
                           ),
                         ),
                       ),
@@ -80,7 +91,7 @@ class _CompleteState extends State<FinishedTaskScreen> {
                                 height: 329,
                                 child: Visibility(
                                   child: Image.asset(
-                                    "lib/src/assets/images/HappyDog.png",
+                                    "assets/images/dog_icon_login_screen.png",
                                     color: null,
                                     //fit: BoxFit.cover,
                                     colorBlendMode: BlendMode.dstATop,

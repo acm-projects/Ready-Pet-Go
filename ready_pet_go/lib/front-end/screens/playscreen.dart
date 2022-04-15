@@ -59,8 +59,9 @@ class _PlayingPage extends State<PlayingScreen> {
                 'PLAY TIME',
                 style: TextStyle(
                     fontWeight: FontWeight.w900,
-                    fontSize: 30.0,
-                    color: Colors.black),
+                    fontSize: 28.0,
+                    color: Colors.black
+                ),
               ),
               backgroundColor: Colors.white,
               leading: IconButton(

@@ -68,15 +68,14 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
         appBar: AppBar(
-            centerTitle: true,
-            title: const Text(
-              'Ready, Pet, GO!',
+          centerTitle: true,
+          title: Text('Ready, Pet, GO!',
               style: TextStyle(
-                fontFamily: 'Chewy',
-                color: Colors.black,
-                //fontWeight: FontWeight.w700,
-                fontSize: 30,
-                //fontStyle: FontStyle.italic,
+                  fontFamily: 'Chewy',
+                  color: Colors.black,
+                  //fontWeight: FontWeight.w200,
+                  fontSize: 28,
+                  //fontStyle: FontStyle.italic,
               ),
             ),
             backgroundColor: Colors.white,
@@ -88,7 +87,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 tooltip: 'Instructions',
                 onPressed: () => showDialog<String>(
                   context: context,
-                  builder: (BuildContext context) => const AlertDialog(
+                  builder: (BuildContext context) => AlertDialog(
                     title: Text(
                       'Help Guide',
                       style: TextStyle(
@@ -113,15 +112,25 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontWeight: FontWeight.w700,
                         color: Color.fromARGB(255, 0, 0, 0),
 
-                        /* letterSpacing: 0.0, */
+                                /* letterSpacing: 0.0, */
+                              ),
+                        ),
+                    actions: <Widget>[
+                      TextButton(
+                        onPressed: () => Navigator.pop(context, 'OK'),
+                        child: Text('OK',
+                          style: TextStyle(
+                                //height: 1.171875,
+                                //fontSize: 48.0,
+                                fontFamily: 'Nunito',
+                                fontWeight: FontWeight.w700,
+                                color: Color(0xFF00A5E0),
+
+                                /* letterSpacing: 0.0, */
+                              ),),
+                              
                       ),
-                    ),
-                    // actions: <Widget>[
-                    //   TextButton(
-                    //     onPressed: () => Navigator.pop(context, 'OK'),
-                    //     child: const Text('OK'),
-                    //   ),
-                    // ],
+                    ],
                   ),
                 ),
               ),
