@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 import '../../back-end/models/pet.dart';
+import '../../back-end/provider_functions/task_provider.dart';
 import 'pet_or_play_screen.dart';
 
 class PlayingScreen extends StatefulWidget {
@@ -16,6 +17,8 @@ class PlayingScreen extends StatefulWidget {
 class _PlayingPage extends State<PlayingScreen> {
   @override
   void initState() {
+    TaskProvider taskProvider = TaskProvider(widget.pet, widget.userID);
+    taskProvider.toggleTask('Play');
     super.initState();
   }
 
@@ -60,8 +63,7 @@ class _PlayingPage extends State<PlayingScreen> {
                 style: TextStyle(
                     fontWeight: FontWeight.w900,
                     fontSize: 28.0,
-                    color: Colors.black
-                ),
+                    color: Colors.black),
               ),
               backgroundColor: Colors.white,
               leading: IconButton(
