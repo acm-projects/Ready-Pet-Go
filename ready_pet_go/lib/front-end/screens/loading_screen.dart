@@ -30,7 +30,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
         loadingText: Text("Loading...", style: TextStyle(fontFamily: 'Nunito', fontWeight: FontWeight.w700, fontSize: 18)),
         //redirect to page you want it to go
         navigator: LoginScreen(),
-        durationInSeconds: 5,
+        durationInSeconds: 2,
       )),
       debugShowCheckedModeBanner: false,
       

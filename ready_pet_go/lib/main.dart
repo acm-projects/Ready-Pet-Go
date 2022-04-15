@@ -104,7 +104,7 @@ class _MyHomePageState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Ready Pet Go',
-      home: LoginScreen(),
+      home: LoadingScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
