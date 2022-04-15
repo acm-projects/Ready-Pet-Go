@@ -69,7 +69,7 @@ class _HomeScreenState extends State<HomeScreen> {
         appBar: AppBar(
             automaticallyImplyLeading: false,
             iconTheme: const IconThemeData(color: Colors.blue),
-            centerTitle: true,
+            //centerTitle: true,
             title: const Text(
               'Ready, Pet, GO!',
               style: TextStyle(
