@@ -171,7 +171,7 @@ class _PettingPageState extends State<PettingScreen> {
                                     acceptedData = data;
                                     if (acceptedData) {
                                       image =
-                                          "lib/src/assets/images/HappyDog.png";
+                                          "assets/images/HappyDog.png";
                                       text = getRandText();
                                     }
                                   });

@@ -12,7 +12,7 @@ void main() async {
   );
   runApp(const MaterialApp(
     title: 'Ready Pet Go',
-    home: LoadingScreen(),
+    home: LoginScreen(),
     debugShowCheckedModeBanner: false,
   ));
 }

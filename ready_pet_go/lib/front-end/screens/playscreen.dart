@@ -27,7 +27,7 @@ class _PlayingPage extends State<PlayingScreen> {
   String text = 'Drag a toy to your pet';
   bool setPos = false;
   String image =
-      "lib/src/assets/images/e69f6fd7c61b7fca781861df8b44a3c877d16753.png";
+      "assets/images/e69f6fd7c61b7fca781861df8b44a3c877d16753.png";
   bool acceptedData = false;
 
   var happyPet = [
@@ -114,7 +114,7 @@ class _PlayingPage extends State<PlayingScreen> {
                                             width: 100,
                                             height: 100,
                                             child: Image.asset(
-                                              "lib/src/assets/images/Toy.png",
+                                              "assets/images/Toy.png",
                                               color: null,
                                               fit: BoxFit.cover,
                                               colorBlendMode: BlendMode.dstATop,
@@ -133,7 +133,7 @@ class _PlayingPage extends State<PlayingScreen> {
                                             width: 100,
                                             height: 100,
                                             child: Image.asset(
-                                              "lib/src/assets/images/Toy.png",
+                                              "assets/images/Toy.png",
                                               color: null,
                                               fit: BoxFit.cover,
                                               colorBlendMode: BlendMode.dstATop,
@@ -151,7 +151,7 @@ class _PlayingPage extends State<PlayingScreen> {
                                             width: 100,
                                             height: 100,
                                             child: Image.asset(
-                                              "lib/src/assets/images/Ball.png",
+                                              "assets/images/Ball.png",
                                               color: null,
                                               fit: BoxFit.cover,
                                               colorBlendMode: BlendMode.dstATop,
@@ -216,7 +216,7 @@ class _PlayingPage extends State<PlayingScreen> {
                                     acceptedData = data;
                                     if (acceptedData) {
                                       image =
-                                          "lib/src/assets/images/HappyDog.png";
+                                          "assets/images/HappyDog.png";
                                       text = getRandText();
                                       TaskProvider taskProvider =
                                           TaskProvider(
