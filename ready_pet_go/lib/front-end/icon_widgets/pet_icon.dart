@@ -6,7 +6,7 @@ class PetIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return SizedBox(
       width: 240.0,
       height: 329.0,
       child: ClipRRect(

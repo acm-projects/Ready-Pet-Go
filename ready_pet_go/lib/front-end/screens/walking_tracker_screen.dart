@@ -20,6 +20,7 @@ class _TrackingState extends State<TrackerScreen> {
   double left = 140;
   String image = "assets/images/e69f6fd7c61b7fca781861df8b44a3c877d16753.png";
   bool acceptedData = false;
+  @override
   Widget build(BuildContext context) {
     double sWidth = MediaQuery.of(context).size.width;
     double sHeight = MediaQuery.of(context).size.height;
@@ -31,7 +32,7 @@ class _TrackingState extends State<TrackerScreen> {
                 padding: EdgeInsets.only(left: 65.0),
                 child: Text('Distance Tracker'),
               ),
-              backgroundColor: Color(0xFF00A5E0),
+              backgroundColor: const Color(0xFF00A5E0),
               leading: IconButton(
                 icon: const Icon(Icons.arrow_back_sharp),
                 tooltip: 'Menu',
@@ -44,7 +45,7 @@ class _TrackingState extends State<TrackerScreen> {
               ),
             ),
             body: Center(
-                child: Container(
+                child: SizedBox(
                     width: sWidth,
                     height: sHeight,
                     child: Stack(
@@ -57,9 +58,9 @@ class _TrackingState extends State<TrackerScreen> {
                             color: const Color.fromARGB(255, 255, 255, 255),
                           ),
                         ),
-                        Align(
-                          alignment: const Alignment(0.0, -0.9),
-                          child: const Text(
+                        const Align(
+                          alignment: Alignment(0.0, -0.9),
+                          child: Text(
                             '''Drag the hand to pet your pet''',
                             overflow: TextOverflow.visible,
                             textAlign: TextAlign.center,
@@ -83,36 +84,32 @@ class _TrackingState extends State<TrackerScreen> {
                               Draggable<bool>(
                                 // Data is the value this Draggable stores.
                                 data: true,
-                                feedback: Container(
-                                  child: ClipRRect(
-                                    child: Container(
-                                      width: 100,
-                                      height: 54,
-                                      child: Image.asset(
-                                        "lib/src/assets/images/Hand.png",
-                                        color: null,
-                                        fit: BoxFit.cover,
-                                        colorBlendMode: BlendMode.dstATop,
-                                      ),
+                                feedback: ClipRRect(
+                                  child: SizedBox(
+                                    width: 100,
+                                    height: 54,
+                                    child: Image.asset(
+                                      "lib/src/assets/images/Hand.png",
+                                      color: null,
+                                      fit: BoxFit.cover,
+                                      colorBlendMode: BlendMode.dstATop,
                                     ),
                                   ),
                                 ),
-                                childWhenDragging: Container(
+                                childWhenDragging: const SizedBox(
                                   height: 54,
                                   width: 100,
                                 ),
                                 maxSimultaneousDrags: 1,
-                                child: Container(
-                                  child: ClipRRect(
-                                    child: Container(
-                                      width: 100,
-                                      height: 54,
-                                      child: Image.asset(
-                                        "lib/src/assets/images/Hand.png",
-                                        color: null,
-                                        fit: BoxFit.cover,
-                                        colorBlendMode: BlendMode.dstATop,
-                                      ),
+                                child: ClipRRect(
+                                  child: SizedBox(
+                                    width: 100,
+                                    height: 54,
+                                    child: Image.asset(
+                                      "lib/src/assets/images/Hand.png",
+                                      color: null,
+                                      fit: BoxFit.cover,
+                                      colorBlendMode: BlendMode.dstATop,
                                     ),
                                   ),
                                 ),
@@ -130,20 +127,18 @@ class _TrackingState extends State<TrackerScreen> {
                                   List<dynamic> accepted,
                                   List<dynamic> rejected,
                                 ) {
-                                  return Container(
-                                    child: ClipRRect(
-                                      child: Container(
-                                        width: 240,
-                                        height: 329,
-                                        child: Visibility(
-                                          child: Image.asset(
-                                            image,
-                                            color: null,
-                                            //fit: BoxFit.cover,
-                                            colorBlendMode: BlendMode.dstATop,
-                                          ),
-                                          visible: true,
+                                  return ClipRRect(
+                                    child: SizedBox(
+                                      width: 240,
+                                      height: 329,
+                                      child: Visibility(
+                                        child: Image.asset(
+                                          image,
+                                          color: null,
+                                          //fit: BoxFit.cover,
+                                          colorBlendMode: BlendMode.dstATop,
                                         ),
+                                        visible: true,
                                       ),
                                     ),
                                   );

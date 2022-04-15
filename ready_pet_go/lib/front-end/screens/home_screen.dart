@@ -67,6 +67,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
         appBar: AppBar(
+            automaticallyImplyLeading: false,
+            iconTheme: const IconThemeData(color: Colors.blue),
             centerTitle: true,
             title: const Text(
               'Ready, Pet, GO!',
@@ -82,7 +84,7 @@ class _HomeScreenState extends State<HomeScreen> {
             elevation: 0,
             actions: <Widget>[
               IconButton(
-                icon: const Icon(Icons.question_mark_rounded,
+                icon: const Icon(IconData(0xf036b, fontFamily: 'MaterialIcons'),
                     color: Colors.black),
                 tooltip: 'Instructions',
                 onPressed: () => showDialog<String>(
@@ -156,7 +158,7 @@ class _HomeScreenState extends State<HomeScreen> {
         // ),
 
         body: Center(
-          child: Container(
+          child: SizedBox(
             width: sWidth,
             height: sHeight,
             child: Stack(
@@ -194,7 +196,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                 PetOrPlayScreen(
                                                     pet, widget.userID))));
                                   },
-                                  child: PlayIcon(),
+                                  child: const PlayIcon(),
                                 ),
                                 GestureDetector(
                                   onTap: () {
@@ -214,7 +216,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       pet, widget.userID))));
                                     }
                                   },
-                                  child: WaterIcon(),
+                                  child: const WaterIcon(),
                                 ),
                                 GestureDetector(
                                   onTap: () {
@@ -253,7 +255,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                                       pet, widget.userID))));
                                     }
                                   },
-                                  child: WalkIcon(),
+                                  child: const WalkIcon(),
                                 ),
                               ],
                             ),
@@ -294,7 +296,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                             builder: ((context) => TaskScreen(
                                                 petName!, widget.userID))));
                                   },
-                                  child: ListIcon(),
+                                  child: const ListIcon(),
                                 ),
                               ],
                             )

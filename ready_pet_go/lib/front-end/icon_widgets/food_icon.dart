@@ -8,7 +8,7 @@ class FoodIcon extends StatelessWidget {
     return Container(
       decoration: BoxDecoration(
             border: Border.all(width: 2),
-          borderRadius: BorderRadius.all(Radius.circular(34))
+          borderRadius: const BorderRadius.all(Radius.circular(34))
           ),
       child: ClipOval(
         child: Container(

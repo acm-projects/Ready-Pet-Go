@@ -31,7 +31,7 @@ class _PetOrPlayScreenState extends State<PetOrPlayScreen> {
         home: Scaffold(
             appBar: AppBar(
               centerTitle: true,
-              title: Text('OPTIONS', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w900, fontSize: 28)),
+              title: const Text('OPTIONS', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w900, fontSize: 28)),
               backgroundColor: Colors.white,
               elevation: 3,
               leading: IconButton(
@@ -49,7 +49,7 @@ class _PetOrPlayScreenState extends State<PetOrPlayScreen> {
               ),
             ),
             body: Center(
-              child: Container(
+              child: SizedBox(
                 width: sWidth,
                 height: sHeight,
                 child: Stack(
@@ -71,8 +71,8 @@ class _PetOrPlayScreenState extends State<PetOrPlayScreen> {
                               child: Container(
                                 decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(100.0),
-                                  boxShadow: [
-                                    const BoxShadow(
+                                  boxShadow: const [
+                                    BoxShadow(
                                       color: Color(0x80000000),
                                       blurRadius: 12.0,
                                       offset: Offset(0.0, 5.0),
@@ -129,8 +129,8 @@ class _PetOrPlayScreenState extends State<PetOrPlayScreen> {
                                     decoration: BoxDecoration(
                                       borderRadius:
                                           BorderRadius.circular(100.0),
-                                      boxShadow: [
-                                        const BoxShadow(
+                                      boxShadow: const [
+                                        BoxShadow(
                                           color: Color(0x80000000),
                                           blurRadius: 12.0,
                                           offset: Offset(0.0, 5.0),

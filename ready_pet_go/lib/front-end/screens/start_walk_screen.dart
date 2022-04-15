@@ -100,8 +100,8 @@ class _StartWalkScreenState extends State<StartWalkScreen>
       width: 200,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100.0),
-          boxShadow: [
-            const BoxShadow(
+          boxShadow: const [
+            BoxShadow(
               color: Color(0x80000000),
               blurRadius: 12.0,
               offset: Offset(0.0, 5.0),

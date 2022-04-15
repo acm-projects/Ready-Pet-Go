@@ -83,7 +83,7 @@ class _MyHomePageState extends State<MyApp> {
                   content: SingleChildScrollView(
                       child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [Text('Wassup')],
+                    children: const [Text('Wassup')],
                   )));
             });
       }

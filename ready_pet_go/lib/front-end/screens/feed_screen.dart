@@ -86,36 +86,32 @@ class _FeedingPageState extends State<FeedScreen> {
                               Draggable<bool>(
                                 // Data is the value this Draggable stores.
                                 data: true,
-                                feedback: Container(
-                                  child: ClipRRect(
-                                    child: Container(
-                                      width: 80,
-                                      height: 100,
-                                      child: Image.asset(
-                                        "assets/images/DogFood.png",
-                                        color: null,
-                                        fit: BoxFit.cover,
-                                        colorBlendMode: BlendMode.dstATop,
-                                      ),
+                                feedback: ClipRRect(
+                                  child: SizedBox(
+                                    width: 80,
+                                    height: 100,
+                                    child: Image.asset(
+                                      "assets/images/DogFood.png",
+                                      color: null,
+                                      fit: BoxFit.cover,
+                                      colorBlendMode: BlendMode.dstATop,
                                     ),
                                   ),
                                 ),
-                                childWhenDragging: Container(
+                                childWhenDragging: const SizedBox(
                                   height: 100.0,
                                   width: 100.0,
                                 ),
                                 maxSimultaneousDrags: (acceptedData) ? 0 : 1,
-                                child: Container(
-                                  child: ClipRRect(
-                                    child: Container(
-                                      width: 80,
-                                      height: 100,
-                                      child: Image.asset(
-                                        "assets/images/DogFood.png",
-                                        color: null,
-                                        fit: BoxFit.cover,
-                                        colorBlendMode: BlendMode.dstATop,
-                                      ),
+                                child: ClipRRect(
+                                  child: SizedBox(
+                                    width: 80,
+                                    height: 100,
+                                    child: Image.asset(
+                                      "assets/images/DogFood.png",
+                                      color: null,
+                                      fit: BoxFit.cover,
+                                      colorBlendMode: BlendMode.dstATop,
                                     ),
                                   ),
                                 ),
@@ -136,20 +132,16 @@ class _FeedingPageState extends State<FeedScreen> {
                               const Padding(
                                 padding: EdgeInsets.symmetric(vertical: 30),
                               ),
-                              Container(
-                                child: Visibility(
-                                    child: Container(
-                                      width: 100,
-                                      height: 100,
-                                    ),
-                                    visible: !acceptedData),
-                              ),
-                              Container(
-                                child: Visibility(
-                                    child: Icon(Icons.check,
-                                        color: Color(0xff82B26C), size: 110.0),
-                                    visible: acceptedData),
-                              ),
+                              Visibility(
+                                  child: const SizedBox(
+                                    width: 100,
+                                    height: 100,
+                                  ),
+                                  visible: !acceptedData),
+                              Visibility(
+                                  child: const Icon(Icons.check,
+                                      color: Color(0xff82B26C), size: 110.0),
+                                  visible: acceptedData),
                               const Padding(
                                 padding: EdgeInsets.symmetric(vertical: 30),
                               ),
@@ -159,20 +151,18 @@ class _FeedingPageState extends State<FeedScreen> {
                                   List<dynamic> accepted,
                                   List<dynamic> rejected,
                                 ) {
-                                  return Container(
-                                    child: ClipRRect(
-                                      child: Container(
-                                        width: 150,
-                                        height: 90,
-                                        child: Visibility(
-                                          child: Image.asset(
-                                            bowl,
-                                            color: null,
-                                            //fit: BoxFit.cover,
-                                            colorBlendMode: BlendMode.dstATop,
-                                          ),
-                                          visible: true,
+                                  return ClipRRect(
+                                    child: SizedBox(
+                                      width: 150,
+                                      height: 90,
+                                      child: Visibility(
+                                        child: Image.asset(
+                                          bowl,
+                                          color: null,
+                                          //fit: BoxFit.cover,
+                                          colorBlendMode: BlendMode.dstATop,
                                         ),
+                                        visible: true,
                                       ),
                                     ),
                                   );

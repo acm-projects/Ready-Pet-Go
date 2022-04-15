@@ -56,7 +56,6 @@ class _LoginScreenState extends State<LoginScreen> {
   }
   //Can be improved: strong password
 
-  //TODO: recover password
   Future<String?> _recoverPassword(String name) async {
     return "Function in progress!!!";
   }

@@ -133,45 +133,41 @@ class _WaterPageState extends State<WaterScreen> {
                               TaskProvider taskProvider =
                                   TaskProvider(widget.pet, widget.userID);
                               taskProvider.toggleTask('Water');
-                              print("hello");
+                              //print("hello");
                             } else {
                               tapped = false;
                               tapWater = 'assets/images/TapWater.png';
                             }
-                            print(tapped);
+                            //print(tapped);
                             startTimer();
                             //Navigator.of(context).pushReplacementNamed('/HomeScreen');
                           },
-                          child: Container(
-                            child: ClipRRect(
-                              child: Container(
-                                color: Colors.white,
-                                width: 225.0,
-                                height: 215.0,
-                                child: Image.asset(
-                                  tapWater,
-                                  color: null,
-                                  colorBlendMode: BlendMode.dstATop,
-                                  //fit: BoxFit.cover
-                                ),
+                          child: ClipRRect(
+                            child: Container(
+                              color: Colors.white,
+                              width: 225.0,
+                              height: 215.0,
+                              child: Image.asset(
+                                tapWater,
+                                color: null,
+                                colorBlendMode: BlendMode.dstATop,
+                                //fit: BoxFit.cover
                               ),
                             ),
                           ),
                         ),
-                        Container(
-                          child: ClipRRect(
-                            child: Container(
-                              width: 150,
-                              height: 90,
-                              child: Visibility(
-                                child: Image.asset(
-                                  bowlState,
-                                  color: null,
-                                  //fit: BoxFit.cover,
-                                  colorBlendMode: BlendMode.dstATop,
-                                ),
-                                visible: true,
+                        ClipRRect(
+                          child: SizedBox(
+                            width: 150,
+                            height: 90,
+                            child: Visibility(
+                              child: Image.asset(
+                                bowlState,
+                                color: null,
+                                //fit: BoxFit.cover,
+                                colorBlendMode: BlendMode.dstATop,
                               ),
+                              visible: true,
                             ),
                           ),
                         ),

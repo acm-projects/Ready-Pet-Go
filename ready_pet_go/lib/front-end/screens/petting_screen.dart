@@ -61,7 +61,7 @@ class _PettingPageState extends State<PettingScreen> {
               ),
               backgroundColor: Colors.white,
               leading: IconButton(
-                icon: Icon(Icons.arrow_back_sharp, color: Colors.black),
+                icon: const Icon(Icons.arrow_back_sharp, color: Colors.black),
                 tooltip: 'Menu',
                 onPressed: () {
                   Navigator.push(
@@ -107,36 +107,32 @@ class _PettingPageState extends State<PettingScreen> {
                               Draggable<bool>(
                                 // Data is the value this Draggable stores.
                                 data: true,
-                                feedback: Container(
-                                  child: ClipRRect(
-                                    child: Container(
-                                      width: 100,
-                                      height: 54,
-                                      child: Image.asset(
-                                        "assets/images/Hand.png",
-                                        color: null,
-                                        fit: BoxFit.cover,
-                                        colorBlendMode: BlendMode.dstATop,
-                                      ),
+                                feedback: ClipRRect(
+                                  child: SizedBox(
+                                    width: 100,
+                                    height: 54,
+                                    child: Image.asset(
+                                      "assets/images/Hand.png",
+                                      color: null,
+                                      fit: BoxFit.cover,
+                                      colorBlendMode: BlendMode.dstATop,
                                     ),
                                   ),
                                 ),
-                                childWhenDragging: Container(
+                                childWhenDragging: const SizedBox(
                                   height: 54,
                                   width: 100,
                                 ),
                                 maxSimultaneousDrags: 1,
-                                child: Container(
-                                  child: ClipRRect(
-                                    child: Container(
-                                      width: 100,
-                                      height: 54,
-                                      child: Image.asset(
-                                        "assets/images/Hand.png",
-                                        color: null,
-                                        fit: BoxFit.cover,
-                                        colorBlendMode: BlendMode.dstATop,
-                                      ),
+                                child: ClipRRect(
+                                  child: SizedBox(
+                                    width: 100,
+                                    height: 54,
+                                    child: Image.asset(
+                                      "assets/images/Hand.png",
+                                      color: null,
+                                      fit: BoxFit.cover,
+                                      colorBlendMode: BlendMode.dstATop,
                                     ),
                                   ),
                                 ),
@@ -154,20 +150,18 @@ class _PettingPageState extends State<PettingScreen> {
                                   List<dynamic> accepted,
                                   List<dynamic> rejected,
                                 ) {
-                                  return Container(
-                                    child: ClipRRect(
-                                      child: Container(
-                                        width: 240,
-                                        height: 329,
-                                        child: Visibility(
-                                          child: Image.asset(
-                                            image,
-                                            color: null,
-                                            //fit: BoxFit.cover,
-                                            colorBlendMode: BlendMode.dstATop,
-                                          ),
-                                          visible: true,
+                                  return ClipRRect(
+                                    child: SizedBox(
+                                      width: 240,
+                                      height: 329,
+                                      child: Visibility(
+                                        child: Image.asset(
+                                          image,
+                                          color: null,
+                                          //fit: BoxFit.cover,
+                                          colorBlendMode: BlendMode.dstATop,
                                         ),
+                                        visible: true,
                                       ),
                                     ),
                                   );

@@ -38,7 +38,7 @@ class _CompleteState extends State<FinishedTaskScreen> {
               // ),
               // backgroundColor: Color(0xFF00A5E0),
               leading: IconButton(
-                icon: Icon(Icons.arrow_back_sharp, color: Colors.black),
+                icon: const Icon(Icons.arrow_back_sharp, color: Colors.black),
                 tooltip: 'Menu',
                 onPressed: () {
                   Navigator.push(
@@ -49,7 +49,7 @@ class _CompleteState extends State<FinishedTaskScreen> {
               ),
             ),
             body: Center(
-              child: Container(
+              child: SizedBox(
                 width: sWidth,
                 height: sHeight,
                 child: Stack(
@@ -65,7 +65,7 @@ class _CompleteState extends State<FinishedTaskScreen> {
                       const Align(
                         alignment: Alignment(0.0, -0.9),
                         child: Padding(
-                          padding: const EdgeInsets.all(8.0),
+                          padding: EdgeInsets.all(8.0),
                           child: Text(
                             'This task has been completed for the day!\n\n Come back tomorrow!',
                             overflow: TextOverflow.visible,
@@ -86,7 +86,7 @@ class _CompleteState extends State<FinishedTaskScreen> {
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             ClipRRect(
-                              child: Container(
+                              child: SizedBox(
                                 width: 240,
                                 height: 329,
                                 child: Visibility(

@@ -1,14 +1,14 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class WalkIcon extends StatelessWidget {
+  const WalkIcon({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Container(
       decoration: BoxDecoration(
             border: Border.all(width: 2),
-          borderRadius: BorderRadius.all(Radius.circular(34))
+          borderRadius: const BorderRadius.all(Radius.circular(34))
           ),
       child: ClipOval(
         child: Container(
