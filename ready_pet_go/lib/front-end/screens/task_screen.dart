@@ -49,9 +49,14 @@ class _TaskScreenState extends State<TaskScreen> {
           backgroundColor: Colors.white,
           appBar: AppBar(
             centerTitle: true,
-		        title: Padding(
-		        padding: const EdgeInsets.only(left: 0.0),
-		        child: Text('TO-DO LIST', style: TextStyle(color: Colors.black, fontFamily: 'Nunito', fontWeight: FontWeight.w700, fontSize: 30)),
+            title: Padding(
+              padding: const EdgeInsets.only(left: 0.0),
+              child: Text('TO-DO LIST',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontFamily: 'Nunito',
+                      fontWeight: FontWeight.w700,
+                      fontSize: 30)),
             ),
             backgroundColor: Colors.white,
             elevation: 3,
@@ -83,8 +88,18 @@ class _TaskScreenState extends State<TaskScreen> {
                       height: 30,
                     ),
                   );
-                  
-                  var String = "";
+
+                  String text = "";
+                  String petName = widget.petName;
+                  if (key == 'Walk') {
+                    text = "Take $petName on a walk!";
+                  } else if (key == 'Water') {
+                    text = "Give $petName some water!";
+                  } else if (key == 'Feed') {
+                    text = "Feed $petName";
+                  } else {
+                    text = "Play with $petName";
+                  }
 
                   widgetList.add(
                     Container(
@@ -95,7 +110,10 @@ class _TaskScreenState extends State<TaskScreen> {
 
                       /** CheckboxListTile Widget **/
                       child: CheckboxListTile(
-                        title: Text(key.toString() + " " + widget.petName, style: TextStyle(fontFamily: 'Nunito', fontWeight: FontWeight.w700)),
+                        title: Text(text,
+                            style: TextStyle(
+                                fontFamily: 'Nunito',
+                                fontWeight: FontWeight.w700)),
                         //	subtitle: const Text(
                         //'A computer science portal for geeks. Here you will find articles on all the technologies.'),
                         secondary: CircleAvatar(
@@ -103,7 +121,6 @@ class _TaskScreenState extends State<TaskScreen> {
                           radius: 20,
                           backgroundImage: AssetImage(
                             images[key].toString(),
-
                           ),
                         ),
 

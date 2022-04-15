@@ -119,12 +119,12 @@ class _HomeScreenState extends State<HomeScreen> {
                                 /* letterSpacing: 0.0, */
                               ),
                         ),
-                    actions: <Widget>[
-                      TextButton(
-                        onPressed: () => Navigator.pop(context, 'OK'),
-                        child: const Text('OK'),
-                      ),
-                    ],
+                    // actions: <Widget>[
+                    //   TextButton(
+                    //     onPressed: () => Navigator.pop(context, 'OK'),
+                    //     child: const Text('OK'),
+                    //   ),
+                    // ],
                   ),
                 ),
               ),
