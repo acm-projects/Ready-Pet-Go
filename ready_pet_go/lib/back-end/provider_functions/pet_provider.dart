@@ -3,11 +3,9 @@ import 'package:ready_pet_go/back-end/models/pet.dart';
 import 'package:ready_pet_go/back-end/services/pet_services.dart';
 import 'package:uuid/uuid.dart';
 
-
-
 class PetProvider with ChangeNotifier {
   final String userId;
-  
+
   late String _petId;
 
   PetProvider(this.userId);
@@ -15,9 +13,8 @@ class PetProvider with ChangeNotifier {
 
   String get petId => _petId;
 
-  Pet initializePet(
-      String userId, String name, String breed, int startingAge) {
-        final petService = PetServices(userId);
+  Pet initializePet(String userId, String name, String breed, int startingAge) {
+    final petService = PetServices(userId);
     _petId = uuid.v4();
     Pet newPet = Pet(
         name: name,
@@ -32,7 +29,6 @@ class PetProvider with ChangeNotifier {
           'Water': false,
         });
     petService.setPet(userId, newPet);
-    //print(newPet.breed);
     return newPet;
   }
 
@@ -45,7 +41,7 @@ class PetProvider with ChangeNotifier {
         return allPets[i];
       }
     }
-    
+
     return allPets[0];
   }
 

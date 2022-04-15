@@ -25,8 +25,6 @@ class PetServices {
   //upsert
   Future<void> setPet(String userId, Pet pet) {
     var options = SetOptions(merge: true);
-    // print("petId: " + pet.petId);
-    // print("tasks+" + pet.tasks.toString());
     return _db
         .collection('users')
         .doc(userId)
