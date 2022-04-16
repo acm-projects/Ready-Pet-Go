@@ -14,14 +14,27 @@ class FeedScreen extends StatefulWidget {
 }
 
 class _FeedingPageState extends State<FeedScreen> {
+  bool acceptedData = false;
+  String bowl = 'assets/images/DogBowl.png';
+  String text = 'Drag the food to ';
+  String name = "";
+  String? pet;
+
   @override
   void initState() {
+    pet = widget.pet.name;
+    if(pet == null)
+    {
+      name = 'the bowl';
+    }
+    else
+    {
+      name = pet! + '\'s bowl';
+    }
+    text += name;
     super.initState();
   }
 
-  bool acceptedData = false;
-  String bowl = 'assets/images/DogBowl.png';
-  String text = 'Drag the food to the bowl';
   @override
   Widget build(BuildContext context) {
     double sWidth = MediaQuery.of(context).size.width;
@@ -175,7 +188,12 @@ class _FeedingPageState extends State<FeedScreen> {
                                           widget.pet, widget.userID);
                                       taskProvider.toggleTask('Feed');
                                       bowl = 'assets/images/FoodBowl.png';
-                                      text = 'Food is ready!';
+                                      if(pet != null) {
+                                        text = pet! + ', food is ready!';
+                                      }
+                                      else{
+                                        text = 'Food is ready!';
+                                      }
                                     }
                                   });
                                 },

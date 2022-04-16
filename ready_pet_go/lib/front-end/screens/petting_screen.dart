@@ -4,6 +4,7 @@ import 'dart:math';
 import '../../back-end/models/pet.dart';
 import 'pet_or_play_screen.dart';
 
+
 class PettingScreen extends StatefulWidget {
   final String userID;
   final Pet pet;
@@ -14,15 +15,8 @@ class PettingScreen extends StatefulWidget {
 }
 
 class _PettingPageState extends State<PettingScreen> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  double top = 120;
-  double left = 120;
-  String text = 'Drag the hand to pet your pet';
-  bool setPos = false;
+  String name = "";
+  String text = 'Drag the hand to pet ';
   String image = "assets/images/e69f6fd7c61b7fca781861df8b44a3c877d16753.png";
   bool acceptedData = false;
 
@@ -33,6 +27,27 @@ class _PettingPageState extends State<PettingScreen> {
     'You are giving your pet the zoomies!!!',
     'You are such a great petter!!!'
   ];
+  @override
+  void initState() {
+    String? pet = widget.pet.name;
+    if(pet == null)
+    {
+      name = 'your pet';
+    }
+    else
+    {
+      name = pet;
+      happyPet = [
+        'Awwww, ' + name + ' looks happy!!!',
+        name + ' is loving it!!!',
+        'Don\'t stop petting!!!',
+        'You are giving ' + name + ' the zoomies!!!',
+        'You are such a great petter!!!'
+      ];
+    }
+    text += name;
+    super.initState();
+  }
 
   String getRandText() {
     var random = Random();

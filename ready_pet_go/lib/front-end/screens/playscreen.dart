@@ -15,17 +15,9 @@ class PlayingScreen extends StatefulWidget {
 }
 
 class _PlayingPage extends State<PlayingScreen> {
-  @override
-  void initState() {
-    TaskProvider taskProvider = TaskProvider(widget.pet, widget.userID);
-    taskProvider.toggleTask('Play');
-    super.initState();
-  }
-
-  double top = 120;
-  double left = 120;
-  String text = 'Drag a toy to your pet';
+  String text = 'Drag a toy to ';
   String toy = '';
+  String name = "";
   bool setPos = false;
   String image = "assets/images/e69f6fd7c61b7fca781861df8b44a3c877d16753.png";
   bool acceptedData = false;
@@ -33,16 +25,39 @@ class _PlayingPage extends State<PlayingScreen> {
   var happyPet = [
     'Awwww, your pet looks happy!!!',
     'Your pet is loving it!!!',
-    'Your pet is having fun!',
+    'Your pet is having fun!!!',
     'Your pet is getting zoomies!!!',
     'Woohoo!!!'
   ];
+  @override
+  void initState() {
+    String? pet = widget.pet.name;
+    if(pet == null)
+    {
+      name = 'your pet';
+    }
+    else
+    {
+      name = pet;
+      happyPet = [
+        'Awwww, ' + name + ' looks happy!!!',
+        name + ' is loving it!!!',
+        name + ' is having fun!!!',
+        name + ' is getting zoomies!!!',
+        'Woohoo!!!'
+      ];
+    }
+    text += name;
+    TaskProvider taskProvider = TaskProvider(widget.pet, widget.userID);
+    taskProvider.toggleTask('Play');
+    super.initState();
+  }
 
   String getRandText() {
     var random = Random();
     int index = random.nextInt(happyPet.length + 1);
     if (index == happyPet.length) {
-      return 'You and your pet played with a ' + toy + '!';
+      return 'You and ' + name + ' played with a ' + toy + '!';
     } else {
       return happyPet[index];
     }

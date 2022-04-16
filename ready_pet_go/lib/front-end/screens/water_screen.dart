@@ -16,19 +16,30 @@ class WaterScreen extends StatefulWidget {
 }
 
 class _WaterPageState extends State<WaterScreen> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
   String tapWater = 'assets/images/TapWater.png';
   String bowlState = 'assets/images/DogBowl.png';
-  String text = "Tap screen to fill the water bowl";
+  String text = "Tap the screen to fill ";
+  String name = "";
   bool tapped = false;
   bool started = false;
   bool isFilled = false;
   late Timer _timer;
   int _counter = 6;
+
+  @override
+  void initState() {
+    String? pet = widget.pet.name;
+    if(pet == null)
+    {
+      name = 'the water bowl';
+    }
+    else
+    {
+      name = pet + '\'s water bowl';
+    }
+    text += name;
+    super.initState();
+  }
 
   void startTimer() {
     _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
@@ -36,7 +47,7 @@ class _WaterPageState extends State<WaterScreen> {
         if (tapped) {
           _counter--;
           if (_counter == 0) {
-            text = 'Great job! You filled the water bowl!';
+            text = 'Great job! You filled ' + name;
             _timer.cancel();
             isFilled = true;
             tapped = false;
