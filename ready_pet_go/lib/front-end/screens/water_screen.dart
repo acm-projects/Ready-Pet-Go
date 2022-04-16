@@ -29,12 +29,9 @@ class _WaterPageState extends State<WaterScreen> {
   @override
   void initState() {
     String? pet = widget.pet.name;
-    if(pet == null)
-    {
+    if (pet == null) {
       name = 'the water bowl';
-    }
-    else
-    {
+    } else {
       name = pet + '\'s water bowl';
     }
     text += name;
@@ -54,6 +51,8 @@ class _WaterPageState extends State<WaterScreen> {
             started = false;
             tapWater = 'assets/images/TapWaterWithCheck.png';
             bowlState = 'assets/images/FilledBowl.png';
+            TaskProvider taskProvider = TaskProvider(widget.pet, widget.userID);
+            taskProvider.completeTask('Water');
           } else if (_counter < 3) {
             text = 'Just wait, it\'s almost done...';
             bowlState = 'assets/images/DogBowlPt2.png';
@@ -141,9 +140,7 @@ class _WaterPageState extends State<WaterScreen> {
                             } else if (!tapped && !isFilled) {
                               tapped = true;
                               tapWater = 'assets/images/OnWater.png';
-                              TaskProvider taskProvider =
-                                  TaskProvider(widget.pet, widget.userID);
-                              taskProvider.toggleTask('Water');
+
                               //print("hello");
                             } else {
                               tapped = false;

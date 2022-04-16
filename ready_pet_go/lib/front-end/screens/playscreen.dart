@@ -32,12 +32,9 @@ class _PlayingPage extends State<PlayingScreen> {
   @override
   void initState() {
     String? pet = widget.pet.name;
-    if(pet == null)
-    {
+    if (pet == null) {
       name = 'your pet';
-    }
-    else
-    {
+    } else {
       name = pet;
       happyPet = [
         'Awwww, ' + name + ' looks happy!!!',
@@ -48,8 +45,7 @@ class _PlayingPage extends State<PlayingScreen> {
       ];
     }
     text += name;
-    TaskProvider taskProvider = TaskProvider(widget.pet, widget.userID);
-    taskProvider.toggleTask('Play');
+
     super.initState();
   }
 
@@ -224,6 +220,9 @@ class _PlayingPage extends State<PlayingScreen> {
                                     toy = data;
                                     image = "assets/images/HappyDog.png";
                                     text = getRandText();
+                                    TaskProvider taskProvider =
+                                        TaskProvider(widget.pet, widget.userID);
+                                    taskProvider.completeTask('Play');
                                   });
                                 },
                               ),
