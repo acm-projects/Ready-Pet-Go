@@ -25,11 +25,11 @@ class _FeedingPageState extends State<FeedScreen> {
     pet = widget.pet.name;
     if(pet == null)
     {
-      name = 'the bowl';
+      name = 'the bowl.';
     }
     else
     {
-      name = pet! + '\'s bowl';
+      name = pet! + '\'s bowl.';
     }
     text += name;
     super.initState();
@@ -66,7 +66,7 @@ class _FeedingPageState extends State<FeedScreen> {
             ),
             body: Center(
                 child: Container(
-                    width: sWidth,
+                    width: sWidth - 30,
                     height: sHeight,
                     color: Colors.white,
                     child: Stack(
@@ -200,6 +200,8 @@ class _FeedingPageState extends State<FeedScreen> {
                               ),
                             ])
                       ],
-                    )))));
+                    ))),
+            backgroundColor: Colors.white,
+        ));
   }
 }

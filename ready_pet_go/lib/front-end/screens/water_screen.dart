@@ -30,9 +30,9 @@ class _WaterPageState extends State<WaterScreen> {
   void initState() {
     String? pet = widget.pet.name;
     if (pet == null) {
-      name = 'the water bowl';
+      name = 'the water bowl.';
     } else {
-      name = pet + '\'s water bowl';
+      name = pet + '\'s water bowl.';
     }
     text += name;
     super.initState();
@@ -98,7 +98,7 @@ class _WaterPageState extends State<WaterScreen> {
           ),
           body: Center(
             child: Container(
-              width: sWidth,
+              width: sWidth - 30,
               height: sHeight,
               color: Colors.white,
               child: Stack(
@@ -183,7 +183,9 @@ class _WaterPageState extends State<WaterScreen> {
                     ),
                   ]),
             ),
-          )),
+          ),
+        backgroundColor: Colors.white,
+      ),
     );
   }
 }

@@ -46,6 +46,7 @@ class _PettingPageState extends State<PettingScreen> {
       ];
     }
     text += name;
+    text += ".";
     super.initState();
   }
 
@@ -89,7 +90,7 @@ class _PettingPageState extends State<PettingScreen> {
             ),
             body: Center(
                 child: Container(
-                    width: sWidth,
+                    width: sWidth - 30,
                     height: sHeight,
                     color: Colors.white,
                     child: Stack(
@@ -193,6 +194,8 @@ class _PettingPageState extends State<PettingScreen> {
                               ),
                             ])
                       ],
-                    )))));
+                    ))),
+            backgroundColor: Colors.white,
+        ));
   }
 }

@@ -45,7 +45,7 @@ class _PlayingPage extends State<PlayingScreen> {
       ];
     }
     text += name;
-
+    text += ".";
     super.initState();
   }
 
@@ -91,7 +91,7 @@ class _PlayingPage extends State<PlayingScreen> {
             ),
             body: Center(
                 child: Container(
-                    width: sWidth,
+                    width: sWidth - 30,
                     height: sHeight,
                     color: Colors.white,
                     child: Stack(
@@ -228,6 +228,8 @@ class _PlayingPage extends State<PlayingScreen> {
                               ),
                             ])
                       ],
-                    )))));
+                    ))),
+          backgroundColor: Colors.white
+        ));
   }
 }
