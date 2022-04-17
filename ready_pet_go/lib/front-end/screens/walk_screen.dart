@@ -2,18 +2,24 @@ import 'dart:async';
 import 'dart:math';
 import 'dart:typed_data';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:location/location.dart';
 import 'package:pedometer/pedometer.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
+import 'package:geolocator/geolocator.dart' as geo;
+import 'package:geolocator/geolocator.dart';
 
+import '../../back-end/models/pet.dart';
 import '../../back-end/services/polyline_services.dart';
 import 'finish_walk_screen.dart';
 
 class WalkScreen extends StatefulWidget {
-  const WalkScreen({Key? key}) : super(key: key);
+  final String userId;
+  final Pet pet;
+  const WalkScreen(this.pet, this.userId, {Key? key}) : super(key: key);
 
   @override
   State<WalkScreen> createState() => _WalkScreenState();
@@ -42,6 +48,10 @@ class _WalkScreenState extends State<WalkScreen> {
   final StopWatchTimer _stopWatchTimer = StopWatchTimer();
   double totalDistanceFinal = 0;
   final PolylineServices _polylineServices = PolylineServices();
+  LocationSettings locationSettings = const LocationSettings(
+    accuracy: geo.LocationAccuracy.bestForNavigation,
+    // distanceFilter: 5,
+  );
 
   static const _initialCameraPosition = CameraPosition(
     target: LatLng(32.98859329394406, -96.75015585660579),
@@ -81,19 +91,31 @@ class _WalkScreenState extends State<WalkScreen> {
       _stepCountStream.listen(onStepCount).onError(onStepCountError);
 
       // start tracking location
-      var location = await _locationTracker.getLocation();
+      var location = await _getLocation();
       LatLng initialPosition =
-          LatLng(location.latitude!.toDouble(), location.longitude!.toDouble());
+          LatLng(location.latitude.toDouble(), location.longitude.toDouble());
       Uint8List imageData = await getMarker();
       _updateMarkerAndDistance(initialPosition, imageData);
       // listening to change in location
-      _locationSubscription =
-          _locationTracker.onLocationChanged.listen((newLocalData) {
+      // LocationSettings locationSettings = const LocationSettings(
+      //   accuracy: geo.LocationAccuracy.high,
+      //   distanceFilter: 100,
+      // );
+      StreamSubscription<Position> positionStream =
+          Geolocator.getPositionStream(locationSettings: locationSettings)
+              .listen((Position? position) async {
         debugPrint("Location changed");
-        LatLng newPos = LatLng(newLocalData.latitude!.toDouble(),
-            newLocalData.longitude!.toDouble());
+        LatLng newPos =
+            LatLng(position?.latitude as double, position?.longitude as double);
         _updateMarkerAndDistance(newPos, imageData);
       });
+      // _locationSubscription =
+      //     _locationTracker.onLocationChanged.listen((newLocalData) {
+      //   debugPrint("Location changed");
+      //   LatLng newPos = LatLng(newLocalData.latitude!.toDouble(),
+      //       newLocalData.longitude!.toDouble());
+      //   _updateMarkerAndDistance(newPos, imageData);
+      // });
     } else {
       debugPrint("This does not work LMAO");
     }
@@ -203,6 +225,38 @@ class _WalkScreenState extends State<WalkScreen> {
     );
   }
 
+  Future<Position> _getLocation() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+
+    // Test if location services are enabled.
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      // Location services are not enabled don't continue
+      // accessing the position and request users of the
+      // App to enable the location services.
+      return Future.error('Location services are disabled.');
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return Future.error('Location permissions are denied');
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error(
+          'Location permissions are permanently denied, we cannot request permissions.');
+    }
+
+    // When we reach here, permissions are granted and we can
+    // continue accessing the position of the device.
+    return await Geolocator.getCurrentPosition(
+        desiredAccuracy: geo.LocationAccuracy.bestForNavigation);
+  }
+
   // change icon of marker to dog
   Future<Uint8List> getMarker() async {
     ByteData byteData = await DefaultAssetBundle.of(context)
@@ -213,19 +267,15 @@ class _WalkScreenState extends State<WalkScreen> {
   void _updateMarkerAndDistance(LatLng pos, Uint8List imageData) async {
     if (_origin == null) {
       _stopWatchTimer.onExecute.add(StopWatchExecute.start);
-      // pos = LatLng(32.99158608709951, -96.75185037197004);
       setState(() {
         _origin = Marker(
-          // icon: BitmapDescriptor.fromBytes(imageData),
           markerId: const MarkerId('origin'),
           infoWindow: const InfoWindow(title: 'Origin'),
           icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
           position: pos,
         );
       });
-      // destination = null;
-      // debugPrint(_origin.toString() + " first " + destination.toString());
-      // first temp marker is the origin
+
       _tempPos = pos;
     } else {
       setState(() {
@@ -233,21 +283,25 @@ class _WalkScreenState extends State<WalkScreen> {
           icon: BitmapDescriptor.fromBytes(imageData),
           markerId: const MarkerId('currentPosition'),
           infoWindow: const InfoWindow(title: 'Current Position'),
-          // icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueRed),
           position: pos,
         );
       });
-      double newDistance = calculateDistance(
-          _tempPos?.latitude, _tempPos?.longitude, pos.latitude, pos.longitude);
+      // double newDistance = calculateDistance(
+      //     _tempPos?.latitude, _tempPos?.longitude, pos.latitude, pos.longitude);
+      double newDistance = Geolocator.distanceBetween(
+          _tempPos?.latitude as double,
+          _tempPos?.longitude as double,
+          pos.latitude,
+          pos.longitude);
       // if the distance is at least 1 meter
       _totalDistanceStep = int.parse(_steps) * 2.5;
       totalDistanceFinal = _totalDistanceStep;
-      if (newDistance * 1000 >= 2) {
+      if (newDistance >= 3.0) {
         // add new distance to totalDistanceMap in km
         _totalDistanceMap += newDistance;
-        debugPrint(_totalDistanceMap.toString() + " IN KM");
+        debugPrint(_totalDistanceMap.toString() + " IN M");
         // distance in feet from totalDistanceMap
-        double totalDistanceMapInFeet = _totalDistanceMap * 3280.84;
+        double totalDistanceMapInFeet = _totalDistanceMap * 3.28084;
         // if the distance on the map is less than 50m, use steps to calculate distance, else use the map
         if (totalDistanceMapInFeet >= 164) {
           // totalDistanceFinal = _totalDistanceStep;
@@ -306,7 +360,8 @@ class _WalkScreenState extends State<WalkScreen> {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => FinishScreen(totalDistanceFinal, durationFinal),
+        builder: (context) => FinishScreen(
+            widget.pet, widget.userId, totalDistanceFinal, durationFinal),
       ),
     );
   }

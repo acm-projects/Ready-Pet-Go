@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:ready_pet_go/front-end/screens/walk_screen.dart';
 
+import '../../back-end/models/pet.dart';
+import 'home_screen.dart';
+
 class StartWalkScreen extends StatefulWidget {
+  final String userId;
+  final Pet pet;
+  const StartWalkScreen(this.pet, this.userId, {Key? key}) : super(key: key);
   @override
   _StartWalkScreenState createState() => _StartWalkScreenState();
 }
@@ -51,7 +57,12 @@ class _StartWalkScreenState extends State<StartWalkScreen>
           leading: IconButton(
             icon: const Icon(Icons.arrow_back_sharp),
             tooltip: 'Menu',
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: ((context) => HomeScreen(widget.userId))));
+            },
           )),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -89,8 +100,8 @@ class _StartWalkScreenState extends State<StartWalkScreen>
       width: 200,
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(100.0),
-          boxShadow: [
-            const BoxShadow(
+          boxShadow: const [
+            BoxShadow(
               color: Color(0x80000000),
               blurRadius: 12.0,
               offset: Offset(0.0, 5.0),
@@ -118,7 +129,7 @@ class _StartWalkScreenState extends State<StartWalkScreen>
           Navigator.push(
             context,
             MaterialPageRoute(
-              builder: (context) => const WalkScreen(),
+              builder: (context) => WalkScreen(widget.pet, widget.userId),
             ),
           );
         },

@@ -7,15 +7,15 @@ class AuthenticationServices {
   final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
   final FirebaseFirestore firebaseFirestore = FirebaseFirestore.instance;
 
-  Future<bool> signIn(String email, String password) async {
+  Future<String> signIn(String email, String password) async {
     try {
       await _firebaseAuth.signInWithEmailAndPassword(
           email: email, password: password);
-      debugPrint("Login successfully auth services!!!");
-      return true;
+      // debugPrint("Login successfully auth services!!!");
+      return "successfully signed in";
     } catch (e) {
-      // print(e.toString());
-      return false;
+      // debugPrint(e.toString());
+      return e.toString();
     }
   }
 
