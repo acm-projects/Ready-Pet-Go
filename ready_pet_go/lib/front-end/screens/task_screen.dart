@@ -76,9 +76,11 @@ class _TaskScreenState extends State<TaskScreen> {
             builder: (context, snapshot) {
               if (snapshot.hasData) {
                 FirebaseAuth auth = FirebaseAuth.instance;
-                var userID = auth.currentUser!.uid;
-                final taskProvider = TaskProvider(snapshot.data!, userID);
-                // print(snapshot.data!.petId.toString());
+                var userID = auth.currentUser?.uid;
+                var taskProvider;
+                if (userID != null) {
+                  taskProvider = TaskProvider(snapshot.data!, userID);
+                }
                 Map? tasks = snapshot.data!.tasks;
                 List<Widget> widgetList = <Widget>[];
                 _tasks = {...?tasks};
