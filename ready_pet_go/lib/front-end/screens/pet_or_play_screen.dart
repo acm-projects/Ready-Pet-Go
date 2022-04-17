@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import './petting_screen.dart';
-import './playscreen.dart';
+import 'play_screen.dart';
 import './home_screen.dart';
 
 import '../../back-end/models/pet.dart';
@@ -25,13 +25,18 @@ class _PetOrPlayScreenState extends State<PetOrPlayScreen> {
   Widget build(BuildContext context) {
     double sWidth = MediaQuery.of(context).size.width;
     double sHeight = MediaQuery.of(context).size.height;
+    debugPrint(sHeight.toString());
     return MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: ThemeData(fontFamily: 'Nunito'),
         home: Scaffold(
             appBar: AppBar(
               centerTitle: true,
-              title: const Text('OPTIONS', style: TextStyle(color: Colors.black, fontWeight: FontWeight.w900, fontSize: 28)),
+              title: const Text('OPTIONS',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w900,
+                      fontSize: 28)),
               backgroundColor: Colors.white,
               elevation: 3,
               leading: IconButton(
@@ -82,12 +87,13 @@ class _PetOrPlayScreenState extends State<PetOrPlayScreen> {
                                 child: CupertinoButton(
                                     borderRadius: BorderRadius.circular(100.0),
                                     color: const Color(0xFF00A5E0),
-                                    child: const Text(
+                                    child: Text(
                                       "Pet Your Dog!",
                                       textAlign: TextAlign.center,
                                       style: TextStyle(
                                         //height: 1.171875,
-                                        fontSize: 30.0,
+                                        height: sHeight * 0.0015,
+                                        fontSize: 26.0,
                                         fontFamily: 'Nunito',
                                         fontWeight: FontWeight.w700,
                                         color:
@@ -141,12 +147,12 @@ class _PetOrPlayScreenState extends State<PetOrPlayScreen> {
                                         borderRadius:
                                             BorderRadius.circular(100.0),
                                         color: const Color(0xff82B26C),
-                                        child: const Text(
+                                        child: Text(
                                           "Play With Toys!",
                                           textAlign: TextAlign.center,
                                           style: TextStyle(
-                                            height: 1.171875,
-                                            fontSize: 30.0,
+                                            height: sHeight * 0.0015,
+                                            fontSize: 26.0,
                                             fontFamily: 'Nunito',
                                             fontWeight: FontWeight.w700,
                                             color: Color.fromARGB(
