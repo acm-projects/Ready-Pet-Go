@@ -22,10 +22,13 @@ class _LoginScreenState extends State<LoginScreen> {
   Future<String?> _authUser(LoginData data) async {
     //object to use functions from authentication services
     // final authService = AuthenticationServices();
-    bool signInStatus = await authServices.signIn(data.name, data.password);
-    if (signInStatus) {
-      debugPrint("Login successfull login page");
+    String signInStatus = await authServices.signIn(data.name, data.password);
+    if (signInStatus == "successfully signed in") {
+      // debugPrint("Login successfull login page");
       return null;
+    } else if (signInStatus ==
+        "[firebase_auth/user-not-found] There is no user record corresponding to this identifier. The user may have been deleted.") {
+      return "Email not found";
     }
     return "Wrong username and/or password!";
   }
