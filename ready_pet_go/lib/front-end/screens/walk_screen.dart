@@ -50,7 +50,7 @@ class _WalkScreenState extends State<WalkScreen> {
   final PolylineServices _polylineServices = PolylineServices();
   LocationSettings locationSettings = const LocationSettings(
     accuracy: geo.LocationAccuracy.bestForNavigation,
-    distanceFilter: 2,
+    // distanceFilter: 5,
   );
 
   static const _initialCameraPosition = CameraPosition(
@@ -103,7 +103,7 @@ class _WalkScreenState extends State<WalkScreen> {
       // );
       StreamSubscription<Position> positionStream =
           Geolocator.getPositionStream(locationSettings: locationSettings)
-              .listen((Position? position) {
+              .listen((Position? position) async {
         debugPrint("Location changed");
         LatLng newPos =
             LatLng(position?.latitude as double, position?.longitude as double);
@@ -296,10 +296,10 @@ class _WalkScreenState extends State<WalkScreen> {
       // if the distance is at least 1 meter
       _totalDistanceStep = int.parse(_steps) * 2.5;
       totalDistanceFinal = _totalDistanceStep;
-      if (newDistance * 1000 >= 2) {
+      if (newDistance >= 3.0) {
         // add new distance to totalDistanceMap in km
         _totalDistanceMap += newDistance;
-        // debugPrint(_totalDistanceMap.toString() + " IN KM");
+        debugPrint(_totalDistanceMap.toString() + " IN M");
         // distance in feet from totalDistanceMap
         double totalDistanceMapInFeet = _totalDistanceMap * 3.28084;
         // if the distance on the map is less than 50m, use steps to calculate distance, else use the map
