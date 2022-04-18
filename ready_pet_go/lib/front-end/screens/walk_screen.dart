@@ -9,8 +9,6 @@ import 'package:location/location.dart';
 import 'package:pedometer/pedometer.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:stop_watch_timer/stop_watch_timer.dart';
-import 'package:geolocator/geolocator.dart' as geo;
-import 'package:geolocator/geolocator.dart';
 
 import '../../back-end/models/pet.dart';
 import '../../back-end/services/polyline_services.dart';
@@ -48,10 +46,6 @@ class _WalkScreenState extends State<WalkScreen> {
   final StopWatchTimer _stopWatchTimer = StopWatchTimer();
   double totalDistanceFinal = 0;
   final PolylineServices _polylineServices = PolylineServices();
-  LocationSettings locationSettings = const LocationSettings(
-    accuracy: geo.LocationAccuracy.bestForNavigation,
-    // distanceFilter: 5,
-  );
 
   static const _initialCameraPosition = CameraPosition(
     target: LatLng(32.98859329394406, -96.75015585660579),
@@ -91,31 +85,21 @@ class _WalkScreenState extends State<WalkScreen> {
       _stepCountStream.listen(onStepCount).onError(onStepCountError);
 
       // start tracking location
-      var location = await _getLocation();
+      // var location = await _getLocation();
+      var location = await _locationTracker.getLocation();
+
       LatLng initialPosition =
-          LatLng(location.latitude.toDouble(), location.longitude.toDouble());
+          LatLng(location.latitude as double, location.longitude as double);
       Uint8List imageData = await getMarker();
       _updateMarkerAndDistance(initialPosition, imageData);
-      // listening to change in location
-      // LocationSettings locationSettings = const LocationSettings(
-      //   accuracy: geo.LocationAccuracy.high,
-      //   distanceFilter: 100,
-      // );
-      StreamSubscription<Position> positionStream =
-          Geolocator.getPositionStream(locationSettings: locationSettings)
-              .listen((Position? position) async {
+
+      _locationSubscription =
+          _locationTracker.onLocationChanged.listen((newLocalData) {
         debugPrint("Location changed");
-        LatLng newPos =
-            LatLng(position?.latitude as double, position?.longitude as double);
+        LatLng newPos = LatLng(newLocalData.latitude!.toDouble(),
+            newLocalData.longitude!.toDouble());
         _updateMarkerAndDistance(newPos, imageData);
       });
-      // _locationSubscription =
-      //     _locationTracker.onLocationChanged.listen((newLocalData) {
-      //   debugPrint("Location changed");
-      //   LatLng newPos = LatLng(newLocalData.latitude!.toDouble(),
-      //       newLocalData.longitude!.toDouble());
-      //   _updateMarkerAndDistance(newPos, imageData);
-      // });
     } else {
       debugPrint("This does not work LMAO");
     }
@@ -126,6 +110,7 @@ class _WalkScreenState extends State<WalkScreen> {
   void dispose() {
     debugPrint("DISPOSE LMAO");
     _googleMapController.dispose();
+    _locationSubscription?.cancel();
     super.dispose();
   }
 
@@ -225,38 +210,6 @@ class _WalkScreenState extends State<WalkScreen> {
     );
   }
 
-  Future<Position> _getLocation() async {
-    bool serviceEnabled;
-    LocationPermission permission;
-
-    // Test if location services are enabled.
-    serviceEnabled = await Geolocator.isLocationServiceEnabled();
-    if (!serviceEnabled) {
-      // Location services are not enabled don't continue
-      // accessing the position and request users of the
-      // App to enable the location services.
-      return Future.error('Location services are disabled.');
-    }
-
-    permission = await Geolocator.checkPermission();
-    if (permission == LocationPermission.denied) {
-      permission = await Geolocator.requestPermission();
-      if (permission == LocationPermission.denied) {
-        return Future.error('Location permissions are denied');
-      }
-    }
-
-    if (permission == LocationPermission.deniedForever) {
-      return Future.error(
-          'Location permissions are permanently denied, we cannot request permissions.');
-    }
-
-    // When we reach here, permissions are granted and we can
-    // continue accessing the position of the device.
-    return await Geolocator.getCurrentPosition(
-        desiredAccuracy: geo.LocationAccuracy.bestForNavigation);
-  }
-
   // change icon of marker to dog
   Future<Uint8List> getMarker() async {
     ByteData byteData = await DefaultAssetBundle.of(context)
@@ -275,7 +228,6 @@ class _WalkScreenState extends State<WalkScreen> {
           position: pos,
         );
       });
-
       _tempPos = pos;
     } else {
       setState(() {
@@ -286,14 +238,11 @@ class _WalkScreenState extends State<WalkScreen> {
           position: pos,
         );
       });
-      // double newDistance = calculateDistance(
-      //     _tempPos?.latitude, _tempPos?.longitude, pos.latitude, pos.longitude);
-      double newDistance = Geolocator.distanceBetween(
-          _tempPos?.latitude as double,
-          _tempPos?.longitude as double,
-          pos.latitude,
-          pos.longitude);
-      // if the distance is at least 1 meter
+      double newDistance = 1000 *
+          calculateDistance(_tempPos?.latitude, _tempPos?.longitude,
+              pos.latitude, pos.longitude);
+
+      debugPrint(newDistance.toString() + " new dis IN M");
       _totalDistanceStep = int.parse(_steps) * 2.5;
       totalDistanceFinal = _totalDistanceStep;
       if (newDistance >= 3.0) {
