@@ -73,7 +73,7 @@ class _PetRegisterScreenState extends State<PetRegisterScreen> {
                         hintStyle: TextStyle(color: Colors.black45),
                         errorStyle: TextStyle(color: Colors.redAccent),
                         border: OutlineInputBorder(),
-                        prefixIcon: Icon(Icons.cake_outlined),
+                        prefixIcon: Icon(Icons.pets_outlined),
                         labelText: 'Pet Breed',
                         labelStyle: TextStyle(
                             fontFamily: 'Nunito', fontWeight: FontWeight.w700),
@@ -92,7 +92,7 @@ class _PetRegisterScreenState extends State<PetRegisterScreen> {
                         hintStyle: TextStyle(color: Colors.black45),
                         errorStyle: TextStyle(color: Colors.redAccent),
                         border: OutlineInputBorder(),
-                        prefixIcon: Icon(Icons.pets_outlined),
+                        prefixIcon: Icon(Icons.cake_outlined),
                         labelText: 'Pet Age',
                         labelStyle: TextStyle(
                             fontFamily: 'Nunito', fontWeight: FontWeight.w700),
